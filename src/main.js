@@ -1,8 +1,18 @@
 const header = document.querySelector("[data-header]");
+const oliSection = document.querySelector("#oli");
+const helenaSection = document.querySelector("#helena");
 const revealNodes = document.querySelectorAll(".reveal");
 const lightboxRoot = document.querySelector("[data-lightbox-root]");
 const lightboxImg = document.querySelector("[data-lightbox-img]");
 const lightboxClose = document.querySelector("[data-lightbox-close]");
+
+if (
+  oliSection &&
+  helenaSection &&
+  (oliSection.compareDocumentPosition(helenaSection) & Node.DOCUMENT_POSITION_FOLLOWING)
+) {
+  oliSection.before(helenaSection);
+}
 
 function syncHeader() {
   header?.classList.toggle("is-scrolled", window.scrollY > 10);
