@@ -1,6 +1,9 @@
 .vercel
 dist
+package-lock.json
 qa
 qa-copy
 qa-gpt-copy
 qa-gpt-copy-v2
+output
+test-results

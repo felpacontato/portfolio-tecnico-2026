@@ -75,6 +75,7 @@ body::after {
 main,
 .site-header,
 .lightbox,
+.jonny-widget,
 .skip-link {
   position: relative;
   z-index: 1;
@@ -110,6 +111,18 @@ button {
 
 .skip-link:focus {
   transform: translateY(0);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .site-header {
@@ -832,6 +845,224 @@ video.media-main {
   cursor: pointer;
 }
 
+.jonny-widget {
+  position: fixed;
+  right: clamp(16px, 3vw, 34px);
+  bottom: clamp(16px, 3vw, 34px);
+  z-index: 180;
+  display: grid;
+  justify-items: end;
+  gap: 14px;
+  pointer-events: none;
+}
+
+.jonny-panel,
+.jonny-fab {
+  pointer-events: auto;
+}
+
+.jonny-panel {
+  width: min(390px, calc(100vw - 32px));
+  max-height: min(680px, calc(100svh - 112px));
+  display: grid;
+  grid-template-rows: auto minmax(180px, 1fr) auto auto;
+  overflow: hidden;
+  border: 1px solid rgba(157, 255, 200, 0.18);
+  border-radius: 28px;
+  background:
+    linear-gradient(180deg, rgba(13, 28, 21, 0.94), rgba(3, 7, 6, 0.96)),
+    var(--surface-2);
+  box-shadow:
+    0 28px 90px rgba(0, 0, 0, 0.54),
+    0 0 80px rgba(44, 255, 145, 0.12);
+  backdrop-filter: blur(22px);
+}
+
+.jonny-panel[hidden] {
+  display: none;
+}
+
+.jonny-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 18px 18px 14px;
+  border-bottom: 1px solid rgba(139, 255, 191, 0.1);
+}
+
+.jonny-status {
+  display: block;
+  margin-bottom: 2px;
+  color: var(--green-2);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.jonny-header h2 {
+  margin: 0;
+  font-size: 1.32rem;
+  line-height: 1;
+}
+
+.jonny-close {
+  min-height: 36px;
+  padding: 8px 12px;
+  border: 1px solid rgba(242, 255, 248, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.jonny-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+  padding: 16px 18px;
+  scrollbar-color: rgba(44, 255, 145, 0.34) transparent;
+}
+
+.jonny-message {
+  width: fit-content;
+  max-width: 88%;
+  border: 1px solid rgba(242, 255, 248, 0.1);
+  border-radius: 18px;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.055);
+  color: var(--text);
+}
+
+.jonny-message p {
+  margin: 0;
+  white-space: pre-line;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.jonny-message-user {
+  align-self: flex-end;
+  border-color: rgba(44, 255, 145, 0.42);
+  background: linear-gradient(135deg, rgba(44, 255, 145, 0.22), rgba(86, 247, 210, 0.13));
+}
+
+.jonny-message-bot {
+  align-self: flex-start;
+}
+
+.jonny-message.is-loading p::after {
+  content: "...";
+  display: inline-block;
+  width: 0.8em;
+  animation: jonnyPulse 1s ease-in-out infinite;
+}
+
+.jonny-prompts {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 0 18px 14px;
+}
+
+.jonny-prompts button {
+  flex: 0 0 auto;
+  max-width: 220px;
+  min-height: 36px;
+  padding: 8px 11px;
+  border: 1px solid rgba(139, 255, 191, 0.14);
+  border-radius: 999px;
+  background: rgba(44, 255, 145, 0.08);
+  color: rgba(242, 255, 248, 0.78);
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.jonny-form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  padding: 14px;
+  border-top: 1px solid rgba(139, 255, 191, 0.1);
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.jonny-form input {
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid rgba(242, 255, 248, 0.13);
+  border-radius: 999px;
+  padding: 0 14px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  outline: none;
+}
+
+.jonny-form input:focus {
+  border-color: rgba(44, 255, 145, 0.58);
+  box-shadow: 0 0 0 4px rgba(44, 255, 145, 0.1);
+}
+
+.jonny-form button,
+.jonny-fab {
+  border: 1px solid rgba(44, 255, 145, 0.68);
+  background: linear-gradient(135deg, var(--green), var(--cyan));
+  color: #00160a;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 16px 42px rgba(44, 255, 145, 0.22);
+}
+
+.jonny-form button {
+  min-height: 46px;
+  padding: 0 16px;
+  border-radius: 999px;
+}
+
+.jonny-form button:disabled {
+  cursor: wait;
+  opacity: 0.72;
+}
+
+.jonny-fab {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 58px;
+  padding: 0 18px;
+  border-radius: 999px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.jonny-fab:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 22px 52px rgba(44, 255, 145, 0.3);
+}
+
+.jonny-fab small {
+  display: inline-grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  background: rgba(0, 22, 10, 0.14);
+  color: #00160a;
+  font-size: 0.76rem;
+}
+
+@keyframes jonnyPulse {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
 .reveal {
   opacity: 1;
   transform: none;
@@ -935,6 +1166,32 @@ video.media-main {
   h2 {
     font-size: clamp(1.82rem, 8.6vw, 2.7rem);
     line-height: 1.08;
+  }
+
+  .jonny-widget {
+    right: 14px;
+    bottom: 14px;
+    left: 14px;
+    justify-items: stretch;
+  }
+
+  .jonny-panel {
+    width: 100%;
+    max-height: calc(100svh - 96px);
+    border-radius: 22px;
+  }
+
+  .jonny-fab {
+    justify-self: end;
+    min-height: 52px;
+  }
+
+  .jonny-form {
+    grid-template-columns: 1fr;
+  }
+
+  .jonny-form button {
+    width: 100%;
   }
 }
 

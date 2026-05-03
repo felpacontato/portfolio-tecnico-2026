@@ -433,6 +433,33 @@
       <img src="" alt="" data-lightbox-img>
     </div>
 
+    <section class="jonny-widget" data-jonny aria-label="Chat IA Jonny">
+      <div class="jonny-panel" id="jonny-panel" data-jonny-panel hidden>
+        <div class="jonny-header">
+          <div>
+            <span class="jonny-status">IA do portfolio</span>
+            <h2>Jonny</h2>
+          </div>
+          <button class="jonny-close" type="button" data-jonny-close aria-label="Fechar chat">Fechar</button>
+        </div>
+        <div class="jonny-messages" data-jonny-messages aria-live="polite">
+          <div class="jonny-message jonny-message-bot">
+            <p>Sou o Jonny, assistente IA do portfolio do Felipe. Posso resumir projetos, stack, experiencia com IA, automacoes e pontos para entrevista.</p>
+          </div>
+        </div>
+        <div class="jonny-prompts" data-jonny-prompts aria-label="Perguntas rapidas"></div>
+        <form class="jonny-form" data-jonny-form>
+          <label class="sr-only" for="jonny-input">Pergunte ao Jonny</label>
+          <input id="jonny-input" name="message" type="text" autocomplete="off" maxlength="500" placeholder="Pergunte sobre projetos, stack ou experiencia..." data-jonny-input>
+          <button type="submit" data-jonny-submit>Enviar</button>
+        </form>
+      </div>
+      <button class="jonny-fab" type="button" data-jonny-toggle aria-expanded="false" aria-controls="jonny-panel">
+        <span>Jonny</span>
+        <small>IA</small>
+      </button>
+    </section>
+
     <script src="./main.js" type="module"></script>
   </body>
 </html>
