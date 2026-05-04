@@ -450,6 +450,70 @@ h3 {
   color: var(--muted);
 }
 
+.hero .hero-text,
+.hero .hero-actions,
+.hero .signal-row {
+  display: none;
+}
+
+.hero-capability-panel {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: -232px;
+  margin-left: calc(50% + 15px);
+  padding: 0;
+  background: transparent;
+}
+
+.hero-capability {
+  min-height: 112px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background:
+    radial-gradient(circle at 20% 12%, rgba(44, 255, 145, 0.13), transparent 58%),
+    rgba(8, 18, 14, 0.58);
+}
+
+.hero-capability strong,
+.hero-capability span,
+.hero-capability small {
+  display: block;
+}
+
+.hero-capability strong {
+  color: var(--green);
+  font-size: 1.1rem;
+}
+
+.hero-capability span {
+  margin-top: 12px;
+  color: var(--text);
+  font-size: 0.88rem;
+  font-weight: 800;
+  line-height: 1.12;
+  overflow-wrap: anywhere;
+}
+
+.hero-capability small {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.35;
+}
+
+.terminal-panel.hero-capability-panel {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: -145px;
+  margin-left: calc(50% + 15px);
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
 .terminal-panel {
   margin-left: calc(50% + 15px);
   margin-top: -170px;
