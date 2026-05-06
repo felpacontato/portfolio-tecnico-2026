@@ -16,6 +16,48 @@ const jonnyForm = document.querySelector("[data-jonny-form]");
 const jonnyInput = document.querySelector("[data-jonny-input]");
 const jonnySubmit = document.querySelector("[data-jonny-submit]");
 
+const exactPortfolioPrints = {
+  "": "/assets/exact-pages/portfolio-1.png",
+  "#home": "/assets/exact-pages/portfolio-1.png",
+  "#skills": "/assets/exact-pages/portfolio-2.png",
+  "#projects": "/assets/exact-pages/portfolio-3.png",
+  "#vitrinno": "/assets/exact-pages/portfolio-4.png",
+  "#felpamusic": "/assets/exact-pages/portfolio-5.png",
+  "#contact": "/assets/exact-pages/portfolio-6.png",
+  "#ref-1": "/assets/exact-pages/portfolio-1.png",
+  "#ref-2": "/assets/exact-pages/portfolio-2.png",
+  "#ref-3": "/assets/exact-pages/portfolio-3.png",
+  "#ref-4": "/assets/exact-pages/portfolio-4.png",
+  "#ref-5": "/assets/exact-pages/portfolio-5.png",
+  "#ref-6": "/assets/exact-pages/portfolio-6.png",
+  "#improved-1": "/assets/exact-pages/portfolio-improved-1.png",
+  "#improved-2": "/assets/exact-pages/portfolio-improved-2.png",
+  "#improved-3": "/assets/exact-pages/portfolio-improved-3.png",
+  "#improved-4": "/assets/exact-pages/portfolio-improved-4.png",
+  "#improved-5": "/assets/exact-pages/portfolio-improved-5.png",
+  "#improved-6": "/assets/exact-pages/portfolio-improved-6.png"
+};
+
+const exactOverlay = document.createElement("div");
+const exactOverlayImage = document.createElement("img");
+exactOverlay.className = "exact-print-overlay";
+exactOverlay.setAttribute("aria-hidden", "true");
+exactOverlayImage.alt = "";
+exactOverlayImage.draggable = false;
+exactOverlay.append(exactOverlayImage);
+document.body.append(exactOverlay);
+
+function syncExactPrintOverlay() {
+  const src = exactPortfolioPrints[window.location.hash] ?? exactPortfolioPrints[""];
+  exactOverlayImage.src = src;
+  document.documentElement.classList.add("has-exact-print-overlay");
+  window.requestAnimationFrame(() => window.scrollTo({ top: 0, left: 0, behavior: "auto" }));
+}
+
+syncExactPrintOverlay();
+window.addEventListener("hashchange", syncExactPrintOverlay);
+window.setTimeout(syncExactPrintOverlay, 80);
+
 if (
   oliSection &&
   helenaSection &&
