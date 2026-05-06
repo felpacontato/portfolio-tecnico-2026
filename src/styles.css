@@ -32,11 +32,6 @@ html {
   scroll-behavior: smooth;
 }
 
-html.has-exact-print-overlay,
-html.has-exact-print-overlay body {
-  overflow: hidden;
-}
-
 body {
   margin: 0;
   min-height: 100svh;
@@ -75,30 +70,6 @@ body::after {
   pointer-events: none;
   background: radial-gradient(circle, rgba(44, 255, 145, 0.12), transparent 62%);
   filter: blur(18px);
-}
-
-.exact-print-overlay {
-  display: none;
-}
-
-@media (min-width: 1200px) {
-  .exact-print-overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 2147483000;
-    display: block;
-    overflow: hidden;
-    background: #030706;
-    pointer-events: none;
-  }
-
-  .exact-print-overlay img {
-    display: block;
-    width: 100vw;
-    height: 100vh;
-    object-fit: fill;
-    user-select: none;
-  }
 }
 
 main,
