@@ -923,6 +923,33 @@ video.media-main {
   max-width: 900px;
 }
 
+.contact-highlights {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.contact-highlights div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  color: var(--green);
+}
+
+.contact-highlights div strong {
+  font-weight: 600;
+  color: var(--green);
+}
+
+@media (min-width: 640px) {
+  .contact-highlights {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
 .lightbox {
   position: fixed;
   inset: 0;
