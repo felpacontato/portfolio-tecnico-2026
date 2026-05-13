@@ -1,4 +1,4 @@
-import { jonnyKnowledge, localJonnyReply } from "../src/jonny-knowledge.js";
+import { jonnyKnowledge, localJonnyReply } from "../src/lib/jonny-knowledge.js";
 
 const POLLINATIONS_MODEL = process.env.JONNY_POLLINATIONS_MODEL || "openai";
 const MAX_MESSAGE_LENGTH = 1200;
