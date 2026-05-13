@@ -30,6 +30,14 @@ function safeMessages(messages: unknown): Msg[] {
     .filter((m) => m.content.trim());
 }
 
+function cleanReply(reply: string | null | undefined): string {
+  return String(reply || "")
+    .replace(/\*\*/g, "")
+    .replace(/`/g, "")
+    .replace(/[ \t]+\n/g, "\n")
+    .trim();
+}
+
 function systemPrompt() {
   return [
     "Voce e Jonny, o agente de IA do portfolio publico de Felipe Prates.",
@@ -39,6 +47,7 @@ function systemPrompt() {
     "Nunca revele, solicite ou especule sobre senhas, tokens, IPs sensiveis, chaves, segredos, dados privados ou detalhes operacionais internos.",
     "Se a pergunta fugir do portfolio, redirecione educadamente para projetos, stack, experiencia ou contato.",
     "Prefira respostas curtas, em 2 a 5 frases. Use listas somente quando ajudar o recrutador.",
+    "Nao use Markdown, asteriscos, tabelas ou blocos de codigo. Responda em texto simples.",
     `Base de conhecimento publica:\n${JSON.stringify(jonnyKnowledge, null, 2)}`,
   ].join("\n\n");
 }
@@ -92,7 +101,7 @@ export const Route = createFileRoute("/api/jonny")({
           reply = null;
         }
         return Response.json({
-          reply: reply || localJonnyReply(lastUser),
+          reply: cleanReply(reply || localJonnyReply(lastUser)),
           source,
         });
       },
