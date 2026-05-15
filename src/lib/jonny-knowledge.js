@@ -99,7 +99,7 @@ export function localJonnyReply(question = "") {
   const text = normalize(question);
 
   if (!text.trim()) {
-    return "Pode perguntar sobre projetos, stack, IA, backend, experiencia pratica ou como entrar em contato com o Felipe.";
+    return "Pergunte sobre projetos, stack, IA, backend, arquitetura, experiencia pratica ou motivos para chamar Felipe para entrevista.";
   }
 
   if (text.includes("contato") || text.includes("email") || text.includes("linkedin") || text.includes("github")) {
@@ -126,5 +126,5 @@ export function localJonnyReply(question = "") {
     return `${jonnyKnowledge.owner} é ${withoutFinalPeriod(jonnyKnowledge.role)}. ${jonnyKnowledge.summary} Atualmente busca a primeira oportunidade formal como Full Stack ou Backend Developer.`;
   }
 
-  return `${jonnyKnowledge.summary} Posso detalhar projetos, stack, experiencia com IA/automacao, motivos para entrevista ou formas de contato.`;
+  return `${jonnyKnowledge.summary} Posso responder perguntas sobre projetos, stack, IA/automacao, arquitetura, motivos para entrevista ou formas de contato.`;
 }

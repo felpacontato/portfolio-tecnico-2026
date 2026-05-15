@@ -80,16 +80,18 @@ window.addEventListener("keydown", (event) => {
 
 const jonnyHistory = [];
 let jonnyPending = false;
+let jonnyAutoOpened = false;
 
-function setJonnyOpen(isOpen) {
+function setJonnyOpen(isOpen, options = {}) {
   if (!jonnyPanel || !jonnyToggle) return;
 
+  const shouldFocus = options.focus !== false;
   jonnyPanel.hidden = !isOpen;
   jonnyToggle.setAttribute("aria-expanded", String(isOpen));
 
-  if (isOpen) {
+  if (isOpen && shouldFocus) {
     window.setTimeout(() => jonnyInput?.focus(), 80);
-  } else {
+  } else if (!isOpen) {
     jonnyToggle.focus();
   }
 }
@@ -181,6 +183,12 @@ jonnyForm?.addEventListener("submit", (event) => {
   event.preventDefault();
   askJonny(jonnyInput?.value);
 });
+
+window.addEventListener("scroll", () => {
+  if (jonnyAutoOpened || !jonnyPanel?.hidden || window.scrollY < 420) return;
+  jonnyAutoOpened = true;
+  setJonnyOpen(true, { focus: false });
+}, { passive: true });
 
 window.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && jonnyPanel && !jonnyPanel.hidden) {

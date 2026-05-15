@@ -425,13 +425,19 @@ const BODY_HTML = `
             <img class="media-main" src="/assets/portfolio/verdant/screen-01.png" alt="Login e acesso do Verdant CRM">
             <div class="media-grid">
               <button class="media-thumb" data-lightbox="/assets/portfolio/verdant/screen-02.png" aria-label="Abrir dashboard protegido Verdant CRM">
-                <img src="/assets/portfolio/verdant/screen-02.png" alt="Dashboard protegido do Verdant CRM redirecionando para login">
+                <img src="/assets/portfolio/verdant/screen-02.png" alt="Dashboard do Verdant CRM">
               </button>
               <button class="media-thumb" data-lightbox="/assets/portfolio/verdant/screen-03.png" aria-label="Abrir leads protegidos Verdant CRM">
-                <img src="/assets/portfolio/verdant/screen-03.png" alt="Área de leads protegida do Verdant CRM">
+                <img src="/assets/portfolio/verdant/screen-03.png" alt="Kanban de leads do Verdant CRM">
               </button>
-              <button class="media-thumb" data-lightbox="/assets/portfolio/verdant/screen-04.png" aria-label="Abrir versão mobile Verdant CRM">
-                <img src="/assets/portfolio/verdant/screen-04.png" alt="Tela mobile do Verdant CRM">
+              <button class="media-thumb" data-lightbox="/assets/portfolio/verdant/screen-04.png" aria-label="Abrir inbox Verdant CRM">
+                <img src="/assets/portfolio/verdant/screen-04.png" alt="Inbox do Verdant CRM">
+              </button>
+              <button class="media-thumb" data-lightbox="/assets/portfolio/verdant/screen-05.png" aria-label="Abrir automações Verdant CRM">
+                <img src="/assets/portfolio/verdant/screen-05.png" alt="Automações do Verdant CRM">
+              </button>
+              <button class="media-thumb" data-lightbox="/assets/portfolio/verdant/screen-06.png" aria-label="Abrir agentes IA Verdant CRM">
+                <img src="/assets/portfolio/verdant/screen-06.png" alt="Agentes IA do Verdant CRM">
               </button>
             </div>
           </div>
@@ -597,8 +603,8 @@ const BODY_HTML = `
         <div class="blog-heading reveal">
           <div class="section-heading">
             <p class="eyebrow">Blog / radar de tecnologia</p>
-            <h2 id="blog-title">Aprenda sobre IA, automação e produtos digitais.</h2>
-            <p class="section-intro">Curadoria editorial para conectar o portfolio aos temas que aparecem nos projetos: agentes de código, Supabase, React, Vercel, segurança, automação, CRM, áudio, vídeo, marketplaces e operação de produto.</p>
+            <h2 id="blog-title">Referências que acompanham meu trabalho.</h2>
+            <p class="section-intro">Uma seleção visual de leituras sobre IA aplicada, engenharia de produto, React, Supabase, automação, segurança, áudio, vídeo e CRM.</p>
           </div>
           <div class="blog-controls" aria-label="Controles do blog">
             <button type="button" data-blog-scroll="-1" aria-label="Ver artigos anteriores">‹</button>
@@ -694,7 +700,7 @@ const BODY_HTML = `
         </div>
         <div class="jonny-messages" data-jonny-messages aria-live="polite">
           <div class="jonny-message jonny-message-bot">
-            <p>Sou o Jonny, assistente IA do portfolio do Felipe. Posso resumir projetos, stack, experiencia com IA, automacoes e pontos para entrevista.</p>
+            <p>Sou o Jonny, assistente IA para recrutadores conhecerem os projetos do Felipe. Pergunte sobre produtos, stack, backend, IA, automações, arquitetura ou pontos para entrevista.</p>
           </div>
         </div>
         <div class="jonny-prompts" data-jonny-prompts aria-label="Perguntas rapidas"></div>
