@@ -74,6 +74,11 @@ const BODY_HTML = `
         <a href="#crm">CRM</a>
         <a href="#blog">Blog</a>
       </nav>
+      <div class="language-switcher" data-language-switcher aria-label="Idioma atual: português">
+        <button type="button" data-language-option="pt" aria-pressed="true">PT</button>
+        <button type="button" data-language-option="en" aria-pressed="false">EN</button>
+        <button type="button" data-language-option="es" aria-pressed="false">ES</button>
+      </div>
       <a class="header-cta" href="mailto:felpacontato@gmail.com"><span>Contato</span><span aria-hidden="true">↗</span></a>
     </header>
 

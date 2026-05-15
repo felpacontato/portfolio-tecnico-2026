@@ -105,7 +105,7 @@ export default function CircularGallery({ items }: CircularGalleryProps) {
               }}
             >
               <span className="spotlight-card-glow" aria-hidden="true" />
-              <img src={item.image} alt={`Projeto ${item.text}`} draggable={false} />
+              <img src={item.image} alt={item.text} draggable={false} />
               <span className="pcg-shade" aria-hidden="true" />
               <span className="pcg-copy">
                 <small>{String(item.index + 1).padStart(2, "0")}</small>

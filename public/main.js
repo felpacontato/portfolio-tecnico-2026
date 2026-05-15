@@ -1,6 +1,8 @@
 import { jonnyQuickQuestions, localJonnyReply } from "/jonny-knowledge.js";
+import { portfolioLanguages, portfolioMeta, portfolioTranslations } from "/portfolio-i18n.js";
 
 const header = document.querySelector("[data-header]");
+const languageSwitcher = document.querySelector("[data-language-switcher]");
 const revealNodes = document.querySelectorAll(".reveal");
 const lightboxRoot = document.querySelector("[data-lightbox-root]");
 const lightboxImg = document.querySelector("[data-lightbox-img]");
@@ -26,6 +28,126 @@ const spotlightCardSelector = [
   ".blog-grid > a",
   ".contact-card",
 ].join(",");
+
+const supportedLanguages = Object.keys(portfolioLanguages);
+const translationIndex = new Map(
+  Object.entries(portfolioTranslations).map(([key, value]) => [key.normalize("NFC"), value])
+);
+let activeLanguage = localStorage.getItem("portfolio:language") || "pt";
+if (!supportedLanguages.includes(activeLanguage)) activeLanguage = "pt";
+
+function getOriginalText(node) {
+  if (node.nodeType === Node.TEXT_NODE) {
+    node.__portfolioOriginalText ??= node.nodeValue;
+    return node.__portfolioOriginalText;
+  }
+
+  if (node instanceof HTMLElement) {
+    node.dataset.i18nOriginal ??= node.textContent;
+    return node.dataset.i18nOriginal;
+  }
+
+  return "";
+}
+
+function translateValue(value, language) {
+  const clean = String(value || "").replace(/\s+/g, " ").trim();
+  if (!clean) return value;
+  if (language === "pt") return clean;
+  return translationIndex.get(clean.normalize("NFC"))?.[language] || clean;
+}
+
+function translateTextNodes(root, language) {
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+    acceptNode(node) {
+      const parent = node.parentElement;
+      if (!parent) return NodeFilter.FILTER_REJECT;
+      if (parent.closest("script, style, textarea, code, pre")) return NodeFilter.FILTER_REJECT;
+      if (!node.nodeValue?.trim()) return NodeFilter.FILTER_REJECT;
+      return NodeFilter.FILTER_ACCEPT;
+    },
+  });
+
+  const nodes = [];
+  while (walker.nextNode()) nodes.push(walker.currentNode);
+
+  nodes.forEach((node) => {
+    const original = getOriginalText(node);
+    const prefix = String(original || "").match(/^\s*/)?.[0] || "";
+    const suffix = String(original || "").match(/\s*$/)?.[0] || "";
+    const originalTrimmed = String(original || "").replace(/\s+/g, " ").trim();
+    const translated = translateValue(originalTrimmed, language);
+    node.nodeValue = `${prefix}${translated}${suffix}`;
+  });
+}
+
+function translateAttributes(language) {
+  document.querySelectorAll("[aria-label], [placeholder], [title], img[alt]").forEach((element) => {
+    ["aria-label", "placeholder", "title", "alt"].forEach((attribute) => {
+      if (!element.hasAttribute(attribute)) return;
+      const key = `i18nOriginal${attribute.replace(/[^a-z]/gi, "")}`;
+      element.dataset[key] ??= element.getAttribute(attribute) || "";
+      element.setAttribute(attribute, translateValue(element.dataset[key], language));
+    });
+  });
+}
+
+function syncDocumentMeta(language) {
+  const meta = portfolioMeta[language] || portfolioMeta.pt;
+  document.title = meta.title;
+  document.querySelector('meta[name="description"]')?.setAttribute("content", meta.description);
+  document.querySelector('meta[property="og:title"]')?.setAttribute("content", meta.title);
+  document.querySelector('meta[property="og:description"]')?.setAttribute("content", meta.ogDescription);
+}
+
+function syncLanguageSwitcher(language) {
+  languageSwitcher?.querySelectorAll("[data-language-option]").forEach((button) => {
+    const isActive = button.getAttribute("data-language-option") === language;
+    button.classList.toggle("is-active", isActive);
+    button.setAttribute("aria-pressed", String(isActive));
+  });
+
+  const currentLanguage = portfolioLanguages[activeLanguage];
+  if (languageSwitcher && currentLanguage) {
+    languageSwitcher.setAttribute("aria-label", currentLanguage.aria);
+  }
+}
+
+function applyPortfolioLanguage(language) {
+  activeLanguage = supportedLanguages.includes(language) ? language : "pt";
+  localStorage.setItem("portfolio:language", activeLanguage);
+  document.documentElement.lang = portfolioLanguages[activeLanguage].htmlLang;
+  syncDocumentMeta(activeLanguage);
+  translateTextNodes(document.body, activeLanguage);
+  translateAttributes(activeLanguage);
+  syncLanguageSwitcher(activeLanguage);
+}
+
+function initLanguageSwitcher() {
+  languageSwitcher?.querySelectorAll("[data-language-option]").forEach((button) => {
+    button.addEventListener("click", () => {
+      applyPortfolioLanguage(button.getAttribute("data-language-option") || "pt");
+    });
+  });
+
+  applyPortfolioLanguage(activeLanguage);
+
+  const observer = new MutationObserver((mutations) => {
+    if (activeLanguage === "pt") return;
+    for (const mutation of mutations) {
+      mutation.addedNodes.forEach((node) => {
+        if (node.nodeType === Node.ELEMENT_NODE || node.nodeType === Node.TEXT_NODE) {
+          translateTextNodes(node.nodeType === Node.ELEMENT_NODE ? node : node.parentElement || document.body, activeLanguage);
+          translateAttributes(activeLanguage);
+        }
+      });
+    }
+  });
+
+  observer.observe(document.body, { childList: true, subtree: true });
+}
+
+initLanguageSwitcher();
 
 function initSpotlightCards() {
   const supportsHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
@@ -174,7 +296,7 @@ function setJonnyPending(isPending) {
   jonnyPending = isPending;
   if (jonnySubmit) {
     jonnySubmit.disabled = isPending;
-    jonnySubmit.textContent = isPending ? "..." : "Enviar";
+    jonnySubmit.textContent = isPending ? "..." : translateValue("Enviar", activeLanguage);
   }
 }
 
