@@ -16,14 +16,14 @@ const clampDrag = 0.32;
 
 export default function CircularGallery({ items }: CircularGalleryProps) {
   const [rotation, setRotation] = useState(0);
-  const drag = useRef({ active: false, startX: 0, startRotation: 0, moved: false, hovering: false });
+  const drag = useRef({ active: false, startX: 0, startRotation: 0, moved: false });
   const raf = useRef(0);
 
   const cards = useMemo(() => items.map((item, index) => ({ ...item, index })), [items]);
 
   useEffect(() => {
     const tick = () => {
-      if (!drag.current.active && !drag.current.hovering) {
+      if (!drag.current.active) {
         setRotation(value => value + 0.055);
       }
       raf.current = window.requestAnimationFrame(tick);
@@ -55,8 +55,6 @@ export default function CircularGallery({ items }: CircularGalleryProps) {
       onPointerMove={onPointerMove}
       onPointerUp={endDrag}
       onPointerCancel={endDrag}
-      onMouseEnter={() => { drag.current.hovering = true; }}
-      onMouseLeave={() => { drag.current.hovering = false; }}
       onWheel={(event) => {
         event.preventDefault();
         setRotation(value => value + event.deltaY * 0.12);

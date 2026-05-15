@@ -72,6 +72,7 @@ const BODY_HTML = `
         <a href="#helena">Helena</a>
         <a href="#oli">OLI</a>
         <a href="#crm">CRM</a>
+        <a href="#blog">Blog</a>
       </nav>
       <a class="header-cta" href="mailto:felpacontato@gmail.com"><span>Contato</span><span aria-hidden="true">↗</span></a>
     </header>
@@ -592,6 +593,66 @@ const BODY_HTML = `
         </div>
       </section>
 
+      <section id="blog" class="section-shell blog-radar" aria-labelledby="blog-title">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Blog / radar de tecnologia</p>
+          <h2 id="blog-title">50 leituras recentes sobre IA, desenvolvimento, SaaS, automação e produtos digitais.</h2>
+          <p class="section-intro">Curadoria editorial para conectar o portfolio aos temas que aparecem nos projetos: agentes de código, Supabase, React, Vercel, segurança, automação, CRM, áudio, vídeo, marketplaces e operação de produto.</p>
+        </div>
+        <div class="blog-grid reveal" aria-label="Radar de notícias e leituras">
+          <a href="https://openai.com/news/" target="_blank" rel="noopener noreferrer"><span>OpenAI</span><strong>Codex remoto e agentes de engenharia em produção.</strong><em>IA para desenvolvimento</em></a>
+          <a href="https://openai.com/news/" target="_blank" rel="noopener noreferrer"><span>OpenAI</span><strong>Sandbox seguro para executar agentes de código no Windows.</strong><em>Segurança e automação</em></a>
+          <a href="https://openai.com/news/" target="_blank" rel="noopener noreferrer"><span>OpenAI</span><strong>Resposta ao ataque de supply chain no ecossistema TanStack/npm.</strong><em>Segurança frontend</em></a>
+          <a href="https://openai.com/news/" target="_blank" rel="noopener noreferrer"><span>OpenAI</span><strong>Como rodar Codex com segurança em fluxos de engenharia.</strong><em>AI coding</em></a>
+          <a href="https://openai.com/news/" target="_blank" rel="noopener noreferrer"><span>OpenAI</span><strong>Modelos avançados aplicados a segurança cibernética.</strong><em>Cyber + IA</em></a>
+          <a href="https://www.anthropic.com/news" target="_blank" rel="noopener noreferrer"><span>Anthropic</span><strong>Claude Opus 4.7 com foco em coding, agentes e visão.</strong><em>Modelos fortes</em></a>
+          <a href="https://www.anthropic.com/news" target="_blank" rel="noopener noreferrer"><span>Anthropic</span><strong>Claude Design e a aproximação entre IA, protótipo e interface.</strong><em>UI com IA</em></a>
+          <a href="https://www.anthropic.com/news" target="_blank" rel="noopener noreferrer"><span>Anthropic</span><strong>Project Glasswing e colaboração para software crítico seguro.</strong><em>Segurança</em></a>
+          <a href="https://www.anthropic.com/news" target="_blank" rel="noopener noreferrer"><span>Anthropic</span><strong>Claude para pequenas empresas e aplicações SaaS.</strong><em>SaaS</em></a>
+          <a href="https://www.anthropic.com/news" target="_blank" rel="noopener noreferrer"><span>Anthropic</span><strong>Agentes para serviços financeiros e fluxos empresariais.</strong><em>Agentes</em></a>
+          <a href="https://vercel.com/blog" target="_blank" rel="noopener noreferrer"><span>Vercel</span><strong>Infraestrutura agentic para deploy, observabilidade e IA.</strong><em>Deploy + agentes</em></a>
+          <a href="https://vercel.com/blog" target="_blank" rel="noopener noreferrer"><span>Vercel</span><strong>Workflows para execução durável em agentes e backends.</strong><em>Orquestração</em></a>
+          <a href="https://vercel.com/blog" target="_blank" rel="noopener noreferrer"><span>Vercel</span><strong>Boas práticas para não confiar cegamente em código gerado por IA.</strong><em>QA e produção</em></a>
+          <a href="https://vercel.com/blog" target="_blank" rel="noopener noreferrer"><span>Vercel</span><strong>AI Gateway como camada única para roteamento de modelos.</strong><em>Model routing</em></a>
+          <a href="https://vercel.com/changelog" target="_blank" rel="noopener noreferrer"><span>Vercel</span><strong>Changelog de plataforma para apps web, edge e observabilidade.</strong><em>Frontend cloud</em></a>
+          <a href="https://supabase.com/blog" target="_blank" rel="noopener noreferrer"><span>Supabase</span><strong>Postgres como base para autenticação, dados e produtos SaaS.</strong><em>Banco de dados</em></a>
+          <a href="https://supabase.com/blog" target="_blank" rel="noopener noreferrer"><span>Supabase</span><strong>Edge Functions para proteger segredos e integrar APIs externas.</strong><em>Serverless</em></a>
+          <a href="https://supabase.com/blog" target="_blank" rel="noopener noreferrer"><span>Supabase</span><strong>Auth, RLS e sessão como fundação para apps protegidos.</strong><em>Autenticação</em></a>
+          <a href="https://supabase.com/blog" target="_blank" rel="noopener noreferrer"><span>Supabase</span><strong>Storage e uploads para produtos com mídia, áudio e vídeo.</strong><em>Storage</em></a>
+          <a href="https://supabase.com/blog" target="_blank" rel="noopener noreferrer"><span>Supabase</span><strong>Realtime e eventos como base para dashboards vivos.</strong><em>Realtime</em></a>
+          <a href="https://react.dev/blog" target="_blank" rel="noopener noreferrer"><span>React</span><strong>Atualizações do React para interfaces interativas e performáticas.</strong><em>Frontend</em></a>
+          <a href="https://react.dev/blog" target="_blank" rel="noopener noreferrer"><span>React</span><strong>Server Components e arquitetura moderna de UI.</strong><em>Arquitetura</em></a>
+          <a href="https://vite.dev/blog" target="_blank" rel="noopener noreferrer"><span>Vite</span><strong>Build rápido para portfolios, SPAs e produtos em produção.</strong><em>Performance</em></a>
+          <a href="https://tanstack.com/blog" target="_blank" rel="noopener noreferrer"><span>TanStack</span><strong>Roteamento, query e tabelas para apps React complexos.</strong><em>React stack</em></a>
+          <a href="https://github.blog/news-insights/product-news/" target="_blank" rel="noopener noreferrer"><span>GitHub</span><strong>Copilot, Actions e plataforma de colaboração para devs.</strong><em>Dev tools</em></a>
+          <a href="https://github.blog/security/" target="_blank" rel="noopener noreferrer"><span>GitHub</span><strong>Segurança de supply chain para npm, repositórios e CI.</strong><em>Security</em></a>
+          <a href="https://www.docker.com/blog/" target="_blank" rel="noopener noreferrer"><span>Docker</span><strong>Containers para isolar APIs, jobs e serviços de áudio.</strong><em>Infra</em></a>
+          <a href="https://www.postgresql.org/about/news/" target="_blank" rel="noopener noreferrer"><span>PostgreSQL</span><strong>Novidades do banco usado em produtos SaaS e automações.</strong><em>Database</em></a>
+          <a href="https://fastapi.tiangolo.com/release-notes/" target="_blank" rel="noopener noreferrer"><span>FastAPI</span><strong>APIs Python modernas para jobs, mídia e backends locais.</strong><em>Backend</em></a>
+          <a href="https://www.python.org/blogs/" target="_blank" rel="noopener noreferrer"><span>Python</span><strong>Ecossistema Python para IA, automação e processamento.</strong><em>Backend + IA</em></a>
+          <a href="https://www.typescriptlang.org/blog/" target="_blank" rel="noopener noreferrer"><span>TypeScript</span><strong>Evolução de tipagem para apps frontend e serverless.</strong><em>Qualidade</em></a>
+          <a href="https://stripe.com/newsroom" target="_blank" rel="noopener noreferrer"><span>Stripe</span><strong>Pagamentos, billing e wallet para produtos SaaS.</strong><em>Billing</em></a>
+          <a href="https://sentry.io/changelog/" target="_blank" rel="noopener noreferrer"><span>Sentry</span><strong>Monitoramento de erros, tracing e qualidade de produção.</strong><em>Observabilidade</em></a>
+          <a href="https://linear.app/changelog" target="_blank" rel="noopener noreferrer"><span>Linear</span><strong>Gestão de produto, issues e workflows de engenharia.</strong><em>Produto</em></a>
+          <a href="https://www.notion.com/releases" target="_blank" rel="noopener noreferrer"><span>Notion</span><strong>Documentação viva, bases de conhecimento e colaboração.</strong><em>Docs</em></a>
+          <a href="https://n8n.io/blog/" target="_blank" rel="noopener noreferrer"><span>n8n</span><strong>Automação, webhooks e agentes conectando sistemas reais.</strong><em>Workflows</em></a>
+          <a href="https://www.cloudflare.com/developer-platform/changelog/" target="_blank" rel="noopener noreferrer"><span>Cloudflare</span><strong>Edge, Workers, segurança e performance global.</strong><em>Edge</em></a>
+          <a href="https://developer.mozilla.org/en-US/blog/" target="_blank" rel="noopener noreferrer"><span>MDN</span><strong>Web APIs, acessibilidade e padrões para interfaces robustas.</strong><em>Web platform</em></a>
+          <a href="https://web.dev/blog/" target="_blank" rel="noopener noreferrer"><span>web.dev</span><strong>Performance, Core Web Vitals e SEO técnico.</strong><em>SEO + performance</em></a>
+          <a href="https://www.infoq.com/ai-ml-data-eng/" target="_blank" rel="noopener noreferrer"><span>InfoQ</span><strong>Arquitetura, dados, IA e engenharia em escala.</strong><em>Arquitetura</em></a>
+          <a href="https://thenewstack.io/category/ai/" target="_blank" rel="noopener noreferrer"><span>The New Stack</span><strong>AI agents, plataformas de dev e infraestrutura moderna.</strong><em>AI engineering</em></a>
+          <a href="https://techcrunch.com/category/artificial-intelligence/" target="_blank" rel="noopener noreferrer"><span>TechCrunch</span><strong>Mercado de IA, startups e produtos digitais.</strong><em>Mercado</em></a>
+          <a href="https://venturebeat.com/category/ai/" target="_blank" rel="noopener noreferrer"><span>VentureBeat</span><strong>IA corporativa, automação e adoção em negócios.</strong><em>Enterprise AI</em></a>
+          <a href="https://www.theverge.com/ai-artificial-intelligence" target="_blank" rel="noopener noreferrer"><span>The Verge</span><strong>IA generativa, apps de consumo e novas interfaces.</strong><em>Produto</em></a>
+          <a href="https://www.musicbusinessworldwide.com/" target="_blank" rel="noopener noreferrer"><span>MBW</span><strong>Mercado musical, streaming e tecnologia para artistas.</strong><em>Music tech</em></a>
+          <a href="https://www.billboard.com/pro/" target="_blank" rel="noopener noreferrer"><span>Billboard Pro</span><strong>Indústria musical, monetização e distribuição digital.</strong><em>Música</em></a>
+          <a href="https://www.streamingmedia.com/" target="_blank" rel="noopener noreferrer"><span>Streaming Media</span><strong>Vídeo, streaming, encoding e publicação multiplataforma.</strong><em>Video tech</em></a>
+          <a href="https://www.crmsearch.com/" target="_blank" rel="noopener noreferrer"><span>CRMsearch</span><strong>CRM, automação comercial e relacionamento com clientes.</strong><em>CRM</em></a>
+          <a href="https://www.retaildive.com/" target="_blank" rel="noopener noreferrer"><span>Retail Dive</span><strong>Comércio digital, marketplaces e experiência de compra.</strong><em>Marketplace</em></a>
+          <a href="https://www.producthunt.com/stories" target="_blank" rel="noopener noreferrer"><span>Product Hunt</span><strong>Novos produtos SaaS, ferramentas de IA e tendências de lançamento.</strong><em>Produto</em></a>
+        </div>
+      </section>
+
       <section class="section-shell contact-section" aria-labelledby="contact-title">
         <div class="contact-card reveal">
           <p class="eyebrow">Contato</p>
@@ -603,6 +664,11 @@ const BODY_HTML = `
             <a class="button primary" href="mailto:felpacontato@gmail.com">Enviar e-mail</a>
             <a class="button secondary" href="https://github.com/felpacontato" rel="noopener noreferrer" target="_blank">GitHub</a>
             <a class="button secondary" href="https://www.linkedin.com/in/felipe-prates-070985376/" rel="noopener noreferrer" target="_blank">LinkedIn</a>
+          </div>
+          <div class="contact-links" aria-label="Links de contato">
+            <a href="mailto:felpacontato@gmail.com">felpacontato@gmail.com</a>
+            <a href="https://github.com/felpacontato" target="_blank" rel="noopener noreferrer">github.com/felpacontato</a>
+            <a href="https://www.linkedin.com/in/felipe-prates-070985376/" target="_blank" rel="noopener noreferrer">linkedin.com/in/felipe-prates-070985376</a>
           </div>
         </div>
       </section>
