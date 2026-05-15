@@ -20,6 +20,13 @@ const GALLERY_ITEMS = [
     tag: "SOCIAL MUSIC",
   },
   {
+    image: "/assets/cards/cover-helena.jpeg",
+    text: "Helena Vídeo",
+    href: "https://www.helena-video.felpamusic.com.br",
+    description: "Studio de vídeo com IA para briefing, módulos criativos, timeline, assets e publicação.",
+    tag: "VÍDEO + IA",
+  },
+  {
     image: "/assets/cards/cover-billie.png",
     text: "Billie Brain",
     href: "https://www.billie-brain.felpamusic.com.br",
@@ -32,13 +39,6 @@ const GALLERY_ITEMS = [
     href: "https://www.verdant-crm.felpamusic.com.br",
     description: "CRM SaaS com área protegida, pipeline comercial, autenticação e base operacional.",
     tag: "CRM + SAAS",
-  },
-  {
-    image: "/assets/cards/cover-helena.jpeg",
-    text: "Helena Vídeo",
-    href: "https://www.helena-video.felpamusic.com.br",
-    description: "Studio de vídeo com IA para briefing, módulos criativos, timeline, assets e publicação.",
-    tag: "VÍDEO + IA",
   },
   {
     image: "/assets/cards/cover-oli.png",
@@ -67,9 +67,9 @@ const BODY_HTML = `
       <nav class="nav-links" aria-label="Navegação principal">
         <a href="#felpamusic">FelpaMusic</a>
         <a href="#vitrinno">Vitrinno</a>
+        <a href="#helena">Helena</a>
         <a href="#billie-brain">Billie Brain</a>
         <a href="#verdant">Verdant</a>
-        <a href="#helena">Helena</a>
         <a href="#oli">OLI</a>
         <a href="#crm">CRM</a>
         <a href="#blog">Blog</a>
@@ -164,9 +164,9 @@ const BODY_HTML = `
           <div class="index-list project-card-grid gallery-fallback" aria-label="Lista de projetos">
             <a class="pcard" href="https://www.felpamusic.com.br" target="_blank" rel="noopener noreferrer" style="background-image:url('/assets/cards/cover-felpamusic.png')"><span class="pcard-num">01</span><span class="pcard-overlay"><strong>FelpaMusic</strong><small>Áudio, IA e automação</small></span></a>
             <a class="pcard" href="https://www.vitrinno.felpamusic.com.br" target="_blank" rel="noopener noreferrer" style="background-image:url('/assets/cards/cover-vitrinno.png')"><span class="pcard-num">02</span><span class="pcard-overlay"><strong>Vitrinno</strong><small>Rede social musical</small></span></a>
-            <a class="pcard" href="https://www.billie-brain.felpamusic.com.br" target="_blank" rel="noopener noreferrer" style="background-image:url('/assets/cards/cover-billie.png')"><span class="pcard-num">03</span><span class="pcard-overlay"><strong>Billie Brain</strong><small>AI dev tool</small></span></a>
-            <a class="pcard" href="https://www.verdant-crm.felpamusic.com.br" target="_blank" rel="noopener noreferrer" style="background-image:url('/assets/cards/cover-verdant.png')"><span class="pcard-num">04</span><span class="pcard-overlay"><strong>Verdant CRM</strong><small>CRM SaaS protegido</small></span></a>
-            <a class="pcard" href="https://www.helena-video.felpamusic.com.br" target="_blank" rel="noopener noreferrer" style="background-image:url('/assets/cards/cover-helena.jpeg')"><span class="pcard-num">05</span><span class="pcard-overlay"><strong>Helena Video</strong><small>Studio de vídeo IA</small></span></a>
+            <a class="pcard" href="https://www.helena-video.felpamusic.com.br" target="_blank" rel="noopener noreferrer" style="background-image:url('/assets/cards/cover-helena.jpeg')"><span class="pcard-num">03</span><span class="pcard-overlay"><strong>Helena Video</strong><small>Studio de vídeo IA</small></span></a>
+            <a class="pcard" href="https://www.billie-brain.felpamusic.com.br" target="_blank" rel="noopener noreferrer" style="background-image:url('/assets/cards/cover-billie.png')"><span class="pcard-num">04</span><span class="pcard-overlay"><strong>Billie Brain</strong><small>AI dev tool</small></span></a>
+            <a class="pcard" href="https://www.verdant-crm.felpamusic.com.br" target="_blank" rel="noopener noreferrer" style="background-image:url('/assets/cards/cover-verdant.png')"><span class="pcard-num">05</span><span class="pcard-overlay"><strong>Verdant CRM</strong><small>CRM SaaS protegido</small></span></a>
             <a class="pcard" href="https://www.olilocacao.com.br" target="_blank" rel="noopener noreferrer" style="background-image:url('/assets/cards/cover-oli.png')"><span class="pcard-num">06</span><span class="pcard-overlay"><strong>OLI Locações</strong><small>Locação e operação</small></span></a>
             <a class="pcard" href="#crm" style="background-image:url('/assets/cards/cover-crm.png')"><span class="pcard-num">07</span><span class="pcard-overlay"><strong>CRM Total Tour</strong><small>Automação comercial</small></span></a>
           </div>
@@ -313,10 +313,64 @@ const BODY_HTML = `
         </div>
       </article>
 
+      <article id="helena" class="project-section">
+        <div class="section-shell project-layout reverse">
+          <div class="project-media reveal">
+            <img class="media-main" src="/assets/portfolio/helena/screen-01.png" alt="Studio Helena Video">
+            <div class="media-grid">
+              <button class="media-thumb" data-lightbox="/assets/portfolio/helena/screen-02.png" aria-label="Abrir legendas Helena Video">
+                <img src="/assets/portfolio/helena/screen-02.png" alt="Legendas no Helena Video">
+              </button>
+              <button class="media-thumb" data-lightbox="/assets/portfolio/helena/screen-05.png" aria-label="Abrir audio Helena Video">
+                <img src="/assets/portfolio/helena/screen-05.png" alt="Áudio no Helena Video">
+              </button>
+              <button class="media-thumb" data-lightbox="/assets/portfolio/helena/screen-07.png" aria-label="Abrir publicacao Helena Video">
+                <img src="/assets/portfolio/helena/screen-07.png" alt="Publicação no Helena Video">
+              </button>
+              <button class="media-thumb" data-lightbox="/assets/portfolio/helena/screen-09.png" aria-label="Abrir carteira Helena Video">
+                <img src="/assets/portfolio/helena/screen-09.png" alt="Carteira do Helena Video">
+              </button>
+              <button class="media-thumb" data-lightbox="/assets/portfolio/helena/screen-11.png" aria-label="Abrir planos Helena Video">
+                <img src="/assets/portfolio/helena/screen-11.png" alt="Planos do Helena Video">
+              </button>
+            </div>
+          </div>
+          <div class="project-copy reveal">
+            <p class="project-number">03 / Helena Video</p>
+            <h2>Studio de vídeo com IA, timeline e pipeline de publicação.</h2>
+            <p class="project-lead">
+              Helena Video é um estúdio de vídeo com IA: concentra briefing, módulos criativos, timeline e publicação em uma plataforma independente. Defini a arquitetura de studio, contratos com provedores, banco de dados e validação QA, separando domínios para evoluir novos módulos sem quebrar a experiência.
+            </p>
+            <div class="proof-grid" aria-label="Resumo executivo Helena Video">
+              <div><span>Papel</span><p>Estruturação do produto, UI de studio, contrato de provedores, Supabase e validação QA.</p></div>
+              <div><span>Decisão técnica</span><p>Organizar o studio em módulos claros, briefing, geração, timeline, assets e publicação, para permitir novos provedores de vídeo sem redesenhar a experiência principal.</p></div>
+              <div><span>Resultado</span><p>Base independente que permite evoluir geração de vídeo, assets, jobs, QA e publicação sem acoplar o produto a outros sistemas.</p></div>
+            </div>
+            <div class="detail-block">
+              <h3>Módulos</h3>
+              <ul class="check-list">
+                <li><strong>Studio e Módulos:</strong> Transformar, Storyboard e AutoCut com prompt, referências, upload, modelo, qualidade, câmera, movimento, duração e exportação.</li>
+                <li><strong>Timeline e Assets:</strong> organização de vídeo, áudio, legendas, efeitos e estados.</li>
+                <li><strong>Chat Helena/LunnaHelena:</strong> assistente que converte intenção criativa em parâmetros operacionais.</li>
+                <li><strong>Provedores externos:</strong> matriz para Helena Native, Kling, Wan, Seedance, Hailuo, Image Lab, Music/TTS e Publish Hub.</li>
+                <li><strong>Dados e jobs:</strong> Supabase com schema para projetos, assets, jobs, mensagens e publicação.</li>
+              </ul>
+            </div>
+            <div class="stack-groups">
+              <div><span>Frontend</span><p>Vite, React 18, TypeScript e CSS próprio para uma interface de produção.</p></div>
+              <div><span>Dados</span><p>Supabase, migrations e Edge Function proxy para separar segredos de frontend.</p></div>
+              <div><span>Testes</span><p>Playwright QA, capturas desktop/mobile e validação de deploy.</p></div>
+              <div><span>Arquitetura</span><p>Projeto isolado, domínio próprio e limites claros entre produtos.</p></div>
+              <div><span>Link real</span><p><a href="https://www.helena-video.felpamusic.com.br" target="_blank" rel="noopener noreferrer">www.helena-video.felpamusic.com.br</a></p></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
       <article id="billie-brain" class="project-section">
         <div class="section-shell project-layout">
           <div class="project-copy reveal">
-            <p class="project-number">03 / Billie Brain</p>
+            <p class="project-number">04 / Billie Brain</p>
             <h2>Assistente de engenharia com chat, Studio visual, uso, wallet e integrações.</h2>
             <p class="project-lead">
               Billie Brain é um produto de agente para desenvolvimento de software, com uma experiência pública, área autenticada, Codex Chat, Billie Studio, conectores, usage, wallet, billing e configurações de workspace. O foco foi transformar uma ideia de assistente técnico em uma interface de produto com fluxo real de conta, métricas e estados honestos para recursos que dependem de provedores externos.
@@ -382,7 +436,7 @@ const BODY_HTML = `
             </div>
           </div>
           <div class="project-copy reveal">
-            <p class="project-number">04 / Verdant CRM</p>
+            <p class="project-number">05 / Verdant CRM</p>
             <h2>CRM SaaS protegido para pipeline comercial, leads e operação de atendimento.</h2>
             <p class="project-lead">
               Verdant CRM é uma aplicação SaaS de CRM com rotas protegidas, autenticação e base para gestão de pipeline, leads, dashboard e configurações. Na auditoria pública, as rotas internas redirecionam para login, então o portfolio mostra o produto de forma honesta: foco em arquitetura, autenticação, proteção de área interna e fluxo de acesso.
@@ -457,60 +511,6 @@ const BODY_HTML = `
               <button class="media-thumb" data-lightbox="/assets/portfolio/oli/screen-14.png" aria-label="Abrir perfil OLI">
                 <img src="/assets/portfolio/oli/screen-14.png" alt="Perfil no OLI">
               </button>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <article id="helena" class="project-section">
-        <div class="section-shell project-layout reverse">
-          <div class="project-media reveal">
-            <img class="media-main" src="/assets/portfolio/helena/screen-01.png" alt="Studio Helena Video">
-            <div class="media-grid">
-              <button class="media-thumb" data-lightbox="/assets/portfolio/helena/screen-02.png" aria-label="Abrir legendas Helena Video">
-                <img src="/assets/portfolio/helena/screen-02.png" alt="Legendas no Helena Video">
-              </button>
-              <button class="media-thumb" data-lightbox="/assets/portfolio/helena/screen-05.png" aria-label="Abrir audio Helena Video">
-                <img src="/assets/portfolio/helena/screen-05.png" alt="Áudio no Helena Video">
-              </button>
-              <button class="media-thumb" data-lightbox="/assets/portfolio/helena/screen-07.png" aria-label="Abrir publicacao Helena Video">
-                <img src="/assets/portfolio/helena/screen-07.png" alt="Publicação no Helena Video">
-              </button>
-              <button class="media-thumb" data-lightbox="/assets/portfolio/helena/screen-09.png" aria-label="Abrir carteira Helena Video">
-                <img src="/assets/portfolio/helena/screen-09.png" alt="Carteira do Helena Video">
-              </button>
-              <button class="media-thumb" data-lightbox="/assets/portfolio/helena/screen-11.png" aria-label="Abrir planos Helena Video">
-                <img src="/assets/portfolio/helena/screen-11.png" alt="Planos do Helena Video">
-              </button>
-            </div>
-          </div>
-          <div class="project-copy reveal">
-            <p class="project-number">05 / Helena Video</p>
-            <h2>Studio de vídeo com IA, timeline e pipeline de publicação.</h2>
-            <p class="project-lead">
-              Helena Video é um estúdio de vídeo com IA: concentra briefing, módulos criativos, timeline e publicação em uma plataforma independente. Defini a arquitetura de studio, contratos com provedores, banco de dados e validação QA, separando domínios para evoluir novos módulos sem quebrar a experiência.
-            </p>
-            <div class="proof-grid" aria-label="Resumo executivo Helena Video">
-              <div><span>Papel</span><p>Estruturação do produto, UI de studio, contrato de provedores, Supabase e validação QA.</p></div>
-              <div><span>Decisão técnica</span><p>Organizar o studio em módulos claros, briefing, geração, timeline, assets e publicação, para permitir novos provedores de vídeo sem redesenhar a experiência principal.</p></div>
-              <div><span>Resultado</span><p>Base independente que permite evoluir geração de vídeo, assets, jobs, QA e publicação sem acoplar o produto a outros sistemas.</p></div>
-            </div>
-            <div class="detail-block">
-              <h3>Módulos</h3>
-              <ul class="check-list">
-                <li><strong>Studio e Módulos:</strong> Transformar, Storyboard e AutoCut com prompt, referências, upload, modelo, qualidade, câmera, movimento, duração e exportação.</li>
-                <li><strong>Timeline e Assets:</strong> organização de vídeo, áudio, legendas, efeitos e estados.</li>
-                <li><strong>Chat Helena/LunnaHelena:</strong> assistente que converte intenção criativa em parâmetros operacionais.</li>
-                <li><strong>Provedores externos:</strong> matriz para Helena Native, Kling, Wan, Seedance, Hailuo, Image Lab, Music/TTS e Publish Hub.</li>
-                <li><strong>Dados e jobs:</strong> Supabase com schema para projetos, assets, jobs, mensagens e publicação.</li>
-              </ul>
-            </div>
-            <div class="stack-groups">
-              <div><span>Frontend</span><p>Vite, React 18, TypeScript e CSS próprio para uma interface de produção.</p></div>
-              <div><span>Dados</span><p>Supabase, migrations e Edge Function proxy para separar segredos de frontend.</p></div>
-              <div><span>Testes</span><p>Playwright QA, capturas desktop/mobile e validação de deploy.</p></div>
-              <div><span>Arquitetura</span><p>Projeto isolado, domínio próprio e limites claros entre produtos.</p></div>
-              <div><span>Link real</span><p><a href="https://www.helena-video.felpamusic.com.br" target="_blank" rel="noopener noreferrer">www.helena-video.felpamusic.com.br</a></p></div>
             </div>
           </div>
         </div>
@@ -594,12 +594,18 @@ const BODY_HTML = `
       </section>
 
       <section id="blog" class="section-shell blog-radar" aria-labelledby="blog-title">
-        <div class="section-heading reveal">
-          <p class="eyebrow">Blog / radar de tecnologia</p>
-          <h2 id="blog-title">50 leituras recentes sobre IA, desenvolvimento, SaaS, automação e produtos digitais.</h2>
-          <p class="section-intro">Curadoria editorial para conectar o portfolio aos temas que aparecem nos projetos: agentes de código, Supabase, React, Vercel, segurança, automação, CRM, áudio, vídeo, marketplaces e operação de produto.</p>
+        <div class="blog-heading reveal">
+          <div class="section-heading">
+            <p class="eyebrow">Blog / radar de tecnologia</p>
+            <h2 id="blog-title">Aprenda sobre IA, automação e produtos digitais.</h2>
+            <p class="section-intro">Curadoria editorial para conectar o portfolio aos temas que aparecem nos projetos: agentes de código, Supabase, React, Vercel, segurança, automação, CRM, áudio, vídeo, marketplaces e operação de produto.</p>
+          </div>
+          <div class="blog-controls" aria-label="Controles do blog">
+            <button type="button" data-blog-scroll="-1" aria-label="Ver artigos anteriores">‹</button>
+            <button type="button" data-blog-scroll="1" aria-label="Ver próximos artigos">›</button>
+          </div>
         </div>
-        <div class="blog-grid reveal" aria-label="Radar de notícias e leituras">
+        <div class="blog-grid reveal" data-blog-carousel aria-label="Radar de notícias e leituras">
           <a href="https://openai.com/news/" target="_blank" rel="noopener noreferrer"><span>OpenAI</span><strong>Codex remoto e agentes de engenharia em produção.</strong><em>IA para desenvolvimento</em></a>
           <a href="https://openai.com/news/" target="_blank" rel="noopener noreferrer"><span>OpenAI</span><strong>Sandbox seguro para executar agentes de código no Windows.</strong><em>Segurança e automação</em></a>
           <a href="https://openai.com/news/" target="_blank" rel="noopener noreferrer"><span>OpenAI</span><strong>Resposta ao ataque de supply chain no ecossistema TanStack/npm.</strong><em>Segurança frontend</em></a>
@@ -651,6 +657,9 @@ const BODY_HTML = `
           <a href="https://www.retaildive.com/" target="_blank" rel="noopener noreferrer"><span>Retail Dive</span><strong>Comércio digital, marketplaces e experiência de compra.</strong><em>Marketplace</em></a>
           <a href="https://www.producthunt.com/stories" target="_blank" rel="noopener noreferrer"><span>Product Hunt</span><strong>Novos produtos SaaS, ferramentas de IA e tendências de lançamento.</strong><em>Produto</em></a>
         </div>
+        <div class="blog-action reveal">
+          <a class="button secondary" href="https://openai.com/news/" target="_blank" rel="noopener noreferrer">Ver todos os artigos</a>
+        </div>
       </section>
 
       <section class="section-shell contact-section" aria-labelledby="contact-title">
@@ -664,11 +673,6 @@ const BODY_HTML = `
             <a class="button primary" href="mailto:felpacontato@gmail.com">Enviar e-mail</a>
             <a class="button secondary" href="https://github.com/felpacontato" rel="noopener noreferrer" target="_blank">GitHub</a>
             <a class="button secondary" href="https://www.linkedin.com/in/felipe-prates-070985376/" rel="noopener noreferrer" target="_blank">LinkedIn</a>
-          </div>
-          <div class="contact-links" aria-label="Links de contato">
-            <a href="mailto:felpacontato@gmail.com">felpacontato@gmail.com</a>
-            <a href="https://github.com/felpacontato" target="_blank" rel="noopener noreferrer">github.com/felpacontato</a>
-            <a href="https://www.linkedin.com/in/felipe-prates-070985376/" target="_blank" rel="noopener noreferrer">linkedin.com/in/felipe-prates-070985376</a>
           </div>
         </div>
       </section>
@@ -714,7 +718,7 @@ export const Route = createFileRoute("/")({
       { title: "Felipe Prates | Full Stack, IA e Automação" },
       { name: "description", content: "Portfolio de Felipe Prates: produtos full stack com IA, automação, APIs, dados, deploy e operação de ponta a ponta." },
       { property: "og:title", content: "Felipe Prates | Full Stack, IA e Automação" },
-      { property: "og:description", content: "Produtos reais, decisões técnicas e entrega ponta a ponta: FelpaMusic, Vitrinno, Billie Brain, Verdant CRM, OLI Locações, Helena Video e CRM Total Tour." },
+      { property: "og:description", content: "Produtos reais, decisões técnicas e entrega ponta a ponta: FelpaMusic, Vitrinno, Helena Video, Billie Brain, Verdant CRM, OLI Locações e CRM Total Tour." },
       { property: "og:type", content: "website" },
       { name: "theme-color", content: "#050807" },
     ],

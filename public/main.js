@@ -13,6 +13,18 @@ const jonnyPromptsRoot = document.querySelector("[data-jonny-prompts]");
 const jonnyForm = document.querySelector("[data-jonny-form]");
 const jonnyInput = document.querySelector("[data-jonny-input]");
 const jonnySubmit = document.querySelector("[data-jonny-submit]");
+const blogCarousel = document.querySelector("[data-blog-carousel]");
+
+document.querySelectorAll("[data-blog-scroll]").forEach((button) => {
+  button.addEventListener("click", () => {
+    if (!blogCarousel) return;
+    const direction = Number(button.getAttribute("data-blog-scroll") || "1");
+    blogCarousel.scrollBy({
+      left: direction * Math.min(blogCarousel.clientWidth * 0.9, 520),
+      behavior: "smooth",
+    });
+  });
+});
 
 function syncHeader() {
   header?.classList.toggle("is-scrolled", window.scrollY > 10);
