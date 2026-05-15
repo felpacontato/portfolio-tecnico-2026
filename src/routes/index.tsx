@@ -16,8 +16,8 @@ const GALLERY_ITEMS = [
     image: "/assets/cards/cover-vitrinno.png",
     text: "Vitrinno",
     href: "https://www.vitrinno.felpamusic.com.br",
-    description: "E-commerce headless de alta performance com foco em conversão e experiência.",
-    tag: "E-COMMERCE",
+    description: "Rede social musical com feed, catálogo, perfis, player, mensagens, uploads e studio para artistas.",
+    tag: "SOCIAL MUSIC",
   },
   {
     image: "/assets/cards/cover-billie.png",
@@ -37,7 +37,7 @@ const GALLERY_ITEMS = [
     image: "/assets/cards/cover-helena.jpeg",
     text: "Helena Vídeo",
     href: "https://www.helena-video.felpamusic.com.br",
-    description: "Plataforma de vídeos com IA aplicada à transcrição, busca e geração de insights.",
+    description: "Studio de vídeo com IA para briefing, módulos criativos, timeline, assets e publicação.",
     tag: "VÍDEO + IA",
   },
   {
