@@ -70,7 +70,7 @@ export default function CircularGallery({ items }: CircularGalleryProps) {
           return (
             <a
               key={`${item.text}-${item.index}`}
-              className="pcg-card"
+              className="pcg-card spotlight-card"
               href={item.href}
               target={item.href.startsWith("http") ? "_blank" : undefined}
               rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
@@ -81,10 +81,30 @@ export default function CircularGallery({ items }: CircularGalleryProps) {
                 "--pcg-scale": String(isBack ? 0.82 : 1),
                 zIndex: Math.round((facing + 1) * 100),
               } as CSSProperties}
+              onPointerMove={(event) => {
+                const rect = event.currentTarget.getBoundingClientRect();
+                const x = ((event.clientX - rect.left) / rect.width) * 100;
+                const y = ((event.clientY - rect.top) / rect.height) * 100;
+                event.currentTarget.style.setProperty("--spotlight-x", `${x}%`);
+                event.currentTarget.style.setProperty("--spotlight-y", `${y}%`);
+                event.currentTarget.style.setProperty("--spotlight-opacity", "1");
+              }}
+              onPointerLeave={(event) => {
+                event.currentTarget.style.setProperty("--spotlight-opacity", "0");
+              }}
+              onFocus={(event) => {
+                event.currentTarget.style.setProperty("--spotlight-x", "50%");
+                event.currentTarget.style.setProperty("--spotlight-y", "38%");
+                event.currentTarget.style.setProperty("--spotlight-opacity", "0.78");
+              }}
+              onBlur={(event) => {
+                event.currentTarget.style.setProperty("--spotlight-opacity", "0");
+              }}
               onClick={(event) => {
                 if (drag.current.moved) event.preventDefault();
               }}
             >
+              <span className="spotlight-card-glow" aria-hidden="true" />
               <img src={item.image} alt={`Projeto ${item.text}`} draggable={false} />
               <span className="pcg-shade" aria-hidden="true" />
               <span className="pcg-copy">

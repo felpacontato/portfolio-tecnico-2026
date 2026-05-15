@@ -161,6 +161,7 @@ const BODY_HTML = `
           <p class="section-intro">Cada projeto nasceu de um problema real, foi pensado de ponta a ponta e entregue com foco em performance, experiência e resultado. Do código à automação, do banco à interface, tudo desenvolvido com precisão e propósito.</p>
         </div>
         <div id="projects-circular-gallery" class="reveal" style="height:640px;position:relative;width:100%;margin-top:32px">
+          <div id="projects-circular-react" aria-label="Projetos em galeria circular"></div>
           <div class="index-list project-card-grid gallery-fallback" aria-label="Lista de projetos">
             <a class="pcard" href="https://www.felpamusic.com.br" target="_blank" rel="noopener noreferrer" style="background-image:url('/assets/cards/cover-felpamusic.png')"><span class="pcard-num">01</span><span class="pcard-overlay"><strong>FelpaMusic</strong><small>Áudio, IA e automação</small></span></a>
             <a class="pcard" href="https://www.vitrinno.felpamusic.com.br" target="_blank" rel="noopener noreferrer" style="background-image:url('/assets/cards/cover-vitrinno.png')"><span class="pcard-num">02</span><span class="pcard-overlay"><strong>Vitrinno</strong><small>Rede social musical</small></span></a>
@@ -752,7 +753,7 @@ export function Index() {
     let root: Root | null = null;
     let raf = 0;
     const mount = () => {
-      const el = document.getElementById("projects-circular-gallery");
+      const el = document.getElementById("projects-circular-react");
       if (!el) { raf = window.requestAnimationFrame(mount); return; }
       root = createRoot(el);
       root.render(
