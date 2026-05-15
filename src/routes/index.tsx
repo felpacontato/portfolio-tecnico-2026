@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { createRoot, type Root } from "react-dom/client";
 import CircularGallery from "@/components/ui/CircularGallery";
 import PortfolioIntro from "@/components/PortfolioIntro";
+import StudyGuide from "@/study/StudyGuide";
 
 const GALLERY_ITEMS = [
   {
@@ -72,6 +73,7 @@ const BODY_HTML = `
         <a href="#helena">Helena</a>
         <a href="#oli">OLI</a>
         <a href="#crm">CRM</a>
+        <a href="/study">Guia</a>
       </nav>
       <a class="header-cta" href="mailto:felpacontato@gmail.com"><span>Contato</span><span aria-hidden="true">↗</span></a>
     </header>
@@ -658,20 +660,22 @@ export const Route = createFileRoute("/")({
 });
 
 export function Index() {
+  const path = typeof window !== "undefined" ? window.location.pathname : "/";
+  const isStudyRoute = path === "/study" || path === "/print";
   const [introDone, setIntroDone] = useState(false);
 
   useEffect(() => {
-    if (!introDone) return;
+    if (isStudyRoute || !introDone) return;
 
     const s = document.createElement("script");
     s.type = "module";
     s.src = "/main.js";
     document.body.appendChild(s);
     return () => { s.remove(); };
-  }, [introDone]);
+  }, [introDone, isStudyRoute]);
 
   useEffect(() => {
-    if (!introDone) return;
+    if (isStudyRoute || !introDone) return;
 
     let root: Root | null = null;
     let raf = 0;
@@ -688,7 +692,11 @@ export function Index() {
       if (raf) cancelAnimationFrame(raf);
       if (root) { const r = root; setTimeout(() => r.unmount(), 0); }
     };
-  }, [introDone]);
+  }, [introDone, isStudyRoute]);
+
+  if (isStudyRoute) {
+    return <StudyGuide mode={path === "/print" ? "print" : "site"} />;
+  }
 
   return (
     <>
