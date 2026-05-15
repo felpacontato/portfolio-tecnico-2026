@@ -1,8 +1,6 @@
 import { jonnyQuickQuestions, localJonnyReply } from "/jonny-knowledge.js";
 
 const header = document.querySelector("[data-header]");
-const oliSection = document.querySelector("#oli");
-const helenaSection = document.querySelector("#helena");
 const revealNodes = document.querySelectorAll(".reveal");
 const lightboxRoot = document.querySelector("[data-lightbox-root]");
 const lightboxImg = document.querySelector("[data-lightbox-img]");
@@ -15,14 +13,6 @@ const jonnyPromptsRoot = document.querySelector("[data-jonny-prompts]");
 const jonnyForm = document.querySelector("[data-jonny-form]");
 const jonnyInput = document.querySelector("[data-jonny-input]");
 const jonnySubmit = document.querySelector("[data-jonny-submit]");
-
-if (
-  oliSection &&
-  helenaSection &&
-  (oliSection.compareDocumentPosition(helenaSection) & Node.DOCUMENT_POSITION_FOLLOWING)
-) {
-  oliSection.before(helenaSection);
-}
 
 function syncHeader() {
   header?.classList.toggle("is-scrolled", window.scrollY > 10);

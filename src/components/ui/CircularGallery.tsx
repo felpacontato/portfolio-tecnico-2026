@@ -74,6 +74,8 @@ export default function CircularGallery({ items }: CircularGalleryProps) {
               key={`${item.text}-${item.index}`}
               className="pcg-card"
               href={item.href}
+              target={item.href.startsWith("http") ? "_blank" : undefined}
+              rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
               style={{
                 "--pcg-angle": `${angle}deg`,
                 "--pcg-facing": `${-angle}deg`,

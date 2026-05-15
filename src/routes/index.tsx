@@ -8,30 +8,44 @@ const GALLERY_ITEMS = [
   {
     image: "/assets/cards/cover-felpamusic.png",
     text: "FelpaMusic",
-    href: "#felpamusic",
+    href: "https://www.felpamusic.com.br",
     description: "Plataforma de música com IA aplicada à criação, organização e descoberta de conteúdo.",
     tag: "PLATAFORMA + IA",
   },
   {
     image: "/assets/cards/cover-vitrinno.png",
     text: "Vitrinno",
-    href: "#vitrinno",
+    href: "https://www.vitrinno.felpamusic.com.br",
     description: "E-commerce headless de alta performance com foco em conversão e experiência.",
     tag: "E-COMMERCE",
   },
   {
-    image: "/assets/cards/cover-oli.png",
-    text: "OLI Locações",
-    href: "#oli",
-    description: "Sistema de gestão para locações com automações operacionais e controle completo de contratos.",
-    tag: "GESTÃO + AUTOMAÇÃO",
+    image: "/assets/cards/cover-billie.png",
+    text: "Billie Brain",
+    href: "https://www.billie-brain.felpamusic.com.br",
+    description: "Assistente de engenharia com chat, Studio visual, wallet, billing, usage e integrações.",
+    tag: "AI DEV TOOL",
+  },
+  {
+    image: "/assets/cards/cover-verdant.png",
+    text: "Verdant CRM",
+    href: "https://www.verdant-crm.felpamusic.com.br",
+    description: "CRM SaaS com área protegida, pipeline comercial, autenticação e base operacional.",
+    tag: "CRM + SAAS",
   },
   {
     image: "/assets/cards/cover-helena.jpeg",
     text: "Helena Vídeo",
-    href: "#helena",
+    href: "https://www.helena-video.felpamusic.com.br",
     description: "Plataforma de vídeos com IA aplicada à transcrição, busca e geração de insights.",
     tag: "VÍDEO + IA",
+  },
+  {
+    image: "/assets/cards/cover-oli.png",
+    text: "OLI Locações",
+    href: "https://www.olilocacao.com.br",
+    description: "Sistema de gestão para locações com automações operacionais e controle completo de contratos.",
+    tag: "GESTÃO + AUTOMAÇÃO",
   },
   {
     image: "/assets/cards/cover-crm.png",
@@ -39,13 +53,6 @@ const GALLERY_ITEMS = [
     href: "#crm",
     description: "CRM completo para gestão de leads, funis, automação e inteligência comercial.",
     tag: "CRM + AUTOMAÇÃO",
-  },
-  {
-    image: "/assets/cards/cover-billie.png",
-    text: "Billie-Brain",
-    href: "#projetos",
-    description: "Inteligência de marca com agentes que organizam contexto, conteúdo e decisões.",
-    tag: "BRAND + IA",
   },
 ];
 
@@ -60,8 +67,10 @@ const BODY_HTML = `
       <nav class="nav-links" aria-label="Navegação principal">
         <a href="#felpamusic">FelpaMusic</a>
         <a href="#vitrinno">Vitrinno</a>
-        <a href="#oli">OLI</a>
+        <a href="#billie-brain">Billie Brain</a>
+        <a href="#verdant">Verdant</a>
         <a href="#helena">Helena</a>
+        <a href="#oli">OLI</a>
         <a href="#crm">CRM</a>
       </nav>
       <a class="header-cta" href="mailto:felpacontato@gmail.com"><span>Contato</span><span aria-hidden="true">↗</span></a>
@@ -77,8 +86,8 @@ const BODY_HTML = `
           </p>
           <div class="hero-actions" aria-label="Ações principais">
             <a class="button primary" href="#projetos">Ver projetos</a>
-            <a class="button secondary" href="https://github.com/felpacontato" rel="noreferrer" target="_blank">GitHub</a>
-            <a class="button secondary" href="https://www.linkedin.com/in/felipe-prates-070985376/" rel="noreferrer" target="_blank">LinkedIn</a>
+            <a class="button secondary" href="https://github.com/felpacontato" rel="noopener noreferrer" target="_blank">GitHub</a>
+            <a class="button secondary" href="https://www.linkedin.com/in/felipe-prates-070985376/" rel="noopener noreferrer" target="_blank">LinkedIn</a>
           </div>
           <div class="signal-row" aria-label="Destaques">
             <span>Produtos 0-1</span>
@@ -147,19 +156,29 @@ const BODY_HTML = `
       <section id="projetos" class="section-shell projects-index" aria-labelledby="projects-title">
         <div class="section-heading reveal">
           <p class="eyebrow">Portfólio de produtos</p>
-          <h2 id="projects-title">Cinco produtos que demonstram execução full stack, IA aplicada e automação na prática.</h2>
+          <h2 id="projects-title">Sete produtos que demonstram execução full stack, IA aplicada e automação na prática.</h2>
           <p class="section-intro">Cada projeto nasceu de um problema real, foi pensado de ponta a ponta e entregue com foco em performance, experiência e resultado. Do código à automação, do banco à interface, tudo desenvolvido com precisão e propósito.</p>
         </div>
-        <div id="projects-circular-gallery" class="reveal" style="height:640px;position:relative;width:100%;margin-top:32px"></div>
+        <div id="projects-circular-gallery" class="reveal" style="height:640px;position:relative;width:100%;margin-top:32px">
+          <div class="index-list project-card-grid gallery-fallback" aria-label="Lista de projetos">
+            <a class="pcard" href="https://www.felpamusic.com.br" target="_blank" rel="noopener noreferrer" style="background-image:url('/assets/cards/cover-felpamusic.png')"><span class="pcard-num">01</span><span class="pcard-overlay"><strong>FelpaMusic</strong><small>Áudio, IA e automação</small></span></a>
+            <a class="pcard" href="https://www.vitrinno.felpamusic.com.br" target="_blank" rel="noopener noreferrer" style="background-image:url('/assets/cards/cover-vitrinno.png')"><span class="pcard-num">02</span><span class="pcard-overlay"><strong>Vitrinno</strong><small>Rede social musical</small></span></a>
+            <a class="pcard" href="https://www.billie-brain.felpamusic.com.br" target="_blank" rel="noopener noreferrer" style="background-image:url('/assets/cards/cover-billie.png')"><span class="pcard-num">03</span><span class="pcard-overlay"><strong>Billie Brain</strong><small>AI dev tool</small></span></a>
+            <a class="pcard" href="https://www.verdant-crm.felpamusic.com.br" target="_blank" rel="noopener noreferrer" style="background-image:url('/assets/cards/cover-verdant.png')"><span class="pcard-num">04</span><span class="pcard-overlay"><strong>Verdant CRM</strong><small>CRM SaaS protegido</small></span></a>
+            <a class="pcard" href="https://www.helena-video.felpamusic.com.br" target="_blank" rel="noopener noreferrer" style="background-image:url('/assets/cards/cover-helena.jpeg')"><span class="pcard-num">05</span><span class="pcard-overlay"><strong>Helena Video</strong><small>Studio de vídeo IA</small></span></a>
+            <a class="pcard" href="https://www.olilocacao.com.br" target="_blank" rel="noopener noreferrer" style="background-image:url('/assets/cards/cover-oli.png')"><span class="pcard-num">06</span><span class="pcard-overlay"><strong>OLI Locações</strong><small>Locação e operação</small></span></a>
+            <a class="pcard" href="#crm" style="background-image:url('/assets/cards/cover-crm.png')"><span class="pcard-num">07</span><span class="pcard-overlay"><strong>CRM Total Tour</strong><small>Automação comercial</small></span></a>
+          </div>
+        </div>
       </section>
 
       <section class="image-slider reveal" aria-label="Galeria visual">
         <div class="slider-track" data-auto-slider>
-          <div class="slider-item"><img src="/assets/cards/slider-1.jpg" alt=""></div>
-          <div class="slider-item"><img src="/assets/cards/slider-2.jpg" alt=""></div>
-          <div class="slider-item"><img src="/assets/cards/slider-3.jpg" alt=""></div>
-          <div class="slider-item"><img src="/assets/cards/slider-4.jpg" alt=""></div>
-          <div class="slider-item"><img src="/assets/cards/slider-5.jpg" alt=""></div>
+          <div class="slider-item"><img src="/assets/cards/slider-1.jpg" alt="Visual abstrato de tecnologia verde"></div>
+          <div class="slider-item"><img src="/assets/cards/slider-2.jpg" alt="Visual de circuito digital em verde"></div>
+          <div class="slider-item"><img src="/assets/cards/slider-3.jpg" alt="Visual abstrato de onda digital"></div>
+          <div class="slider-item"><img src="/assets/cards/slider-4.jpg" alt="Visual de interface técnica"></div>
+          <div class="slider-item"><img src="/assets/cards/slider-5.jpg" alt="Visual abstrato de dados e automação"></div>
         </div>
       </section>
 
@@ -210,6 +229,10 @@ const BODY_HTML = `
               <div>
                 <span>Operação</span>
                 <p>Linux VPS, Docker, REAPER/FFmpeg, health checks, logs e validação de produção.</p>
+              </div>
+              <div>
+                <span>Link real</span>
+                <p><a href="https://www.felpamusic.com.br" target="_blank" rel="noopener noreferrer">www.felpamusic.com.br</a></p>
               </div>
             </div>
           </div>
@@ -283,6 +306,105 @@ const BODY_HTML = `
               <div><span>Backend &amp; Banco</span><p>Prisma/PostgreSQL com suporte a Supabase, autenticação via JWT e cookies.</p></div>
               <div><span>Integrações</span><p>Stripe para checkout, S3-compatible storage para uploads, OAuth social e n8n webhooks.</p></div>
               <div><span>Produto</span><p>Rede social, studio, catálogo, mensagens e monetização.</p></div>
+              <div><span>Link real</span><p><a href="https://www.vitrinno.felpamusic.com.br" target="_blank" rel="noopener noreferrer">www.vitrinno.felpamusic.com.br</a></p></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article id="billie-brain" class="project-section">
+        <div class="section-shell project-layout">
+          <div class="project-copy reveal">
+            <p class="project-number">03 / Billie Brain</p>
+            <h2>Assistente de engenharia com chat, Studio visual, uso, wallet e integrações.</h2>
+            <p class="project-lead">
+              Billie Brain é um produto de agente para desenvolvimento de software, com uma experiência pública, área autenticada, Codex Chat, Billie Studio, conectores, usage, wallet, billing e configurações de workspace. O foco foi transformar uma ideia de assistente técnico em uma interface de produto com fluxo real de conta, métricas e estados honestos para recursos que dependem de provedores externos.
+            </p>
+            <div class="proof-grid" aria-label="Resumo executivo Billie Brain">
+              <div><span>Papel</span><p>Arquitetura de produto, UI, rotas, integração Supabase, chat, billing states, Studio e QA visual.</p></div>
+              <div><span>Decisão técnica</span><p>Separar página pública, app autenticado e Studio visual para não misturar marketing, operação e preview/editor.</p></div>
+              <div><span>Resultado</span><p>Base SaaS para um agente de engenharia, com telas de produto, fluxo protegido e integração preparada para Edge Functions, wallet e conectores.</p></div>
+            </div>
+            <div class="detail-block">
+              <h3>Escopo implementado</h3>
+              <ul class="check-list">
+                <li><strong>Codex Chat:</strong> interface de conversas, composer, histórico e integração planejada com streaming/Edge Function.</li>
+                <li><strong>Billie Studio:</strong> página de preview/editor visual no estilo Lovable, com URL carregável, referências, snapshots locais e viewports.</li>
+                <li><strong>Conta e operação:</strong> dashboard, connectors, usage, wallet, billing, account e settings com estados de configuração externa claros.</li>
+                <li><strong>Produto público:</strong> landing, pricing, about, changelog e documentos legais para apresentação e conversão.</li>
+              </ul>
+            </div>
+            <div class="stack-groups">
+              <div><span>Frontend</span><p>React, Vite/TanStack, TypeScript e UI responsiva orientada a developer tools.</p></div>
+              <div><span>Dados/Auth</span><p>Supabase Auth, profiles, conversas, usage, wallet e settings.</p></div>
+              <div><span>IA</span><p>Chat agente, roteamento de modelos, Edge Function e fallback honesto quando provider não está configurado.</p></div>
+              <div><span>Link real</span><p><a href="https://www.billie-brain.felpamusic.com.br" target="_blank" rel="noopener noreferrer">www.billie-brain.felpamusic.com.br</a></p></div>
+            </div>
+          </div>
+          <div class="project-media reveal">
+            <img class="media-main" src="/assets/portfolio/billie-brain/screen-01.png" alt="Landing page do Billie Brain">
+            <div class="media-grid">
+              <button class="media-thumb" data-lightbox="/assets/portfolio/billie-brain/screen-02.png" aria-label="Abrir Billie Studio">
+                <img src="/assets/portfolio/billie-brain/screen-02.png" alt="Billie Studio visual">
+              </button>
+              <button class="media-thumb" data-lightbox="/assets/portfolio/billie-brain/screen-03.png" aria-label="Abrir Codex Chat Billie Brain">
+                <img src="/assets/portfolio/billie-brain/screen-03.png" alt="Codex Chat do Billie Brain">
+              </button>
+              <button class="media-thumb" data-lightbox="/assets/portfolio/billie-brain/screen-04.png" aria-label="Abrir conectores Billie Brain">
+                <img src="/assets/portfolio/billie-brain/screen-04.png" alt="Connectors do Billie Brain">
+              </button>
+              <button class="media-thumb" data-lightbox="/assets/portfolio/billie-brain/screen-05.png" aria-label="Abrir wallet Billie Brain">
+                <img src="/assets/portfolio/billie-brain/screen-05.png" alt="Wallet do Billie Brain">
+              </button>
+              <button class="media-thumb" data-lightbox="/assets/portfolio/billie-brain/screen-06.png" aria-label="Abrir settings Billie Brain">
+                <img src="/assets/portfolio/billie-brain/screen-06.png" alt="Settings do Billie Brain">
+              </button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article id="verdant" class="project-section">
+        <div class="section-shell project-layout reverse">
+          <div class="project-media reveal">
+            <img class="media-main" src="/assets/portfolio/verdant/screen-01.png" alt="Login e acesso do Verdant CRM">
+            <div class="media-grid">
+              <button class="media-thumb" data-lightbox="/assets/portfolio/verdant/screen-02.png" aria-label="Abrir dashboard protegido Verdant CRM">
+                <img src="/assets/portfolio/verdant/screen-02.png" alt="Dashboard protegido do Verdant CRM redirecionando para login">
+              </button>
+              <button class="media-thumb" data-lightbox="/assets/portfolio/verdant/screen-03.png" aria-label="Abrir leads protegidos Verdant CRM">
+                <img src="/assets/portfolio/verdant/screen-03.png" alt="Área de leads protegida do Verdant CRM">
+              </button>
+              <button class="media-thumb" data-lightbox="/assets/portfolio/verdant/screen-04.png" aria-label="Abrir versão mobile Verdant CRM">
+                <img src="/assets/portfolio/verdant/screen-04.png" alt="Tela mobile do Verdant CRM">
+              </button>
+            </div>
+          </div>
+          <div class="project-copy reveal">
+            <p class="project-number">04 / Verdant CRM</p>
+            <h2>CRM SaaS protegido para pipeline comercial, leads e operação de atendimento.</h2>
+            <p class="project-lead">
+              Verdant CRM é uma aplicação SaaS de CRM com rotas protegidas, autenticação e base para gestão de pipeline, leads, dashboard e configurações. Na auditoria pública, as rotas internas redirecionam para login, então o portfolio mostra o produto de forma honesta: foco em arquitetura, autenticação, proteção de área interna e fluxo de acesso.
+            </p>
+            <div class="proof-grid" aria-label="Resumo executivo Verdant CRM">
+              <div><span>Papel</span><p>Produto, front-end, autenticação, rotas protegidas, deploy e organização da base SaaS.</p></div>
+              <div><span>Decisão técnica</span><p>Proteger dashboard, leads e operação atrás de login em vez de expor dados ou telas internas publicamente.</p></div>
+              <div><span>Resultado</span><p>CRM publicado com domínio próprio, fluxo de acesso e estrutura preparada para evoluir pipeline e automações comerciais.</p></div>
+            </div>
+            <div class="detail-block">
+              <h3>Escopo do produto</h3>
+              <ul class="check-list">
+                <li><strong>Autenticação:</strong> login como porta de entrada e redirecionamento seguro das áreas internas.</li>
+                <li><strong>Pipeline e leads:</strong> estrutura de rotas para gestão comercial sem expor informação sensível fora da sessão.</li>
+                <li><strong>Operação SaaS:</strong> base para dashboard, configurações, usuários e evolução de workflows comerciais.</li>
+                <li><strong>Disponibilidade pública:</strong> domínio próprio verificado em HTTPS, com áreas privadas protegidas.</li>
+              </ul>
+            </div>
+            <div class="stack-groups">
+              <div><span>Frontend</span><p>React/TypeScript, UI de SaaS e rotas responsivas.</p></div>
+              <div><span>Produto</span><p>Dashboard, leads, pipeline e configurações como módulos protegidos.</p></div>
+              <div><span>Segurança</span><p>Rotas internas redirecionam para login quando não há sessão.</p></div>
+              <div><span>Link real</span><p><a href="https://www.verdant-crm.felpamusic.com.br" target="_blank" rel="noopener noreferrer">www.verdant-crm.felpamusic.com.br</a></p></div>
             </div>
           </div>
         </div>
@@ -291,7 +413,7 @@ const BODY_HTML = `
       <article id="oli" class="project-section">
         <div class="section-shell project-layout">
           <div class="project-copy reveal">
-            <p class="project-number">04 / OLI Locações</p>
+            <p class="project-number">06 / OLI Locações</p>
             <h2>Marketplace de locação com fluxos para motorista, locador e operação.</h2>
             <p class="project-lead">
               OLI Locações organiza a jornada de aluguel de veículos entre motoristas, locadores e operação. Modelei os fluxos principais, integrei Supabase e n8n, implementei caução via Asaas e defini fronteiras entre web e app mobile para permitir evolução independente.
@@ -313,6 +435,7 @@ const BODY_HTML = `
               <div><span>Frontend/Mobile</span><p>React, Vite, Tailwind, shadcn e aplicação Expo/React Native separada do web.</p></div>
               <div><span>Backend &amp; Banco</span><p>Supabase, Edge Functions e webhook proxy.</p></div>
               <div><span>Automação/Pagamentos</span><p>n8n, Asaas, Serasa/DataValid, Clicksign, Serasa e callbacks de pagamento.</p></div>
+              <div><span>Link real</span><p><a href="https://www.olilocacao.com.br" target="_blank" rel="noopener noreferrer">www.olilocacao.com.br</a></p></div>
             </div>
           </div>
           <div class="project-media reveal">
@@ -361,7 +484,7 @@ const BODY_HTML = `
             </div>
           </div>
           <div class="project-copy reveal">
-            <p class="project-number">03 / Helena Video</p>
+            <p class="project-number">05 / Helena Video</p>
             <h2>Studio de vídeo com IA, timeline e pipeline de publicação.</h2>
             <p class="project-lead">
               Helena Video é um estúdio de vídeo com IA: concentra briefing, módulos criativos, timeline e publicação em uma plataforma independente. Defini a arquitetura de studio, contratos com provedores, banco de dados e validação QA, separando domínios para evoluir novos módulos sem quebrar a experiência.
@@ -386,6 +509,7 @@ const BODY_HTML = `
               <div><span>Dados</span><p>Supabase, migrations e Edge Function proxy para separar segredos de frontend.</p></div>
               <div><span>Testes</span><p>Playwright QA, capturas desktop/mobile e validação de deploy.</p></div>
               <div><span>Arquitetura</span><p>Projeto isolado, domínio próprio e limites claros entre produtos.</p></div>
+              <div><span>Link real</span><p><a href="https://www.helena-video.felpamusic.com.br" target="_blank" rel="noopener noreferrer">www.helena-video.felpamusic.com.br</a></p></div>
             </div>
           </div>
         </div>
@@ -394,7 +518,7 @@ const BODY_HTML = `
       <article id="crm" class="project-section">
         <div class="section-shell project-layout">
           <div class="project-copy reveal">
-            <p class="project-number">05 / CRM Total Tour</p>
+            <p class="project-number">07 / CRM Total Tour</p>
             <h2>Automação comercial com IA para qualificação e gestão de leads.</h2>
             <p class="project-lead">
               O CRM Total Tour automatiza o funil comercial usando Kommo, n8n, Redis e agentes de IA. O sistema consolida conversas, interpreta contexto, atualiza leads e auxilia na tomada de decisão comercial, reduzindo trabalho manual e aumentando a rastreabilidade.
@@ -477,8 +601,8 @@ const BODY_HTML = `
           </p>
           <div class="hero-actions">
             <a class="button primary" href="mailto:felpacontato@gmail.com">Enviar e-mail</a>
-            <a class="button secondary" href="https://github.com/felpacontato" rel="noreferrer" target="_blank">GitHub</a>
-            <a class="button secondary" href="https://www.linkedin.com/in/felipe-prates-070985376/" rel="noreferrer" target="_blank">LinkedIn</a>
+            <a class="button secondary" href="https://github.com/felpacontato" rel="noopener noreferrer" target="_blank">GitHub</a>
+            <a class="button secondary" href="https://www.linkedin.com/in/felipe-prates-070985376/" rel="noopener noreferrer" target="_blank">LinkedIn</a>
           </div>
         </div>
       </section>
@@ -486,7 +610,7 @@ const BODY_HTML = `
 
     <div class="lightbox" data-lightbox-root hidden>
       <button class="lightbox-close" type="button" data-lightbox-close aria-label="Fechar imagem">Fechar</button>
-      <img src="" alt="" data-lightbox-img>
+      <img src="" alt="Imagem ampliada do projeto" data-lightbox-img>
     </div>
 
     <section class="jonny-widget" data-jonny aria-label="Chat IA Jonny">
@@ -524,7 +648,7 @@ export const Route = createFileRoute("/")({
       { title: "Felipe Prates | Full Stack, IA e Automação" },
       { name: "description", content: "Portfolio de Felipe Prates: produtos full stack com IA, automação, APIs, dados, deploy e operação de ponta a ponta." },
       { property: "og:title", content: "Felipe Prates | Full Stack, IA e Automação" },
-      { property: "og:description", content: "Produtos reais, decisões técnicas e entrega ponta a ponta: FelpaMusic, Vitrinno, OLI Locações, Helena Video e CRM Total Tour." },
+      { property: "og:description", content: "Produtos reais, decisões técnicas e entrega ponta a ponta: FelpaMusic, Vitrinno, Billie Brain, Verdant CRM, OLI Locações, Helena Video e CRM Total Tour." },
       { property: "og:type", content: "website" },
       { name: "theme-color", content: "#050807" },
     ],
@@ -547,6 +671,8 @@ export function Index() {
   }, [introDone]);
 
   useEffect(() => {
+    if (!introDone) return;
+
     let root: Root | null = null;
     let raf = 0;
     const mount = () => {
@@ -562,7 +688,7 @@ export function Index() {
       if (raf) cancelAnimationFrame(raf);
       if (root) { const r = root; setTimeout(() => r.unmount(), 0); }
     };
-  }, []);
+  }, [introDone]);
 
   return (
     <>

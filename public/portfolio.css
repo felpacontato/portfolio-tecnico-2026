@@ -3055,3 +3055,163 @@ body::after {
     width: min(100%, 360px) !important;
   }
 }
+
+/* QA hardening: mobile must not inherit the desktop two-column hero override. */
+@media (max-width: 700px) {
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .site-header {
+    width: calc(100% - 24px) !important;
+    grid-template-columns: 1fr auto !important;
+    gap: 10px !important;
+    padding: 10px 12px !important;
+    border-radius: 18px !important;
+  }
+
+  .brand {
+    min-width: 0;
+  }
+
+  .brand span:last-child {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .nav-links {
+    grid-column: 1 / -1;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    padding: 6px 2px 2px;
+    scroll-snap-type: x proximity;
+  }
+
+  .nav-links a {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+  }
+
+  .header-cta {
+    justify-self: end;
+    white-space: nowrap;
+  }
+
+  .hero.section-shell {
+    width: min(100% - 28px, 1532px) !important;
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+    padding-top: 32px !important;
+  }
+
+  .hero h1 {
+    max-width: 11ch !important;
+    font-size: clamp(2.35rem, 12vw, 3.7rem) !important;
+    line-height: 1 !important;
+  }
+
+  .hero-text,
+  .project-lead,
+  .section-intro {
+    max-width: 100% !important;
+  }
+
+  .hero-visual {
+    width: 100% !important;
+    justify-self: stretch !important;
+    padding: 12px !important;
+  }
+
+  .profile-photo-wrap {
+    width: min(100%, 340px) !important;
+  }
+
+  .terminal-panel.hero-capability-panel {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .section-shell {
+    width: min(100% - 28px, 1532px) !important;
+  }
+
+  .project-layout,
+  .project-layout.reverse {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  .project-media {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .media-main {
+    max-width: 100%;
+    height: auto;
+  }
+
+  #projects-circular-gallery {
+    height: 560px !important;
+    min-height: 560px;
+  }
+
+  .portfolio-circular-gallery {
+    --pcg-radius: 190px !important;
+    --pcg-card-w: 150px !important;
+    --pcg-card-h: 220px !important;
+    min-height: 520px !important;
+  }
+}
+
+#projects-circular-gallery:has(.gallery-fallback) {
+  height: auto !important;
+  min-height: 0 !important;
+}
+
+.gallery-fallback {
+  display: grid;
+}
+
+/* QA hardening: horizontal galleries must not become page-level overflow. */
+.principle-carousel,
+.image-slider {
+  min-width: 0;
+  max-width: 100%;
+  contain: paint;
+}
+
+.image-slider {
+  overflow: hidden;
+}
+
+main,
+.section-shell,
+.projects-index,
+.project-section,
+.project-layout {
+  min-width: 0;
+  max-width: 100%;
+}
+
+main {
+  overflow-x: clip;
+}
+
+@media (max-width: 1180px) {
+  .principle-carousel {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-inline: contain;
+  }
+
+  .principle-v2 {
+    flex-basis: min(86vw, calc(100vw - 48px)) !important;
+  }
+}
