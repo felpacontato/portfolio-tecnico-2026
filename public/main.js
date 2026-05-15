@@ -14,6 +14,60 @@ const jonnyForm = document.querySelector("[data-jonny-form]");
 const jonnyInput = document.querySelector("[data-jonny-input]");
 const jonnySubmit = document.querySelector("[data-jonny-submit]");
 const blogCarousel = document.querySelector("[data-blog-carousel]");
+const spotlightCardSelector = [
+  ".cap-card",
+  ".principle",
+  ".pcard",
+  ".proof-grid > div",
+  ".detail-block",
+  ".media-thumb",
+  ".api-grid > span",
+  ".capability",
+  ".blog-grid > a",
+  ".contact-card",
+].join(",");
+
+function initSpotlightCards() {
+  const supportsHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+  document.querySelectorAll(spotlightCardSelector).forEach((card) => {
+    if (card.dataset.spotlightReady === "true") return;
+    card.dataset.spotlightReady = "true";
+    card.classList.add("spotlight-card");
+
+    const glow = document.createElement("span");
+    glow.className = "spotlight-card-glow";
+    glow.setAttribute("aria-hidden", "true");
+    card.prepend(glow);
+
+    card.addEventListener("focusin", () => {
+      card.style.setProperty("--spotlight-opacity", "0.78");
+      card.style.setProperty("--spotlight-x", "50%");
+      card.style.setProperty("--spotlight-y", "38%");
+    });
+
+    card.addEventListener("focusout", () => {
+      card.style.setProperty("--spotlight-opacity", "0");
+    });
+
+    if (!supportsHover) return;
+
+    card.addEventListener("pointermove", (event) => {
+      const rect = card.getBoundingClientRect();
+      const x = ((event.clientX - rect.left) / rect.width) * 100;
+      const y = ((event.clientY - rect.top) / rect.height) * 100;
+      card.style.setProperty("--spotlight-x", `${x}%`);
+      card.style.setProperty("--spotlight-y", `${y}%`);
+      card.style.setProperty("--spotlight-opacity", "1");
+    });
+
+    card.addEventListener("pointerleave", () => {
+      card.style.setProperty("--spotlight-opacity", "0");
+    });
+  });
+}
+
+initSpotlightCards();
 
 document.querySelectorAll("[data-blog-scroll]").forEach((button) => {
   button.addEventListener("click", () => {

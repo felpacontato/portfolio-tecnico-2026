@@ -3091,6 +3091,60 @@ body::after {
   margin-top: 22px;
 }
 
+.spotlight-card {
+  --spotlight-x: 50%;
+  --spotlight-y: 50%;
+  --spotlight-opacity: 0;
+  --spotlight-size: 360px;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.spotlight-card > :not(.spotlight-card-glow) {
+  position: relative;
+  z-index: 1;
+}
+
+.spotlight-card-glow {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: var(--spotlight-opacity);
+  background:
+    radial-gradient(
+      var(--spotlight-size) circle at var(--spotlight-x) var(--spotlight-y),
+      rgba(44, 255, 145, 0.28),
+      rgba(44, 255, 145, 0.11) 32%,
+      rgba(44, 255, 145, 0.035) 52%,
+      transparent 72%
+    );
+  mix-blend-mode: screen;
+  transition: opacity 180ms ease;
+}
+
+.spotlight-card:is(:hover, :focus-within) {
+  border-color: rgba(44, 255, 145, 0.46);
+}
+
+.media-thumb.spotlight-card {
+  --spotlight-size: 180px;
+}
+
+.pcard.spotlight-card,
+.blog-grid a.spotlight-card,
+.principle.spotlight-card {
+  --spotlight-size: 430px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spotlight-card-glow {
+    transition: none;
+  }
+}
+
 .profile-photo-wrap .profile-matrix-canvas {
   position: absolute;
   inset: 0;
