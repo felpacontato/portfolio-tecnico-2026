@@ -54,6 +54,13 @@ const GALLERY_ITEMS = [
     description: "CRM completo para gestão de leads, funis, automação e inteligência comercial.",
     tag: "CRM + AUTOMAÇÃO",
   },
+  {
+    image: "/assets/cards/cover-lunna.png",
+    text: "Lunna Helena Universe",
+    href: "https://www.lunna-helena-universe.felpamusic.com.br",
+    description: "Cockpit de conteúdo para criadores com login, calendário editorial, editor, inbox IA, analytics e biblioteca.",
+    tag: "CREATOR SAAS + IA",
+  },
 ];
 
 const BODY_HTML = `
@@ -72,6 +79,7 @@ const BODY_HTML = `
         <a href="#verdant">Verdant</a>
         <a href="#oli">OLI</a>
         <a href="#crm">CRM</a>
+        <a href="#lunna-helena">Lunna</a>
         <a href="#blog">Blog</a>
       </nav>
       <div class="language-switcher" data-language-switcher aria-label="Idioma atual: português">
@@ -162,7 +170,7 @@ const BODY_HTML = `
       <section id="projetos" class="section-shell projects-index" aria-labelledby="projects-title">
         <div class="section-heading reveal">
           <p class="eyebrow">Portfólio de produtos</p>
-          <h2 id="projects-title">Sete produtos que demonstram execução full stack, IA aplicada e automação na prática.</h2>
+          <h2 id="projects-title">Oito produtos que demonstram execução full stack, IA aplicada e automação na prática.</h2>
           <p class="section-intro">Cada projeto nasceu de um problema real, foi pensado de ponta a ponta e entregue com foco em performance, experiência e resultado. Do código à automação, do banco à interface, tudo desenvolvido com precisão e propósito.</p>
         </div>
         <div id="projects-circular-gallery" class="reveal" style="height:640px;position:relative;width:100%;margin-top:32px">
@@ -175,6 +183,7 @@ const BODY_HTML = `
             <a class="pcard" href="https://www.verdant-crm.felpamusic.com.br" target="_blank" rel="noopener noreferrer" style="background-image:url('/assets/cards/cover-verdant.png')"><span class="pcard-num">05</span><span class="pcard-overlay"><strong>Verdant CRM</strong><small>CRM SaaS protegido</small></span></a>
             <a class="pcard" href="https://www.olilocacao.com.br" target="_blank" rel="noopener noreferrer" style="background-image:url('/assets/cards/cover-oli.png')"><span class="pcard-num">06</span><span class="pcard-overlay"><strong>OLI Locações</strong><small>Locação e operação</small></span></a>
             <a class="pcard" href="#crm" style="background-image:url('/assets/cards/cover-crm.png')"><span class="pcard-num">07</span><span class="pcard-overlay"><strong>CRM Total Tour</strong><small>Automação comercial</small></span></a>
+            <a class="pcard" href="https://www.lunna-helena-universe.felpamusic.com.br" target="_blank" rel="noopener noreferrer" style="background-image:url('/assets/cards/cover-lunna.png')"><span class="pcard-num">08</span><span class="pcard-overlay"><strong>Lunna Helena Universe</strong><small>Creator SaaS + IA</small></span></a>
           </div>
         </div>
       </section>
@@ -574,6 +583,58 @@ const BODY_HTML = `
         </div>
       </article>
 
+      <article id="lunna-helena" class="project-section">
+        <div class="section-shell project-layout reverse">
+          <div class="project-media reveal">
+            <img class="media-main" src="/assets/portfolio/lunna/screen-02.png" alt="Dashboard do Lunna Helena Universe">
+            <div class="media-grid">
+              <button class="media-thumb" data-lightbox="/assets/portfolio/lunna/screen-01.png" aria-label="Abrir login do Lunna Helena Universe">
+                <img src="/assets/portfolio/lunna/screen-01.png" alt="Login do Lunna Helena Universe">
+              </button>
+              <button class="media-thumb" data-lightbox="/assets/portfolio/lunna/screen-03.png" aria-label="Abrir calendario do Lunna Helena Universe">
+                <img src="/assets/portfolio/lunna/screen-03.png" alt="Calendário editorial do Lunna Helena Universe">
+              </button>
+              <button class="media-thumb" data-lightbox="/assets/portfolio/lunna/screen-04.png" aria-label="Abrir editor do Lunna Helena Universe">
+                <img src="/assets/portfolio/lunna/screen-04.png" alt="Editor de conteúdo do Lunna Helena Universe">
+              </button>
+              <button class="media-thumb" data-lightbox="/assets/portfolio/lunna/screen-05.png" aria-label="Abrir inbox IA do Lunna Helena Universe">
+                <img src="/assets/portfolio/lunna/screen-05.png" alt="Inbox IA do Lunna Helena Universe">
+              </button>
+              <button class="media-thumb" data-lightbox="/assets/portfolio/lunna/screen-07.png" aria-label="Abrir biblioteca do Lunna Helena Universe">
+                <img src="/assets/portfolio/lunna/screen-07.png" alt="Biblioteca do Lunna Helena Universe">
+              </button>
+            </div>
+          </div>
+          <div class="project-copy reveal">
+            <p class="project-number">08 / Lunna Helena Universe</p>
+            <h2>Cockpit de criadores com calendario editorial, editor, inbox IA, analytics e biblioteca.</h2>
+            <p class="project-lead">
+              Lunna Helena Universe é um SaaS para criadores e marcas organizarem produção de conteúdo com login real, estado por usuário, calendário editorial, editor visual, inbox assistida por IA, analytics e biblioteca de mídias. A prioridade do projeto foi transformar uma interface bonita em produto utilizável, separando claramente o que funciona localmente do que depende de OAuth social e APIs externas.
+            </p>
+            <div class="proof-grid" aria-label="Resumo executivo Lunna Helena Universe">
+              <div><span>Papel</span><p>Arquitetura de produto, frontend, autenticação, persistência Supabase, UI/UX, QA visual e deploy.</p></div>
+              <div><span>Decisão técnica</span><p>Usar Supabase Auth, RLS e tabela de estado por usuário para evitar dados falsos e preservar uma experiência honesta.</p></div>
+              <div><span>Resultado</span><p>Aplicação publicada com domínio próprio, cadastro/login, dados persistidos por usuário, Google OAuth configurado e telas principais testadas.</p></div>
+            </div>
+            <div class="detail-block">
+              <h3>Escopo implementado</h3>
+              <ul class="check-list">
+                <li><strong>Autenticação real:</strong> cadastro, login, guarda de rotas e Google OAuth via Supabase Auth.</li>
+                <li><strong>Workspace por usuário:</strong> estado persistido no Supabase com RLS para calendário, biblioteca, pesquisas e rascunhos.</li>
+                <li><strong>Produto de conteúdo:</strong> dashboard, calendário semanal, editor, inbox IA, analytics, biblioteca e estados honestos para integrações pendentes.</li>
+                <li><strong>QA e produção:</strong> testes em desktop/mobile, validação de overflow, console/network errors, build e deploy Vercel.</li>
+              </ul>
+            </div>
+            <div class="stack-groups">
+              <div><span>Frontend</span><p>React, Vite, TypeScript, TanStack Router, Tailwind, Radix UI e lucide-react.</p></div>
+              <div><span>Auth/Dados</span><p>Supabase Auth, Postgres, RLS, tabela lhu_user_state e Storage preparado para midias.</p></div>
+              <div><span>UX</span><p>Design system cosmico, logo proprio, microinteracoes, estados vazios honestos e responsividade.</p></div>
+              <div><span>Link real</span><p><a href="https://www.lunna-helena-universe.felpamusic.com.br" target="_blank" rel="noopener noreferrer">www.lunna-helena-universe.felpamusic.com.br</a></p></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
       <section id="apis" class="section-shell api-section" aria-labelledby="apis-title">
         <div class="section-heading reveal">
           <p class="eyebrow">APIs e serviços</p>
@@ -730,7 +791,7 @@ export const Route = createFileRoute("/")({
       { title: "Felipe Prates | Full Stack, IA e Automação" },
       { name: "description", content: "Portfolio de Felipe Prates: produtos full stack com IA, automação, APIs, dados, deploy e operação de ponta a ponta." },
       { property: "og:title", content: "Felipe Prates | Full Stack, IA e Automação" },
-      { property: "og:description", content: "Produtos reais, decisões técnicas e entrega ponta a ponta: FelpaMusic, Vitrinno, Helena Video, Billie Brain, Verdant CRM, OLI Locações e CRM Total Tour." },
+      { property: "og:description", content: "Produtos reais, decisões técnicas e entrega ponta a ponta: FelpaMusic, Vitrinno, Helena Video, Billie Brain, Verdant CRM, OLI Locações, CRM Total Tour e Lunna Helena Universe." },
       { property: "og:type", content: "website" },
       { name: "theme-color", content: "#050807" },
     ],
