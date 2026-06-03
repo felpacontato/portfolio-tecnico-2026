@@ -28,6 +28,12 @@
   box-sizing: border-box;
 }
 
+#root {
+  position: relative;
+  min-height: 100svh;
+  isolation: isolate;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -78,7 +84,51 @@ main,
 .jonny-widget,
 .skip-link {
   position: relative;
+  z-index: 2;
+}
+
+.cyber-matrix-background {
+  --columns: 1;
+  --rows: 1;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  display: grid;
+  grid-template-columns: repeat(var(--columns), minmax(0, 1fr));
+  grid-template-rows: repeat(var(--rows), minmax(0, 1fr));
+  overflow: hidden;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 72% 42%, rgba(44, 255, 145, 0.18), transparent 34rem),
+    radial-gradient(circle at 18% 70%, rgba(86, 247, 210, 0.1), transparent 30rem),
+    rgba(0, 0, 0, 0.12);
+  opacity: 0.72;
+}
+
+.cyber-matrix-background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(3, 7, 6, 0.08), rgba(3, 7, 6, 0.5));
+  pointer-events: none;
+}
+
+.cyber-matrix-tile {
+  position: relative;
   z-index: 1;
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  min-height: 0;
+  color: rgb(44, 255, 145);
+  font-family: "Courier New", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: clamp(0.74rem, 1.05vw, 1.16rem);
+  font-weight: 700;
+  opacity: calc(0.055 + var(--cyber-intensity) * 0.46);
+  text-shadow: 0 0 calc(var(--cyber-intensity) * 16px) rgba(44, 255, 145, 0.92);
+  transform: scale(calc(0.9 + var(--cyber-intensity) * 0.25));
+  transition: opacity 160ms ease, text-shadow 160ms ease, transform 160ms ease;
+  user-select: none;
 }
 
 img,
@@ -610,6 +660,8 @@ h3 {
 
 .projects-index {
   padding: 90px 0 36px;
+  scroll-margin-top: 128px;
+  padding-inline: clamp(18px, 2.4vw, 32px);
 }
 
 .index-list {
@@ -2930,18 +2982,55 @@ body::after {
 }
 
 /* Circular gallery — fix oversize / cutoff */
-#projects-circular-gallery { height: 760px !important; }
+#projects-circular-gallery {
+  height: auto !important;
+  min-height: 0;
+  overflow: hidden;
+  border-radius: 28px;
+  padding: clamp(14px, 2vw, 22px);
+}
+
+#projects-circular-gallery::before,
+#projects-circular-gallery::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+#projects-circular-gallery::before {
+  border: 1px solid rgba(139, 255, 191, 0.12);
+  border-radius: inherit;
+  background:
+    radial-gradient(circle at 50% 44%, rgba(44, 255, 145, 0.13), transparent 30rem),
+    radial-gradient(circle at 50% 78%, rgba(86, 247, 210, 0.08), transparent 26rem),
+    linear-gradient(180deg, rgba(4, 13, 9, 0.28), rgba(2, 7, 5, 0.06));
+}
+
+#projects-circular-gallery::after {
+  background:
+    linear-gradient(90deg, rgba(139, 255, 191, 0.035) 1px, transparent 1px),
+    linear-gradient(rgba(139, 255, 191, 0.028) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(circle at 50% 50%, #000 0%, transparent 76%);
+}
+
+#projects-circular-react {
+  position: relative;
+  z-index: 1;
+}
 
 .portfolio-circular-gallery {
-  --pcg-radius: clamp(210px, 26vw, 350px) !important;
-  --pcg-card-w: clamp(172px, 16vw, 224px) !important;
-  --pcg-card-h: clamp(240px, 23vw, 316px) !important;
-  min-height: 720px !important;
+  --pcg-radius: clamp(250px, 30vw, 420px) !important;
+  --pcg-card-w: clamp(214px, 20vw, 292px) !important;
+  --pcg-card-h: clamp(292px, 27vw, 392px) !important;
+  min-height: 650px !important;
   perspective: 1400px !important;
 }
 
 .pcg-stage {
-  transform: translate3d(-50%, -50%, 0) rotateX(-6deg) !important;
+  transform: translate3d(-50%, -50%, 0) rotateX(-4deg) !important;
 }
 
 .pcg-copy {
@@ -2982,6 +3071,11 @@ body::after {
 
 .pcg-shade {
   background: linear-gradient(180deg, rgba(2, 8, 6, 0.10), rgba(2, 8, 6, 0.55) 48%, rgba(1, 6, 4, 0.96)) !important;
+}
+
+.pcg-card {
+  filter: brightness(var(--pcg-brightness, 1));
+  transform: rotateY(var(--pcg-angle)) translateZ(var(--pcg-radius)) rotateY(var(--pcg-facing)) translateY(var(--pcg-y, 0)) scale(var(--pcg-scale)) !important;
 }
 
 .blog-radar {
@@ -3426,9 +3520,11 @@ body::after {
   }
 }
 
-#projects-circular-gallery:has(.gallery-fallback) {
-  height: auto !important;
-  min-height: 0 !important;
+@media (max-width: 1180px) {
+  #projects-circular-gallery:has(.gallery-fallback) {
+    height: auto !important;
+    min-height: 0 !important;
+  }
 }
 
 .gallery-fallback {
@@ -3458,12 +3554,43 @@ main,
 
 /* Zoom QA: keep text and project cards balanced when the browser is zoomed. */
 #projects-circular-react {
-  height: 100%;
-  min-height: 520px;
+  display: none !important;
 }
 
 #projects-circular-gallery .gallery-fallback {
-  display: none !important;
+  position: relative;
+  z-index: 1;
+  display: flex !important;
+  grid-template-columns: none !important;
+  gap: 16px !important;
+  margin: 0 !important;
+  padding: 4px 4px 18px !important;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-inline: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(44, 255, 145, 0.5) rgba(255, 255, 255, 0.05);
+}
+
+#projects-circular-gallery .gallery-fallback::-webkit-scrollbar {
+  height: 8px;
+}
+
+#projects-circular-gallery .gallery-fallback::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 999px;
+}
+
+#projects-circular-gallery .gallery-fallback::-webkit-scrollbar-thumb {
+  background: rgba(44, 255, 145, 0.5);
+  border-radius: 999px;
+}
+
+#projects-circular-gallery .gallery-fallback .pcard {
+  flex: 0 0 clamp(250px, 24vw, 340px);
+  min-height: clamp(260px, 28vw, 340px) !important;
+  scroll-snap-align: start;
 }
 
 .hero h1 {

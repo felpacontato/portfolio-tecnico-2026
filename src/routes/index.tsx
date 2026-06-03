@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { createRoot, type Root } from "react-dom/client";
-import CircularGallery from "@/components/ui/CircularGallery";
+import CyberMatrixBackground from "@/components/CyberMatrixBackground";
 import PortfolioIntro from "@/components/PortfolioIntro";
 
 const GALLERY_ITEMS = [
@@ -814,28 +813,22 @@ export function Index() {
   }, [introDone]);
 
   useEffect(() => {
-    if (!introDone) return;
+    if (!introDone || !window.location.hash) return;
 
-    let root: Root | null = null;
-    let raf = 0;
-    const mount = () => {
-      const el = document.getElementById("projects-circular-react");
-      if (!el) { raf = window.requestAnimationFrame(mount); return; }
-      root = createRoot(el);
-      root.render(
-        <CircularGallery items={GALLERY_ITEMS} />
-      );
-    };
-    mount();
-    return () => {
-      if (raf) cancelAnimationFrame(raf);
-      if (root) { const r = root; setTimeout(() => r.unmount(), 0); }
-    };
+    const id = decodeURIComponent(window.location.hash.slice(1));
+    const frame = window.requestAnimationFrame(() => {
+      document.getElementById(id)?.scrollIntoView({ block: "start" });
+      document.documentElement.scrollLeft = 0;
+      document.body.scrollLeft = 0;
+    });
+
+    return () => window.cancelAnimationFrame(frame);
   }, [introDone]);
 
   return (
     <>
       {!introDone && <PortfolioIntro onDone={() => setIntroDone(true)} />}
+      <CyberMatrixBackground />
       <div suppressHydrationWarning dangerouslySetInnerHTML={{ __html: BODY_HTML }} />
     </>
   );
