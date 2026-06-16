@@ -56,8 +56,9 @@ export default function CircularGallery({ items }: CircularGalleryProps) {
       onPointerUp={endDrag}
       onPointerCancel={endDrag}
       onWheel={(event) => {
+        if (Math.abs(event.deltaX) <= Math.abs(event.deltaY)) return;
         event.preventDefault();
-        setRotation(value => value + event.deltaY * 0.12);
+        setRotation(value => value + event.deltaX * 0.12);
       }}
     >
       <div className="pcg-stage">

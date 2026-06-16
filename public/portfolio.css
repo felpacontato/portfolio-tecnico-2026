@@ -3560,37 +3560,17 @@ main,
 #projects-circular-gallery .gallery-fallback {
   position: relative;
   z-index: 1;
-  display: flex !important;
-  grid-template-columns: none !important;
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
   gap: 16px !important;
   margin: 0 !important;
-  padding: 4px 4px 18px !important;
-  overflow-x: auto;
-  overflow-y: hidden;
-  overscroll-behavior-inline: contain;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(44, 255, 145, 0.5) rgba(255, 255, 255, 0.05);
-}
-
-#projects-circular-gallery .gallery-fallback::-webkit-scrollbar {
-  height: 8px;
-}
-
-#projects-circular-gallery .gallery-fallback::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 999px;
-}
-
-#projects-circular-gallery .gallery-fallback::-webkit-scrollbar-thumb {
-  background: rgba(44, 255, 145, 0.5);
-  border-radius: 999px;
+  padding: 4px !important;
+  overflow: visible;
+  scrollbar-width: auto;
 }
 
 #projects-circular-gallery .gallery-fallback .pcard {
-  flex: 0 0 clamp(250px, 24vw, 340px);
-  min-height: clamp(260px, 28vw, 340px) !important;
-  scroll-snap-align: start;
+  min-height: clamp(238px, 22vw, 320px) !important;
 }
 
 .hero h1 {
@@ -3627,7 +3607,7 @@ main,
 
   #projects-circular-gallery .gallery-fallback {
     display: grid !important;
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
     gap: 16px !important;
   }
 

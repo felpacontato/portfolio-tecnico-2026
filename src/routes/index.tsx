@@ -26,6 +26,13 @@ const GALLERY_ITEMS = [
     tag: "VÍDEO + IA",
   },
   {
+    image: "/assets/cards/cover-lunna.png",
+    text: "Lunna Helena Universe",
+    href: "https://www.lunna-helena-universe.felpamusic.com.br",
+    description: "Cockpit de conteúdo para criadores com login, calendário editorial, editor, inbox IA, analytics e biblioteca.",
+    tag: "CREATOR SAAS + IA",
+  },
+  {
     image: "/assets/cards/cover-billie.png",
     text: "Billie Brain",
     href: "https://www.billie-brain.felpamusic.com.br",
@@ -38,6 +45,13 @@ const GALLERY_ITEMS = [
     href: "https://www.verdant-crm.felpamusic.com.br",
     description: "CRM SaaS com área protegida, pipeline comercial, autenticação e base operacional.",
     tag: "CRM + SAAS",
+  },
+  {
+    image: "/assets/cards/cover-vitaey.png",
+    text: "Vitaey",
+    href: "https://www.vitaey.felpamusic.com.br",
+    description: "Career Signal OS para vagas, currículo, radar, pipeline de candidaturas e confirmação manual.",
+    tag: "CAREER OS + IA",
   },
   {
     image: "/assets/cards/cover-oli.png",
@@ -53,13 +67,6 @@ const GALLERY_ITEMS = [
     description: "CRM completo para gestão de leads, funis, automação e inteligência comercial.",
     tag: "CRM + AUTOMAÇÃO",
   },
-  {
-    image: "/assets/cards/cover-lunna.png",
-    text: "Lunna Helena Universe",
-    href: "https://www.lunna-helena-universe.felpamusic.com.br",
-    description: "Cockpit de conteúdo para criadores com login, calendário editorial, editor, inbox IA, analytics e biblioteca.",
-    tag: "CREATOR SAAS + IA",
-  },
 ];
 
 const BODY_HTML = `
@@ -74,11 +81,12 @@ const BODY_HTML = `
         <a href="#felpamusic">FelpaMusic</a>
         <a href="#vitrinno">Vitrinno</a>
         <a href="#helena">Helena</a>
+        <a href="#lunna-helena">Lunna</a>
         <a href="#billie-brain">Billie Brain</a>
         <a href="#verdant">Verdant</a>
+        <a href="#vitaey">Vitaey</a>
         <a href="#oli">OLI</a>
         <a href="#crm">CRM</a>
-        <a href="#lunna-helena">Lunna</a>
         <a href="#blog">Blog</a>
       </nav>
       <div class="language-switcher" data-language-switcher aria-label="Idioma atual: português">
@@ -169,7 +177,7 @@ const BODY_HTML = `
       <section id="projetos" class="section-shell projects-index" aria-labelledby="projects-title">
         <div class="section-heading reveal">
           <p class="eyebrow">Portfólio de produtos</p>
-          <h2 id="projects-title">Oito produtos que demonstram execução full stack, IA aplicada e automação na prática.</h2>
+          <h2 id="projects-title">Nove produtos que demonstram execução full stack, IA aplicada e automação na prática.</h2>
           <p class="section-intro">Cada projeto nasceu de um problema real, foi pensado de ponta a ponta e entregue com foco em performance, experiência e resultado. Do código à automação, do banco à interface, tudo desenvolvido com precisão e propósito.</p>
         </div>
         <div id="projects-circular-gallery" class="reveal" style="height:640px;position:relative;width:100%;margin-top:32px">
@@ -178,11 +186,12 @@ const BODY_HTML = `
             <a class="pcard" href="https://www.felpamusic.com.br" target="_blank" rel="noopener noreferrer" style="background-image:url('/assets/cards/cover-felpamusic.png')"><span class="pcard-num">01</span><span class="pcard-overlay"><strong>FelpaMusic</strong><small>Áudio, IA e automação</small></span></a>
             <a class="pcard" href="https://www.vitrinno.felpamusic.com.br" target="_blank" rel="noopener noreferrer" style="background-image:url('/assets/cards/cover-vitrinno.png')"><span class="pcard-num">02</span><span class="pcard-overlay"><strong>Vitrinno</strong><small>Rede social musical</small></span></a>
             <a class="pcard" href="https://www.helena-video.felpamusic.com.br" target="_blank" rel="noopener noreferrer" style="background-image:url('/assets/cards/cover-helena.jpeg')"><span class="pcard-num">03</span><span class="pcard-overlay"><strong>Helena Video</strong><small>Studio de vídeo IA</small></span></a>
-            <a class="pcard" href="https://www.billie-brain.felpamusic.com.br" target="_blank" rel="noopener noreferrer" style="background-image:url('/assets/cards/cover-billie.png')"><span class="pcard-num">04</span><span class="pcard-overlay"><strong>Billie Brain</strong><small>AI dev tool</small></span></a>
-            <a class="pcard" href="https://www.verdant-crm.felpamusic.com.br" target="_blank" rel="noopener noreferrer" style="background-image:url('/assets/cards/cover-verdant.png')"><span class="pcard-num">05</span><span class="pcard-overlay"><strong>Verdant CRM</strong><small>CRM SaaS protegido</small></span></a>
-            <a class="pcard" href="https://www.olilocacao.com.br" target="_blank" rel="noopener noreferrer" style="background-image:url('/assets/cards/cover-oli.png')"><span class="pcard-num">06</span><span class="pcard-overlay"><strong>OLI Locações</strong><small>Locação e operação</small></span></a>
-            <a class="pcard" href="#crm" style="background-image:url('/assets/cards/cover-crm.png')"><span class="pcard-num">07</span><span class="pcard-overlay"><strong>CRM Total Tour</strong><small>Automação comercial</small></span></a>
-            <a class="pcard" href="https://www.lunna-helena-universe.felpamusic.com.br" target="_blank" rel="noopener noreferrer" style="background-image:url('/assets/cards/cover-lunna.png')"><span class="pcard-num">08</span><span class="pcard-overlay"><strong>Lunna Helena Universe</strong><small>Creator SaaS + IA</small></span></a>
+            <a class="pcard" href="https://www.lunna-helena-universe.felpamusic.com.br" target="_blank" rel="noopener noreferrer" style="background-image:url('/assets/cards/cover-lunna.png')"><span class="pcard-num">04</span><span class="pcard-overlay"><strong>Lunna Helena Universe</strong><small>Creator SaaS + IA</small></span></a>
+            <a class="pcard" href="https://www.billie-brain.felpamusic.com.br" target="_blank" rel="noopener noreferrer" style="background-image:url('/assets/cards/cover-billie.png')"><span class="pcard-num">05</span><span class="pcard-overlay"><strong>Billie Brain</strong><small>AI dev tool</small></span></a>
+            <a class="pcard" href="https://www.verdant-crm.felpamusic.com.br" target="_blank" rel="noopener noreferrer" style="background-image:url('/assets/cards/cover-verdant.png')"><span class="pcard-num">06</span><span class="pcard-overlay"><strong>Verdant CRM</strong><small>CRM SaaS protegido</small></span></a>
+            <a class="pcard" href="https://www.vitaey.felpamusic.com.br" target="_blank" rel="noopener noreferrer" style="background-image:url('/assets/cards/cover-vitaey.png')"><span class="pcard-num">07</span><span class="pcard-overlay"><strong>Vitaey</strong><small>Career Signal OS</small></span></a>
+            <a class="pcard" href="https://www.olilocacao.com.br" target="_blank" rel="noopener noreferrer" style="background-image:url('/assets/cards/cover-oli.png')"><span class="pcard-num">08</span><span class="pcard-overlay"><strong>OLI Locações</strong><small>Locação e operação</small></span></a>
+            <a class="pcard" href="#crm" style="background-image:url('/assets/cards/cover-crm.png')"><span class="pcard-num">09</span><span class="pcard-overlay"><strong>CRM Total Tour</strong><small>Automação comercial</small></span></a>
           </div>
         </div>
       </section>
@@ -253,7 +262,7 @@ const BODY_HTML = `
           </div>
 
           <div class="project-media reveal">
-            <img class="media-main" src="/assets/portfolio/felpamusic/screen-01.png" alt="Tela principal do FelpaMusic">
+            <img class="media-main" src="/assets/portfolio/felpamusic/screen-01.gif" alt="Tela principal do FelpaMusic">
             <div class="media-grid">
               <button class="media-thumb" data-lightbox="/assets/portfolio/felpamusic/screen-03.png" aria-label="Abrir print de projetos FelpaMusic">
                 <img src="/assets/portfolio/felpamusic/screen-03.png" alt="Tela de projetos do FelpaMusic">
@@ -278,7 +287,7 @@ const BODY_HTML = `
       <article id="vitrinno" class="project-section">
         <div class="section-shell project-layout reverse">
           <div class="project-media reveal">
-            <img class="media-main" src="/assets/portfolio/vitrinno/screen-01.png" alt="Home do Vitrinno">
+            <img class="media-main" src="/assets/portfolio/vitrinno/screen-01.gif" alt="Home do Vitrinno">
             <div class="media-grid">
               <button class="media-thumb" data-lightbox="/assets/portfolio/vitrinno/screen-03.png" aria-label="Abrir feed do Vitrinno">
                 <img src="/assets/portfolio/vitrinno/screen-03.png" alt="Feed do Vitrinno">
@@ -330,7 +339,7 @@ const BODY_HTML = `
       <article id="helena" class="project-section">
         <div class="section-shell project-layout reverse">
           <div class="project-media reveal">
-            <img class="media-main" src="/assets/portfolio/helena/screen-01.png" alt="Studio Helena Video">
+            <img class="media-main" src="/assets/portfolio/helena/screen-01.gif" alt="Studio Helena Video">
             <div class="media-grid">
               <button class="media-thumb" data-lightbox="/assets/portfolio/helena/screen-02.png" aria-label="Abrir legendas Helena Video">
                 <img src="/assets/portfolio/helena/screen-02.png" alt="Legendas no Helena Video">
@@ -381,211 +390,10 @@ const BODY_HTML = `
         </div>
       </article>
 
-      <article id="billie-brain" class="project-section">
-        <div class="section-shell project-layout">
-          <div class="project-copy reveal">
-            <p class="project-number">04 / Billie Brain</p>
-            <h2>Assistente de engenharia com chat, Studio visual, uso, wallet e integrações.</h2>
-            <p class="project-lead">
-              Billie Brain é um produto de agente para desenvolvimento de software, com uma experiência pública, área autenticada, Codex Chat, Billie Studio, conectores, usage, wallet, billing e configurações de workspace. O foco foi transformar uma ideia de assistente técnico em uma interface de produto com fluxo real de conta, métricas e estados honestos para recursos que dependem de provedores externos.
-            </p>
-            <div class="proof-grid" aria-label="Resumo executivo Billie Brain">
-              <div><span>Papel</span><p>Arquitetura de produto, UI, rotas, integração Supabase, chat, billing states, Studio e QA visual.</p></div>
-              <div><span>Decisão técnica</span><p>Separar página pública, app autenticado e Studio visual para não misturar marketing, operação e preview/editor.</p></div>
-              <div><span>Resultado</span><p>Base SaaS para um agente de engenharia, com telas de produto, fluxo protegido e integração preparada para Edge Functions, wallet e conectores.</p></div>
-            </div>
-            <div class="detail-block">
-              <h3>Escopo implementado</h3>
-              <ul class="check-list">
-                <li><strong>Codex Chat:</strong> interface de conversas, composer, histórico e integração planejada com streaming/Edge Function.</li>
-                <li><strong>Billie Studio:</strong> página de preview/editor visual no estilo Lovable, com URL carregável, referências, snapshots locais e viewports.</li>
-                <li><strong>Conta e operação:</strong> dashboard, connectors, usage, wallet, billing, account e settings com estados de configuração externa claros.</li>
-                <li><strong>Produto público:</strong> landing, pricing, about, changelog e documentos legais para apresentação e conversão.</li>
-              </ul>
-            </div>
-            <div class="stack-groups">
-              <div><span>Frontend</span><p>React, Vite/TanStack, TypeScript e UI responsiva orientada a developer tools.</p></div>
-              <div><span>Dados/Auth</span><p>Supabase Auth, profiles, conversas, usage, wallet e settings.</p></div>
-              <div><span>IA</span><p>Chat agente, roteamento de modelos, Edge Function e fallback honesto quando provider não está configurado.</p></div>
-              <div><span>Link real</span><p><a href="https://www.billie-brain.felpamusic.com.br" target="_blank" rel="noopener noreferrer">www.billie-brain.felpamusic.com.br</a></p></div>
-            </div>
-          </div>
-          <div class="project-media reveal">
-            <img class="media-main" src="/assets/portfolio/billie-brain/screen-01.png" alt="Landing page do Billie Brain">
-            <div class="media-grid">
-              <button class="media-thumb" data-lightbox="/assets/portfolio/billie-brain/screen-02.png" aria-label="Abrir Billie Studio">
-                <img src="/assets/portfolio/billie-brain/screen-02.png" alt="Billie Studio visual">
-              </button>
-              <button class="media-thumb" data-lightbox="/assets/portfolio/billie-brain/screen-03.png" aria-label="Abrir Codex Chat Billie Brain">
-                <img src="/assets/portfolio/billie-brain/screen-03.png" alt="Codex Chat do Billie Brain">
-              </button>
-              <button class="media-thumb" data-lightbox="/assets/portfolio/billie-brain/screen-04.png" aria-label="Abrir conectores Billie Brain">
-                <img src="/assets/portfolio/billie-brain/screen-04.png" alt="Connectors do Billie Brain">
-              </button>
-              <button class="media-thumb" data-lightbox="/assets/portfolio/billie-brain/screen-05.png" aria-label="Abrir wallet Billie Brain">
-                <img src="/assets/portfolio/billie-brain/screen-05.png" alt="Wallet do Billie Brain">
-              </button>
-              <button class="media-thumb" data-lightbox="/assets/portfolio/billie-brain/screen-06.png" aria-label="Abrir settings Billie Brain">
-                <img src="/assets/portfolio/billie-brain/screen-06.png" alt="Settings do Billie Brain">
-              </button>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <article id="verdant" class="project-section">
-        <div class="section-shell project-layout reverse">
-          <div class="project-media reveal">
-            <img class="media-main" src="/assets/portfolio/verdant/screen-01.png" alt="Login e acesso do Verdant CRM">
-            <div class="media-grid">
-              <button class="media-thumb" data-lightbox="/assets/portfolio/verdant/screen-02.png" aria-label="Abrir dashboard protegido Verdant CRM">
-                <img src="/assets/portfolio/verdant/screen-02.png" alt="Dashboard do Verdant CRM">
-              </button>
-              <button class="media-thumb" data-lightbox="/assets/portfolio/verdant/screen-03.png" aria-label="Abrir leads protegidos Verdant CRM">
-                <img src="/assets/portfolio/verdant/screen-03.png" alt="Kanban de leads do Verdant CRM">
-              </button>
-              <button class="media-thumb" data-lightbox="/assets/portfolio/verdant/screen-04.png" aria-label="Abrir inbox Verdant CRM">
-                <img src="/assets/portfolio/verdant/screen-04.png" alt="Inbox do Verdant CRM">
-              </button>
-              <button class="media-thumb" data-lightbox="/assets/portfolio/verdant/screen-05.png" aria-label="Abrir automações Verdant CRM">
-                <img src="/assets/portfolio/verdant/screen-05.png" alt="Automações do Verdant CRM">
-              </button>
-              <button class="media-thumb" data-lightbox="/assets/portfolio/verdant/screen-06.png" aria-label="Abrir agentes IA Verdant CRM">
-                <img src="/assets/portfolio/verdant/screen-06.png" alt="Agentes IA do Verdant CRM">
-              </button>
-            </div>
-          </div>
-          <div class="project-copy reveal">
-            <p class="project-number">05 / Verdant CRM</p>
-            <h2>CRM SaaS protegido para pipeline comercial, leads e operação de atendimento.</h2>
-            <p class="project-lead">
-              Verdant CRM é uma aplicação SaaS de CRM com rotas protegidas, autenticação e base para gestão de pipeline, leads, dashboard e configurações. Na auditoria pública, as rotas internas redirecionam para login, então o portfolio mostra o produto de forma honesta: foco em arquitetura, autenticação, proteção de área interna e fluxo de acesso.
-            </p>
-            <div class="proof-grid" aria-label="Resumo executivo Verdant CRM">
-              <div><span>Papel</span><p>Produto, front-end, autenticação, rotas protegidas, deploy e organização da base SaaS.</p></div>
-              <div><span>Decisão técnica</span><p>Proteger dashboard, leads e operação atrás de login em vez de expor dados ou telas internas publicamente.</p></div>
-              <div><span>Resultado</span><p>CRM publicado com domínio próprio, fluxo de acesso e estrutura preparada para evoluir pipeline e automações comerciais.</p></div>
-            </div>
-            <div class="detail-block">
-              <h3>Escopo do produto</h3>
-              <ul class="check-list">
-                <li><strong>Autenticação:</strong> login como porta de entrada e redirecionamento seguro das áreas internas.</li>
-                <li><strong>Pipeline e leads:</strong> estrutura de rotas para gestão comercial sem expor informação sensível fora da sessão.</li>
-                <li><strong>Operação SaaS:</strong> base para dashboard, configurações, usuários e evolução de workflows comerciais.</li>
-                <li><strong>Disponibilidade pública:</strong> domínio próprio verificado em HTTPS, com áreas privadas protegidas.</li>
-              </ul>
-            </div>
-            <div class="stack-groups">
-              <div><span>Frontend</span><p>React/TypeScript, UI de SaaS e rotas responsivas.</p></div>
-              <div><span>Produto</span><p>Dashboard, leads, pipeline e configurações como módulos protegidos.</p></div>
-              <div><span>Segurança</span><p>Rotas internas redirecionam para login quando não há sessão.</p></div>
-              <div><span>Link real</span><p><a href="https://www.verdant-crm.felpamusic.com.br" target="_blank" rel="noopener noreferrer">www.verdant-crm.felpamusic.com.br</a></p></div>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <article id="oli" class="project-section">
-        <div class="section-shell project-layout">
-          <div class="project-copy reveal">
-            <p class="project-number">06 / OLI Locações</p>
-            <h2>Marketplace de locação com fluxos para motorista, locador e operação.</h2>
-            <p class="project-lead">
-              OLI Locações organiza a jornada de aluguel de veículos entre motoristas, locadores e operação. Modelei os fluxos principais, integrei Supabase e n8n, implementei caução via Asaas e defini fronteiras entre web e app mobile para permitir evolução independente.
-            </p>
-            <div class="proof-grid" aria-label="Resumo executivo OLI Locações">
-              <div><span>Papel</span><p>Análise de arquitetura, integração Supabase/n8n, fluxo de caução e direção mobile separada.</p></div>
-              <div><span>Decisão técnica</span><p>Criar workflows isolados para pagamentos e callbacks, em vez de alterar fluxos ativos sem validação.</p></div>
-              <div><span>Resultado</span><p>Jornadas mais claras, integrações mais seguras e uma base preparada para expansão mobile sem comprometer o produto web.</p></div>
-            </div>
-            <div class="detail-block">
-              <h3>Jornadas e automações</h3>
-              <ul class="check-list">
-                <li><strong>Fluxos de reserva e perfis:</strong> busca, filtros, pré-reserva, reserva e áreas de usuário (perfil, veículos, mensagens e histórico).</li>
-                <li><strong>Segurança e automações:</strong> Supabase + Edge Functions como gateway seguro; workflows n8n isolados para caução via Asaas, com criação da cobrança, callback de status e liberação manual.</li>
-                <li><strong>Estratégia mobile:</strong> aplicação Expo/React Native separada do web para evoluir de forma independente.</li>
-              </ul>
-            </div>
-            <div class="stack-groups">
-              <div><span>Frontend/Mobile</span><p>React, Vite, Tailwind, shadcn e aplicação Expo/React Native separada do web.</p></div>
-              <div><span>Backend &amp; Banco</span><p>Supabase, Edge Functions e webhook proxy.</p></div>
-              <div><span>Automação/Pagamentos</span><p>n8n, Asaas, Serasa/DataValid, Clicksign, Serasa e callbacks de pagamento.</p></div>
-              <div><span>Link real</span><p><a href="https://www.olilocacao.com.br" target="_blank" rel="noopener noreferrer">www.olilocacao.com.br</a></p></div>
-            </div>
-          </div>
-          <div class="project-media reveal">
-            <img class="media-main" src="/assets/portfolio/oli/screen-07.png" alt="Home do OLI Locações">
-            <div class="media-grid">
-              <button class="media-thumb" data-lightbox="/assets/portfolio/oli/screen-02.png" aria-label="Abrir busca OLI">
-                <img src="/assets/portfolio/oli/screen-02.png" alt="Busca de veículos no OLI">
-              </button>
-              <button class="media-thumb" data-lightbox="/assets/portfolio/oli/screen-18.png" aria-label="Abrir reserva motorista OLI">
-                <img src="/assets/portfolio/oli/screen-18.png" alt="Reserva motorista no OLI">
-              </button>
-              <button class="media-thumb" data-lightbox="/assets/portfolio/oli/screen-17.png" aria-label="Abrir reserva locador OLI">
-                <img src="/assets/portfolio/oli/screen-17.png" alt="Reserva locador no OLI">
-              </button>
-              <button class="media-thumb" data-lightbox="/assets/portfolio/oli/screen-09.png" aria-label="Abrir veiculos OLI">
-                <img src="/assets/portfolio/oli/screen-09.png" alt="Meus veículos no OLI">
-              </button>
-              <button class="media-thumb" data-lightbox="/assets/portfolio/oli/screen-14.png" aria-label="Abrir perfil OLI">
-                <img src="/assets/portfolio/oli/screen-14.png" alt="Perfil no OLI">
-              </button>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <article id="crm" class="project-section">
-        <div class="section-shell project-layout">
-          <div class="project-copy reveal">
-            <p class="project-number">07 / CRM Total Tour</p>
-            <h2>Automação comercial com IA para qualificação e gestão de leads.</h2>
-            <p class="project-lead">
-              O CRM Total Tour automatiza o funil comercial usando Kommo, n8n, Redis e agentes de IA. O sistema consolida conversas, interpreta contexto, atualiza leads e auxilia na tomada de decisão comercial, reduzindo trabalho manual e aumentando a rastreabilidade.
-            </p>
-            <div class="proof-grid" aria-label="Resumo executivo CRM Total Tour">
-              <div><span>Papel</span><p>Diagnóstico de workflow, testes E2E, correção de payloads e validação node por node.</p></div>
-              <div><span>Decisão técnica</span><p>Consolidar contexto antes do agente para evitar análise prematura de mensagens fragmentadas.</p></div>
-              <div><span>Resultado</span><p>Automação auditável que entrega leads qualificados e atualizações de funil em tempo real, melhorando a eficiência da equipe comercial.</p></div>
-            </div>
-            <div class="detail-block">
-              <h3>Processos implementados</h3>
-              <ul class="check-list">
-                <li><strong>Mensagens &amp; Contexto:</strong> entrada inbound/outbound via webhooks, identificação de lead, canal e histórico; buffer Redis com janela de espera para consolidar mensagens antes de análise.</li>
-                <li><strong>Atualização de leads:</strong> consulta e atualização de campos customizados como resumo, orçamento, passageiros, destino e status; criação de tarefas.</li>
-                <li><strong>Agente de IA &amp; QA:</strong> classificação de intenção, síntese de contexto, apoio à movimentação no funil e testes E2E em n8n (nodes, erros de API e limites de modelo).</li>
-              </ul>
-            </div>
-            <div class="stack-groups">
-              <div><span>CRM</span><p>Kommo API, pipelines, leads, eventos e campos customizados.</p></div>
-              <div><span>Automação</span><p>n8n, webhooks, Redis buffer, HTTP requests e controle de execução.</p></div>
-              <div><span>IA</span><p>OpenAI/LangChain agent para contexto comercial e decisão de etapa.</p></div>
-              <div><span>Segurança</span><p>Dados de clientes redigidos; o portfolio mostra arquitetura, não informação privada.</p></div>
-            </div>
-          </div>
-          <div class="project-media reveal crm-gallery">
-            <img class="media-main" src="/assets/portfolio/crm/screen-01.png" alt="Painel do CRM Total Tour">
-            <div class="media-grid">
-              <button class="media-thumb" data-lightbox="/assets/portfolio/crm/screen-02.png" aria-label="Abrir funil CRM Total Tour">
-                <img src="/assets/portfolio/crm/screen-02.png" alt="Funil do CRM Total Tour">
-              </button>
-              <button class="media-thumb" data-lightbox="/assets/portfolio/crm/screen-03.png" aria-label="Abrir automacao CRM Total Tour">
-                <img src="/assets/portfolio/crm/screen-03.png" alt="Automação do CRM Total Tour">
-              </button>
-              <button class="media-thumb" data-lightbox="/assets/portfolio/crm/screen-04.png" aria-label="Abrir atendimento CRM Total Tour">
-                <img src="/assets/portfolio/crm/screen-04.png" alt="Atendimento do CRM Total Tour">
-              </button>
-            </div>
-            <p>Visual seguro: dados de clientes e leads removidos.</p>
-          </div>
-        </div>
-      </article>
-
       <article id="lunna-helena" class="project-section">
         <div class="section-shell project-layout reverse">
           <div class="project-media reveal">
-            <img class="media-main" src="/assets/portfolio/lunna/screen-02.png" alt="Dashboard do Lunna Helena Universe">
+            <img class="media-main" src="/assets/portfolio/lunna/screen-02.gif" alt="Dashboard do Lunna Helena Universe">
             <div class="media-grid">
               <button class="media-thumb" data-lightbox="/assets/portfolio/lunna/screen-01.png" aria-label="Abrir login do Lunna Helena Universe">
                 <img src="/assets/portfolio/lunna/screen-01.png" alt="Login do Lunna Helena Universe">
@@ -605,7 +413,7 @@ const BODY_HTML = `
             </div>
           </div>
           <div class="project-copy reveal">
-            <p class="project-number">08 / Lunna Helena Universe</p>
+            <p class="project-number">04 / Lunna Helena Universe</p>
             <h2>Cockpit de criadores com calendario editorial, editor, inbox IA, analytics e biblioteca.</h2>
             <p class="project-lead">
               Lunna Helena Universe é um SaaS para criadores e marcas organizarem produção de conteúdo com login real, estado por usuário, calendário editorial, editor visual, inbox assistida por IA, analytics e biblioteca de mídias. A prioridade do projeto foi transformar uma interface bonita em produto utilizável, separando claramente o que funciona localmente do que depende de OAuth social e APIs externas.
@@ -634,7 +442,258 @@ const BODY_HTML = `
         </div>
       </article>
 
-      <section id="apis" class="section-shell api-section" aria-labelledby="apis-title">
+      <article id="billie-brain" class="project-section">
+        <div class="section-shell project-layout">
+          <div class="project-copy reveal">
+            <p class="project-number">05 / Billie Brain</p>
+            <h2>Assistente de engenharia com chat, Studio visual, uso, wallet e integrações.</h2>
+            <p class="project-lead">
+              Billie Brain é um produto de agente para desenvolvimento de software, com uma experiência pública, área autenticada, Codex Chat, Billie Studio, conectores, usage, wallet, billing e configurações de workspace. O foco foi transformar uma ideia de assistente técnico em uma interface de produto com fluxo real de conta, métricas e estados honestos para recursos que dependem de provedores externos.
+            </p>
+            <div class="proof-grid" aria-label="Resumo executivo Billie Brain">
+              <div><span>Papel</span><p>Arquitetura de produto, UI, rotas, integração Supabase, chat, billing states, Studio e QA visual.</p></div>
+              <div><span>Decisão técnica</span><p>Separar página pública, app autenticado e Studio visual para não misturar marketing, operação e preview/editor.</p></div>
+              <div><span>Resultado</span><p>Base SaaS para um agente de engenharia, com telas de produto, fluxo protegido e integração preparada para Edge Functions, wallet e conectores.</p></div>
+            </div>
+            <div class="detail-block">
+              <h3>Escopo implementado</h3>
+              <ul class="check-list">
+                <li><strong>Codex Chat:</strong> interface de conversas, composer, histórico e integração planejada com streaming/Edge Function.</li>
+                <li><strong>Billie Studio:</strong> página de preview/editor visual no estilo Lovable, com URL carregável, referências, snapshots locais e viewports.</li>
+                <li><strong>Conta e operação:</strong> dashboard, connectors, usage, wallet, billing, account e settings com estados de configuração externa claros.</li>
+                <li><strong>Produto público:</strong> landing, pricing, about, changelog e documentos legais para apresentação e conversão.</li>
+              </ul>
+            </div>
+            <div class="stack-groups">
+              <div><span>Frontend</span><p>React, Vite/TanStack, TypeScript e UI responsiva orientada a developer tools.</p></div>
+              <div><span>Dados/Auth</span><p>Supabase Auth, profiles, conversas, usage, wallet e settings.</p></div>
+              <div><span>IA</span><p>Chat agente, roteamento de modelos, Edge Function e fallback honesto quando provider não está configurado.</p></div>
+              <div><span>Link real</span><p><a href="https://www.billie-brain.felpamusic.com.br" target="_blank" rel="noopener noreferrer">www.billie-brain.felpamusic.com.br</a></p></div>
+            </div>
+          </div>
+          <div class="project-media reveal">
+            <img class="media-main" src="/assets/portfolio/billie-brain/screen-01.gif" alt="Landing page do Billie Brain">
+            <div class="media-grid">
+              <button class="media-thumb" data-lightbox="/assets/portfolio/billie-brain/screen-02.png" aria-label="Abrir Billie Studio">
+                <img src="/assets/portfolio/billie-brain/screen-02.png" alt="Billie Studio visual">
+              </button>
+              <button class="media-thumb" data-lightbox="/assets/portfolio/billie-brain/screen-03.png" aria-label="Abrir Codex Chat Billie Brain">
+                <img src="/assets/portfolio/billie-brain/screen-03.png" alt="Codex Chat do Billie Brain">
+              </button>
+              <button class="media-thumb" data-lightbox="/assets/portfolio/billie-brain/screen-04.png" aria-label="Abrir conectores Billie Brain">
+                <img src="/assets/portfolio/billie-brain/screen-04.png" alt="Connectors do Billie Brain">
+              </button>
+              <button class="media-thumb" data-lightbox="/assets/portfolio/billie-brain/screen-05.png" aria-label="Abrir wallet Billie Brain">
+                <img src="/assets/portfolio/billie-brain/screen-05.png" alt="Wallet do Billie Brain">
+              </button>
+              <button class="media-thumb" data-lightbox="/assets/portfolio/billie-brain/screen-06.png" aria-label="Abrir settings Billie Brain">
+                <img src="/assets/portfolio/billie-brain/screen-06.png" alt="Settings do Billie Brain">
+              </button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article id="verdant" class="project-section">
+        <div class="section-shell project-layout reverse">
+          <div class="project-media reveal">
+            <img class="media-main" src="/assets/portfolio/verdant/screen-01.gif" alt="Login e acesso do Verdant CRM">
+            <div class="media-grid">
+              <button class="media-thumb" data-lightbox="/assets/portfolio/verdant/screen-02.png" aria-label="Abrir dashboard protegido Verdant CRM">
+                <img src="/assets/portfolio/verdant/screen-02.png" alt="Dashboard do Verdant CRM">
+              </button>
+              <button class="media-thumb" data-lightbox="/assets/portfolio/verdant/screen-03.png" aria-label="Abrir leads protegidos Verdant CRM">
+                <img src="/assets/portfolio/verdant/screen-03.png" alt="Kanban de leads do Verdant CRM">
+              </button>
+              <button class="media-thumb" data-lightbox="/assets/portfolio/verdant/screen-04.png" aria-label="Abrir inbox Verdant CRM">
+                <img src="/assets/portfolio/verdant/screen-04.png" alt="Inbox do Verdant CRM">
+              </button>
+              <button class="media-thumb" data-lightbox="/assets/portfolio/verdant/screen-05.png" aria-label="Abrir automações Verdant CRM">
+                <img src="/assets/portfolio/verdant/screen-05.png" alt="Automações do Verdant CRM">
+              </button>
+              <button class="media-thumb" data-lightbox="/assets/portfolio/verdant/screen-06.png" aria-label="Abrir agentes IA Verdant CRM">
+                <img src="/assets/portfolio/verdant/screen-06.png" alt="Agentes IA do Verdant CRM">
+              </button>
+            </div>
+          </div>
+          <div class="project-copy reveal">
+            <p class="project-number">06 / Verdant CRM</p>
+            <h2>CRM SaaS protegido para pipeline comercial, leads e operação de atendimento.</h2>
+            <p class="project-lead">
+              Verdant CRM é uma aplicação SaaS de CRM com rotas protegidas, autenticação e base para gestão de pipeline, leads, dashboard e configurações. Na auditoria pública, as rotas internas redirecionam para login, então o portfolio mostra o produto de forma honesta: foco em arquitetura, autenticação, proteção de área interna e fluxo de acesso.
+            </p>
+            <div class="proof-grid" aria-label="Resumo executivo Verdant CRM">
+              <div><span>Papel</span><p>Produto, front-end, autenticação, rotas protegidas, deploy e organização da base SaaS.</p></div>
+              <div><span>Decisão técnica</span><p>Proteger dashboard, leads e operação atrás de login em vez de expor dados ou telas internas publicamente.</p></div>
+              <div><span>Resultado</span><p>CRM publicado com domínio próprio, fluxo de acesso e estrutura preparada para evoluir pipeline e automações comerciais.</p></div>
+            </div>
+            <div class="detail-block">
+              <h3>Escopo do produto</h3>
+              <ul class="check-list">
+                <li><strong>Autenticação:</strong> login como porta de entrada e redirecionamento seguro das áreas internas.</li>
+                <li><strong>Pipeline e leads:</strong> estrutura de rotas para gestão comercial sem expor informação sensível fora da sessão.</li>
+                <li><strong>Operação SaaS:</strong> base para dashboard, configurações, usuários e evolução de workflows comerciais.</li>
+                <li><strong>Disponibilidade pública:</strong> domínio próprio verificado em HTTPS, com áreas privadas protegidas.</li>
+              </ul>
+            </div>
+            <div class="stack-groups">
+              <div><span>Frontend</span><p>React/TypeScript, UI de SaaS e rotas responsivas.</p></div>
+              <div><span>Produto</span><p>Dashboard, leads, pipeline e configurações como módulos protegidos.</p></div>
+              <div><span>Segurança</span><p>Rotas internas redirecionam para login quando não há sessão.</p></div>
+              <div><span>Link real</span><p><a href="https://www.verdant-crm.felpamusic.com.br" target="_blank" rel="noopener noreferrer">www.verdant-crm.felpamusic.com.br</a></p></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article id="vitaey" class="project-section">
+        <div class="section-shell project-layout">
+          <div class="project-copy reveal">
+            <p class="project-number">07 / Vitaey</p>
+            <h2>Career Signal OS com radar de vagas, currículo, pipeline e revisão manual.</h2>
+            <p class="project-lead">
+              Vitaey é uma plataforma de busca e organização de oportunidades para profissionais brasileiros. O produto combina perfil, currículo, radar de vagas, matching, integrações e pipeline de candidaturas, sempre com confirmação manual antes de qualquer envio.
+            </p>
+            <div class="proof-grid" aria-label="Resumo executivo Vitaey">
+              <div><span>Papel</span><p>Arquitetura do produto, UI do front, contrato de API, fluxos de confirmação e validação visual.</p></div>
+              <div><span>Decisão técnica</span><p>Tratar automação de carreira como assistente revisado pelo usuário, não como bot autônomo de aplicação em massa.</p></div>
+              <div><span>Resultado</span><p>Base publicada para calibrar currículo, organizar oportunidades e acompanhar candidaturas com controle explícito do usuário.</p></div>
+            </div>
+            <div class="detail-block">
+              <h3>Escopo implementado</h3>
+              <ul class="check-list">
+                <li><strong>Radar de vagas:</strong> área para oportunidades, filtros, ranking e seleção de vagas compatíveis.</li>
+                <li><strong>Currículo e perfil:</strong> captura de preferências, dados profissionais e preparação de materiais para aplicação.</li>
+                <li><strong>Pipeline:</strong> acompanhamento de candidaturas por etapa, com estados claros e revisão antes de envio.</li>
+                <li><strong>Integrações:</strong> desenho para fontes externas, OAuth e adaptadores sem hardcode de provedores no front.</li>
+              </ul>
+            </div>
+            <div class="stack-groups">
+              <div><span>Frontend</span><p>React, Vite, TypeScript, GSAP, Three.js e interface responsiva em português.</p></div>
+              <div><span>Backend</span><p>API Python preparada para scoring, extração de perfil, recomendações e rastreamento de candidaturas.</p></div>
+              <div><span>Produto</span><p>Vagas, currículo, radar, pipeline, integrações, perfil e confirmação manual.</p></div>
+              <div><span>Link real</span><p><a href="https://www.vitaey.felpamusic.com.br" target="_blank" rel="noopener noreferrer">www.vitaey.felpamusic.com.br</a></p></div>
+            </div>
+          </div>
+          <div class="project-media reveal">
+            <img class="media-main" src="/assets/portfolio/vitaey/screen-01.gif" alt="Home do Vitaey">
+            <div class="media-grid">
+              <button class="media-thumb" data-lightbox="/assets/portfolio/vitaey/screen-02.png" aria-label="Abrir currículo Vitaey">
+                <img src="/assets/portfolio/vitaey/screen-02.png" alt="Currículo e preferências do Vitaey">
+              </button>
+              <button class="media-thumb" data-lightbox="/assets/portfolio/vitaey/screen-03.png" aria-label="Abrir radar Vitaey">
+                <img src="/assets/portfolio/vitaey/screen-03.png" alt="Radar de vagas do Vitaey">
+              </button>
+              <button class="media-thumb" data-lightbox="/assets/portfolio/vitaey/screen-04.png" aria-label="Abrir pipeline Vitaey">
+                <img src="/assets/portfolio/vitaey/screen-04.png" alt="Pipeline de candidaturas do Vitaey">
+              </button>
+              <button class="media-thumb" data-lightbox="/assets/portfolio/vitaey/screen-05.png" aria-label="Abrir integrações Vitaey">
+                <img src="/assets/portfolio/vitaey/screen-05.png" alt="Integrações do Vitaey">
+              </button>
+              <button class="media-thumb" data-lightbox="/assets/portfolio/vitaey/screen-06.png" aria-label="Abrir perfil Vitaey">
+                <img src="/assets/portfolio/vitaey/screen-06.png" alt="Perfil de matching do Vitaey">
+              </button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article id="oli" class="project-section">
+        <div class="section-shell project-layout">
+          <div class="project-copy reveal">
+            <p class="project-number">08 / OLI Locações</p>
+            <h2>Marketplace de locação com fluxos para motorista, locador e operação.</h2>
+            <p class="project-lead">
+              OLI Locações organiza a jornada de aluguel de veículos entre motoristas, locadores e operação. Modelei os fluxos principais, integrei Supabase e n8n, implementei caução via Asaas e defini fronteiras entre web e app mobile para permitir evolução independente.
+            </p>
+            <div class="proof-grid" aria-label="Resumo executivo OLI Locações">
+              <div><span>Papel</span><p>Análise de arquitetura, integração Supabase/n8n, fluxo de caução e direção mobile separada.</p></div>
+              <div><span>Decisão técnica</span><p>Criar workflows isolados para pagamentos e callbacks, em vez de alterar fluxos ativos sem validação.</p></div>
+              <div><span>Resultado</span><p>Jornadas mais claras, integrações mais seguras e uma base preparada para expansão mobile sem comprometer o produto web.</p></div>
+            </div>
+            <div class="detail-block">
+              <h3>Jornadas e automações</h3>
+              <ul class="check-list">
+                <li><strong>Fluxos de reserva e perfis:</strong> busca, filtros, pré-reserva, reserva e áreas de usuário (perfil, veículos, mensagens e histórico).</li>
+                <li><strong>Segurança e automações:</strong> Supabase + Edge Functions como gateway seguro; workflows n8n isolados para caução via Asaas, com criação da cobrança, callback de status e liberação manual.</li>
+                <li><strong>Estratégia mobile:</strong> aplicação Expo/React Native separada do web para evoluir de forma independente.</li>
+              </ul>
+            </div>
+            <div class="stack-groups">
+              <div><span>Frontend/Mobile</span><p>React, Vite, Tailwind, shadcn e aplicação Expo/React Native separada do web.</p></div>
+              <div><span>Backend &amp; Banco</span><p>Supabase, Edge Functions e webhook proxy.</p></div>
+              <div><span>Automação/Pagamentos</span><p>n8n, Asaas, Serasa/DataValid, Clicksign, Serasa e callbacks de pagamento.</p></div>
+              <div><span>Link real</span><p><a href="https://www.olilocacao.com.br" target="_blank" rel="noopener noreferrer">www.olilocacao.com.br</a></p></div>
+            </div>
+          </div>
+          <div class="project-media reveal">
+            <img class="media-main" src="/assets/portfolio/oli/screen-07.gif" alt="Home do OLI Locações">
+            <div class="media-grid">
+              <button class="media-thumb" data-lightbox="/assets/portfolio/oli/screen-02.png" aria-label="Abrir busca OLI">
+                <img src="/assets/portfolio/oli/screen-02.png" alt="Busca de veículos no OLI">
+              </button>
+              <button class="media-thumb" data-lightbox="/assets/portfolio/oli/screen-18.png" aria-label="Abrir reserva motorista OLI">
+                <img src="/assets/portfolio/oli/screen-18.png" alt="Reserva motorista no OLI">
+              </button>
+              <button class="media-thumb" data-lightbox="/assets/portfolio/oli/screen-17.png" aria-label="Abrir reserva locador OLI">
+                <img src="/assets/portfolio/oli/screen-17.png" alt="Reserva locador no OLI">
+              </button>
+              <button class="media-thumb" data-lightbox="/assets/portfolio/oli/screen-09.png" aria-label="Abrir veiculos OLI">
+                <img src="/assets/portfolio/oli/screen-09.png" alt="Meus veículos no OLI">
+              </button>
+              <button class="media-thumb" data-lightbox="/assets/portfolio/oli/screen-14.png" aria-label="Abrir perfil OLI">
+                <img src="/assets/portfolio/oli/screen-14.png" alt="Perfil no OLI">
+              </button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article id="crm" class="project-section">
+        <div class="section-shell project-layout">
+          <div class="project-copy reveal">
+            <p class="project-number">09 / CRM Total Tour</p>
+            <h2>Automação comercial com IA para qualificação e gestão de leads.</h2>
+            <p class="project-lead">
+              O CRM Total Tour automatiza o funil comercial usando Kommo, n8n, Redis e agentes de IA. O sistema consolida conversas, interpreta contexto, atualiza leads e auxilia na tomada de decisão comercial, reduzindo trabalho manual e aumentando a rastreabilidade.
+            </p>
+            <div class="proof-grid" aria-label="Resumo executivo CRM Total Tour">
+              <div><span>Papel</span><p>Diagnóstico de workflow, testes E2E, correção de payloads e validação node por node.</p></div>
+              <div><span>Decisão técnica</span><p>Consolidar contexto antes do agente para evitar análise prematura de mensagens fragmentadas.</p></div>
+              <div><span>Resultado</span><p>Automação auditável que entrega leads qualificados e atualizações de funil em tempo real, melhorando a eficiência da equipe comercial.</p></div>
+            </div>
+            <div class="detail-block">
+              <h3>Processos implementados</h3>
+              <ul class="check-list">
+                <li><strong>Mensagens &amp; Contexto:</strong> entrada inbound/outbound via webhooks, identificação de lead, canal e histórico; buffer Redis com janela de espera para consolidar mensagens antes de análise.</li>
+                <li><strong>Atualização de leads:</strong> consulta e atualização de campos customizados como resumo, orçamento, passageiros, destino e status; criação de tarefas.</li>
+                <li><strong>Agente de IA &amp; QA:</strong> classificação de intenção, síntese de contexto, apoio à movimentação no funil e testes E2E em n8n (nodes, erros de API e limites de modelo).</li>
+              </ul>
+            </div>
+            <div class="stack-groups">
+              <div><span>CRM</span><p>Kommo API, pipelines, leads, eventos e campos customizados.</p></div>
+              <div><span>Automação</span><p>n8n, webhooks, Redis buffer, HTTP requests e controle de execução.</p></div>
+              <div><span>IA</span><p>OpenAI/LangChain agent para contexto comercial e decisão de etapa.</p></div>
+              <div><span>Segurança</span><p>Dados de clientes redigidos; o portfolio mostra arquitetura, não informação privada.</p></div>
+            </div>
+          </div>
+          <div class="project-media reveal crm-gallery">
+            <img class="media-main" src="/assets/portfolio/crm/screen-01.gif" alt="Painel do CRM Total Tour">
+            <div class="media-grid">
+              <button class="media-thumb" data-lightbox="/assets/portfolio/crm/screen-02.png" aria-label="Abrir funil CRM Total Tour">
+                <img src="/assets/portfolio/crm/screen-02.png" alt="Funil do CRM Total Tour">
+              </button>
+              <button class="media-thumb" data-lightbox="/assets/portfolio/crm/screen-03.png" aria-label="Abrir automacao CRM Total Tour">
+                <img src="/assets/portfolio/crm/screen-03.png" alt="Automação do CRM Total Tour">
+              </button>
+              <button class="media-thumb" data-lightbox="/assets/portfolio/crm/screen-04.png" aria-label="Abrir atendimento CRM Total Tour">
+                <img src="/assets/portfolio/crm/screen-04.png" alt="Atendimento do CRM Total Tour">
+              </button>
+            </div>
+            <p>Visual seguro: dados de clientes e leads removidos.</p>
+          </div>
+        </div>
+      </article>      <section id="apis" class="section-shell api-section" aria-labelledby="apis-title">
         <div class="section-heading reveal">
           <p class="eyebrow">APIs e serviços</p>
           <h2 id="apis-title">Uma pequena parte sobre APIs que não constam em nenhum desses projetos.</h2>
@@ -790,7 +849,7 @@ export const Route = createFileRoute("/")({
       { title: "Felipe Prates | Full Stack, IA e Automação" },
       { name: "description", content: "Portfolio de Felipe Prates: produtos full stack com IA, automação, APIs, dados, deploy e operação de ponta a ponta." },
       { property: "og:title", content: "Felipe Prates | Full Stack, IA e Automação" },
-      { property: "og:description", content: "Produtos reais, decisões técnicas e entrega ponta a ponta: FelpaMusic, Vitrinno, Helena Video, Billie Brain, Verdant CRM, OLI Locações, CRM Total Tour e Lunna Helena Universe." },
+      { property: "og:description", content: "Produtos reais, decisões técnicas e entrega ponta a ponta: FelpaMusic, Vitrinno, Helena Video, Lunna Helena Universe, Billie Brain, Verdant CRM, Vitaey, OLI Locações e CRM Total Tour." },
       { property: "og:type", content: "website" },
       { name: "theme-color", content: "#050807" },
     ],
