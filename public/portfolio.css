@@ -741,6 +741,235 @@ h3 {
   max-width: 900px;
 }
 
+.audio-compare {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  gap: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(139, 255, 191, 0.22);
+  border-radius: 8px;
+  padding: clamp(18px, 2.5vw, 26px);
+  background:
+    linear-gradient(120deg, rgba(44, 255, 145, 0.08), transparent 42%),
+    rgba(3, 10, 7, 0.9);
+  box-shadow: 0 24px 54px -42px rgba(44, 255, 145, 0.7);
+}
+
+.audio-compare::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: auto 0 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--green), rgba(44, 255, 145, 0.08));
+  transform: scaleX(0.22);
+  transform-origin: left;
+  transition: transform 360ms ease;
+}
+
+.audio-compare.is-playing::after {
+  transform: scaleX(1);
+}
+
+.audio-compare-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 18px;
+  align-items: end;
+}
+
+.audio-compare-heading > div:first-child {
+  display: grid;
+  gap: 6px;
+}
+
+.audio-compare-kicker {
+  margin: 0;
+  color: var(--green);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.audio-compare-heading h3 {
+  margin: 0;
+  font-size: clamp(1.3rem, 2.2vw, 1.85rem);
+}
+
+.audio-compare-heading p:not(.audio-compare-kicker) {
+  max-width: 52ch;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.audio-version-switch {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(118px, 1fr));
+  gap: 4px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 4px;
+  background: rgba(0, 0, 0, 0.32);
+}
+
+.audio-version-switch button {
+  display: grid;
+  gap: 2px;
+  min-height: 50px;
+  border: 0;
+  border-radius: 5px;
+  padding: 8px 12px;
+  color: var(--muted);
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  transition: color 160ms ease, background 160ms ease, box-shadow 160ms ease;
+}
+
+.audio-version-switch button span {
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.audio-version-switch button small {
+  font-size: 0.7rem;
+}
+
+.audio-version-switch button.is-active {
+  color: #031008;
+  background: var(--green);
+  box-shadow: 0 8px 22px -14px rgba(44, 255, 145, 0.9);
+}
+
+.audio-version-switch button:focus-visible,
+.audio-play:focus-visible,
+.audio-progress:focus-visible,
+.audio-volume input:focus-visible {
+  outline: 2px solid #b5ffd4;
+  outline-offset: 3px;
+}
+
+.audio-transport {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: center;
+}
+
+.audio-play {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  flex: 0 0 auto;
+  border: 1px solid rgba(44, 255, 145, 0.5);
+  border-radius: 50%;
+  padding: 0;
+  background: rgba(44, 255, 145, 0.1);
+  cursor: pointer;
+  transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease;
+}
+
+.audio-play:hover {
+  transform: translateY(-2px);
+  background: rgba(44, 255, 145, 0.18);
+  box-shadow: 0 12px 28px -18px rgba(44, 255, 145, 0.9);
+}
+
+.audio-play span {
+  position: absolute;
+  top: 50%;
+  left: 52%;
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left: 12px solid var(--green);
+  transform: translate(-50%, -50%);
+}
+
+.audio-compare.is-playing .audio-play span {
+  left: 50%;
+  width: 12px;
+  height: 16px;
+  border: 0;
+  background: linear-gradient(90deg, var(--green) 0 4px, transparent 4px 8px, var(--green) 8px 12px);
+}
+
+.audio-timeline {
+  display: grid;
+  min-width: 0;
+  gap: 8px;
+}
+
+.audio-current-version {
+  display: flex;
+  min-width: 0;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.audio-current-version span {
+  color: var(--green);
+  font-size: 0.7rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.audio-current-version strong {
+  overflow: hidden;
+  color: var(--text);
+  font-size: 0.88rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.audio-progress,
+.audio-volume input {
+  width: 100%;
+  min-width: 0;
+  height: 18px;
+  margin: 0;
+  accent-color: var(--green);
+  cursor: pointer;
+}
+
+.audio-time {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.7rem;
+}
+
+.audio-volume {
+  display: grid;
+  width: 94px;
+  gap: 4px;
+  color: var(--muted);
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.audio-compare-note {
+  margin: -6px 0 0;
+  color: rgba(235, 255, 244, 0.52);
+  font-size: 0.72rem;
+}
+
+.audio-compare audio {
+  display: none;
+}
+
+.audio-compare.has-audio-error .audio-compare-note {
+  color: #ff9e9e;
+}
+
 .detail-block {
   display: grid;
   gap: 10px;
@@ -3667,6 +3896,30 @@ main,
   .hero h1 {
     max-width: min(12ch, 100%) !important;
     font-size: clamp(2.25rem, 10.8vw, 3.35rem) !important;
+  }
+
+  .audio-compare-heading {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+  }
+
+  .audio-version-switch {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .audio-transport {
+    grid-template-columns: 50px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .audio-play {
+    width: 50px;
+    height: 50px;
+  }
+
+  .audio-volume {
+    grid-column: 2;
+    width: min(140px, 100%);
   }
 
   #projects-circular-gallery .gallery-fallback {

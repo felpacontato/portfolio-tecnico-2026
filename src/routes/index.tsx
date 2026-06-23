@@ -214,6 +214,52 @@ const BODY_HTML = `
             <p class="project-lead">
               FelpaMusic é meu projeto mais completo: uma plataforma para criação musical, mixagem e masterização, separação de stems e entrega de áudio com IA. Estruturei a arquitetura full stack combinando interface web, Supabase, APIs FastAPI, n8n, serviços em contêiner e agentes especializados para sustentar pipelines de áudio longos e assíncronos em produção.
             </p>
+
+            <section class="audio-compare" data-audio-compare aria-labelledby="felpamusic-audio-title">
+              <div class="audio-compare-heading">
+                <div>
+                  <p class="audio-compare-kicker">Antes x depois</p>
+                  <h3 id="felpamusic-audio-title">Felpa - Holiday</h3>
+                  <p>Compare a mix sem master com o resultado processado pelo FelpaMusic IA.</p>
+                </div>
+                <div class="audio-version-switch" role="group" aria-label="Versão do áudio">
+                  <button class="is-active" type="button" data-audio-version="before" aria-pressed="true">
+                    <span>Antes</span>
+                    <small>Mix sem master</small>
+                  </button>
+                  <button type="button" data-audio-version="after" aria-pressed="false">
+                    <span>Depois</span>
+                    <small>Master FelpaMusic IA</small>
+                  </button>
+                </div>
+              </div>
+
+              <div class="audio-transport">
+                <button class="audio-play" type="button" data-audio-play aria-label="Reproduzir comparação" title="Reproduzir comparação">
+                  <span aria-hidden="true"></span>
+                </button>
+                <div class="audio-timeline">
+                  <div class="audio-current-version" aria-live="polite">
+                    <span data-audio-state>Antes</span>
+                    <strong data-audio-track>Mix sem master</strong>
+                  </div>
+                  <input class="audio-progress" data-audio-progress type="range" min="0" max="1000" value="0" step="1" aria-label="Posição do áudio">
+                  <div class="audio-time">
+                    <span data-audio-current>0:00</span>
+                    <span data-audio-duration>4:01</span>
+                  </div>
+                </div>
+                <label class="audio-volume">
+                  <span>Volume</span>
+                  <input data-audio-volume type="range" min="0" max="1" value="0.82" step="0.01" aria-label="Volume">
+                </label>
+              </div>
+
+              <p class="audio-compare-note">Prévia web em MP3 320 kbps. A troca A/B mantém o mesmo ponto da música.</p>
+              <audio data-audio-before preload="metadata" src="/assets/audio/felpamusic/holiday-before.mp3"></audio>
+              <audio data-audio-after preload="metadata" src="/assets/audio/felpamusic/holiday-after-felpamusic-ai.mp3" muted></audio>
+            </section>
+
             <div class="proof-grid" aria-label="Resumo executivo FelpaMusic">
               <div><span>Papel</span><p>Arquitetura, front-end, integrações, APIs, n8n, validação de contratos e operação.</p></div>
               <div><span>Decisão técnica</span><p>Separar V1, V2 e God Mode para preservar compatibilidade enquanto evolui a qualidade.</p></div>

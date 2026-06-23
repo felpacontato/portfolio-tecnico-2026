@@ -100,6 +100,54 @@ export const portfolioTranslations = {
     en: "Product, backend, automation, applied AI and operations.",
     es: "Producto, backend, automatización, IA aplicada y operación.",
   },
+  "Antes x depois": {
+    en: "Before and after",
+    es: "Antes y después",
+  },
+  "Compare a mix sem master com o resultado processado pelo FelpaMusic IA.": {
+    en: "Compare the unmastered mix with the result processed by FelpaMusic AI.",
+    es: "Compara la mezcla sin masterizar con el resultado procesado por FelpaMusic IA.",
+  },
+  "Versão do áudio": {
+    en: "Audio version",
+    es: "Versión del audio",
+  },
+  "Antes": {
+    en: "Before",
+    es: "Antes",
+  },
+  "Mix sem master": {
+    en: "Unmastered mix",
+    es: "Mezcla sin masterizar",
+  },
+  "Depois": {
+    en: "After",
+    es: "Después",
+  },
+  "Master FelpaMusic IA": {
+    en: "FelpaMusic AI master",
+    es: "Master FelpaMusic IA",
+  },
+  "Reproduzir comparação": {
+    en: "Play comparison",
+    es: "Reproducir comparación",
+  },
+  "Pausar comparação": {
+    en: "Pause comparison",
+    es: "Pausar comparación",
+  },
+  "Posição do áudio": {
+    en: "Audio position",
+    es: "Posición del audio",
+  },
+  "Volume": {
+    en: "Volume",
+    es: "Volumen",
+  },
+  "Prévia web em MP3 320 kbps. A troca A/B mantém o mesmo ponto da música.": {
+    en: "320 kbps MP3 web preview. A/B switching keeps the same position in the song.",
+    es: "Vista previa web en MP3 de 320 kbps. El cambio A/B mantiene el mismo punto de la canción.",
+  },
   "Desenvolvimento": {
     en: "Development",
     es: "Desarrollo",

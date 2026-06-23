@@ -191,6 +191,163 @@ function initSpotlightCards() {
 
 initSpotlightCards();
 
+(function initAudioCompare() {
+  const root = document.querySelector("[data-audio-compare]");
+  if (!root) return;
+
+  const before = root.querySelector("[data-audio-before]");
+  const after = root.querySelector("[data-audio-after]");
+  const playButton = root.querySelector("[data-audio-play]");
+  const progress = root.querySelector("[data-audio-progress]");
+  const volume = root.querySelector("[data-audio-volume]");
+  const currentTime = root.querySelector("[data-audio-current]");
+  const duration = root.querySelector("[data-audio-duration]");
+  const stateLabel = root.querySelector("[data-audio-state]");
+  const trackLabel = root.querySelector("[data-audio-track]");
+  const versionButtons = Array.from(root.querySelectorAll("[data-audio-version]"));
+
+  if (!before || !after || !playButton || !progress || !volume) return;
+
+  const tracks = {
+    before: { audio: before, state: "Antes", track: "Mix sem master" },
+    after: { audio: after, state: "Depois", track: "Master FelpaMusic IA" },
+  };
+  let activeVersion = "before";
+  let animationFrame = 0;
+
+  const formatTime = (seconds) => {
+    if (!Number.isFinite(seconds) || seconds < 0) return "0:00";
+    const minutes = Math.floor(seconds / 60);
+    const remaining = Math.floor(seconds % 60);
+    return `${minutes}:${String(remaining).padStart(2, "0")}`;
+  };
+
+  const getDuration = () => {
+    const durations = [before.duration, after.duration].filter(Number.isFinite);
+    return durations.length ? Math.min(...durations) : 0;
+  };
+
+  const setPlayingState = (isPlaying) => {
+    const action = isPlaying ? "Pausar comparação" : "Reproduzir comparação";
+    root.classList.toggle("is-playing", isPlaying);
+    playButton.setAttribute("aria-label", translateValue(action, activeLanguage));
+    playButton.setAttribute("title", translateValue(action, activeLanguage));
+  };
+
+  const updateTransport = () => {
+    const active = tracks[activeVersion].audio;
+    const total = getDuration();
+    const position = Math.min(active.currentTime || 0, total || active.currentTime || 0);
+
+    progress.value = total ? String(Math.round((position / total) * 1000)) : "0";
+    if (currentTime) currentTime.textContent = formatTime(position);
+    if (duration) duration.textContent = formatTime(Math.ceil(total));
+
+    if (!before.paused && !after.paused && Math.abs(before.currentTime - after.currentTime) > 0.08) {
+      const inactive = activeVersion === "before" ? after : before;
+      inactive.currentTime = active.currentTime;
+    }
+
+    if (!active.paused) {
+      animationFrame = window.requestAnimationFrame(updateTransport);
+    }
+  };
+
+  const selectVersion = (version) => {
+    if (!tracks[version]) return;
+    const wasPlaying = !tracks[activeVersion].audio.paused;
+    const activeTime = tracks[activeVersion].audio.currentTime || 0;
+
+    activeVersion = version;
+    before.muted = version !== "before";
+    after.muted = version !== "after";
+
+    const nextAudio = tracks[version].audio;
+    if (Math.abs(nextAudio.currentTime - activeTime) > 0.08) {
+      nextAudio.currentTime = activeTime;
+    }
+
+    versionButtons.forEach((button) => {
+      const isActive = button.getAttribute("data-audio-version") === version;
+      button.classList.toggle("is-active", isActive);
+      button.setAttribute("aria-pressed", String(isActive));
+    });
+
+    if (stateLabel) stateLabel.textContent = tracks[version].state;
+    if (trackLabel) trackLabel.textContent = tracks[version].track;
+    if (wasPlaying && nextAudio.paused) nextAudio.play().catch(() => setPlayingState(false));
+    updateTransport();
+  };
+
+  const pauseBoth = () => {
+    before.pause();
+    after.pause();
+    window.cancelAnimationFrame(animationFrame);
+    setPlayingState(false);
+    updateTransport();
+  };
+
+  const playBoth = async () => {
+    const total = getDuration();
+    if (total && tracks[activeVersion].audio.currentTime >= total - 0.1) {
+      before.currentTime = 0;
+      after.currentTime = 0;
+    }
+
+    const anchor = tracks[activeVersion].audio.currentTime || 0;
+    before.currentTime = anchor;
+    after.currentTime = anchor;
+
+    try {
+      await Promise.all([before.play(), after.play()]);
+      setPlayingState(true);
+      window.cancelAnimationFrame(animationFrame);
+      animationFrame = window.requestAnimationFrame(updateTransport);
+    } catch {
+      pauseBoth();
+    }
+  };
+
+  playButton.addEventListener("click", () => {
+    if (!tracks[activeVersion].audio.paused) {
+      pauseBoth();
+      return;
+    }
+    playBoth();
+  });
+
+  versionButtons.forEach((button) => {
+    button.addEventListener("click", () => selectVersion(button.getAttribute("data-audio-version") || "before"));
+  });
+
+  progress.addEventListener("input", () => {
+    const total = getDuration();
+    const nextTime = total * (Number(progress.value) / 1000);
+    before.currentTime = nextTime;
+    after.currentTime = nextTime;
+    updateTransport();
+  });
+
+  volume.addEventListener("input", () => {
+    const nextVolume = Number(volume.value);
+    before.volume = nextVolume;
+    after.volume = nextVolume;
+  });
+
+  [before, after].forEach((audio) => {
+    audio.volume = Number(volume.value);
+    audio.addEventListener("loadedmetadata", updateTransport);
+    audio.addEventListener("ended", pauseBoth);
+    audio.addEventListener("error", () => {
+      root.classList.add("has-audio-error");
+      pauseBoth();
+    });
+  });
+
+  selectVersion("before");
+  updateTransport();
+})();
+
 document.querySelectorAll("[data-blog-scroll]").forEach((button) => {
   button.addEventListener("click", () => {
     if (!blogCarousel) return;
