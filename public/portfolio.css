@@ -1142,6 +1142,34 @@ video.media-main {
   background: rgba(255, 255, 255, 0.025);
 }
 
+.crm-redacted {
+  min-height: 420px;
+  align-content: center;
+  justify-items: start;
+  gap: 14px;
+  padding: clamp(22px, 4vw, 38px);
+  background:
+    radial-gradient(circle at 20% 18%, rgba(44, 255, 145, 0.18), transparent 28rem),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.052), rgba(255, 255, 255, 0.014)),
+    rgba(3, 8, 6, 0.82);
+}
+
+.crm-redacted span {
+  display: inline-grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(44, 255, 145, 0.44);
+  border-radius: 8px;
+  color: var(--green);
+  font-size: 0.86rem;
+  font-weight: 950;
+}
+
+.crm-redacted h3 {
+  max-width: 520px;
+}
+
 .capabilities {
   padding: 86px 0;
 }

@@ -723,20 +723,10 @@ const BODY_HTML = `
               <div><span>Segurança</span><p>Dados de clientes redigidos; o portfolio mostra arquitetura, não informação privada.</p></div>
             </div>
           </div>
-          <div class="project-media reveal crm-gallery">
-            <img class="media-main" src="/assets/portfolio/crm/screen-01.gif" alt="Painel do CRM Total Tour">
-            <div class="media-grid">
-              <button class="media-thumb" data-lightbox="/assets/portfolio/crm/screen-02.png" aria-label="Abrir funil CRM Total Tour">
-                <img src="/assets/portfolio/crm/screen-02.png" alt="Funil do CRM Total Tour">
-              </button>
-              <button class="media-thumb" data-lightbox="/assets/portfolio/crm/screen-03.png" aria-label="Abrir automacao CRM Total Tour">
-                <img src="/assets/portfolio/crm/screen-03.png" alt="Automação do CRM Total Tour">
-              </button>
-              <button class="media-thumb" data-lightbox="/assets/portfolio/crm/screen-04.png" aria-label="Abrir atendimento CRM Total Tour">
-                <img src="/assets/portfolio/crm/screen-04.png" alt="Atendimento do CRM Total Tour">
-              </button>
-            </div>
-            <p>Visual seguro: dados de clientes e leads removidos.</p>
+          <div class="project-media reveal crm-redacted" aria-label="Galeria do CRM Total Tour em recaptura">
+            <span>QA</span>
+            <h3>Galeria temporariamente removida.</h3>
+            <p>As telas publicas deste projeto foram retiradas ate a recaptura completa com perfil de teste e dados ficticios.</p>
           </div>
         </div>
       </article>      <section id="apis" class="section-shell api-section" aria-labelledby="apis-title">
