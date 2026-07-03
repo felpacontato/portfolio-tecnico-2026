@@ -387,20 +387,20 @@ const BODY_HTML = `
           <div class="project-media reveal">
             <img class="media-main" src="/assets/portfolio/helena/screen-01.gif" alt="Studio Helena Video">
             <div class="media-grid">
-              <button class="media-thumb" data-lightbox="/assets/portfolio/helena/screen-02.png" aria-label="Abrir legendas Helena Video">
-                <img src="/assets/portfolio/helena/screen-02.png" alt="Legendas no Helena Video">
+              <button class="media-thumb" data-lightbox="/assets/portfolio/helena/screen-02.png" aria-label="Abrir music-video Helena Video">
+                <img src="/assets/portfolio/helena/screen-02.png" alt="Music-video no Helena Video">
+              </button>
+              <button class="media-thumb" data-lightbox="/assets/portfolio/helena/screen-03.png" aria-label="Abrir legendas Helena Video">
+                <img src="/assets/portfolio/helena/screen-03.png" alt="Legendas no Helena Video">
               </button>
               <button class="media-thumb" data-lightbox="/assets/portfolio/helena/screen-05.png" aria-label="Abrir audio Helena Video">
-                <img src="/assets/portfolio/helena/screen-05.png" alt="Áudio no Helena Video">
+                <img src="/assets/portfolio/helena/screen-05.png" alt="Audio no Helena Video">
               </button>
-              <button class="media-thumb" data-lightbox="/assets/portfolio/helena/screen-07.png" aria-label="Abrir publicacao Helena Video">
-                <img src="/assets/portfolio/helena/screen-07.png" alt="Publicação no Helena Video">
+              <button class="media-thumb" data-lightbox="/assets/portfolio/helena/screen-07.png" aria-label="Abrir modelos Helena Video">
+                <img src="/assets/portfolio/helena/screen-07.png" alt="Modelos IA no Helena Video">
               </button>
-              <button class="media-thumb" data-lightbox="/assets/portfolio/helena/screen-09.png" aria-label="Abrir carteira Helena Video">
-                <img src="/assets/portfolio/helena/screen-09.png" alt="Carteira do Helena Video">
-              </button>
-              <button class="media-thumb" data-lightbox="/assets/portfolio/helena/screen-11.png" aria-label="Abrir planos Helena Video">
-                <img src="/assets/portfolio/helena/screen-11.png" alt="Planos do Helena Video">
+              <button class="media-thumb" data-lightbox="/assets/portfolio/helena/screen-09.png" aria-label="Abrir storyboard Helena Video">
+                <img src="/assets/portfolio/helena/screen-09.png" alt="Storyboard no Helena Video">
               </button>
             </div>
           </div>
@@ -439,22 +439,22 @@ const BODY_HTML = `
       <article id="lunna-helena" class="project-section">
         <div class="section-shell project-layout reverse">
           <div class="project-media reveal">
-            <img class="media-main" src="/assets/portfolio/lunna/screen-02.gif" alt="Dashboard do Lunna Helena Universe">
+            <img class="media-main" src="/assets/portfolio/lunna/screen-01.gif" alt="Jornada do Lunna Helena Universe">
             <div class="media-grid">
-              <button class="media-thumb" data-lightbox="/assets/portfolio/lunna/screen-01.png" aria-label="Abrir login do Lunna Helena Universe">
-                <img src="/assets/portfolio/lunna/screen-01.png" alt="Login do Lunna Helena Universe">
+              <button class="media-thumb" data-lightbox="/assets/portfolio/lunna/screen-02.png" aria-label="Abrir historia do Lunna Helena Universe">
+                <img src="/assets/portfolio/lunna/screen-02.png" alt="Historia do Lunna Helena Universe">
               </button>
-              <button class="media-thumb" data-lightbox="/assets/portfolio/lunna/screen-03.png" aria-label="Abrir calendario do Lunna Helena Universe">
-                <img src="/assets/portfolio/lunna/screen-03.png" alt="Calendário editorial do Lunna Helena Universe">
+              <button class="media-thumb" data-lightbox="/assets/portfolio/lunna/screen-03.png" aria-label="Abrir projetos do Lunna Helena Universe">
+                <img src="/assets/portfolio/lunna/screen-03.png" alt="Projetos do Lunna Helena Universe">
               </button>
-              <button class="media-thumb" data-lightbox="/assets/portfolio/lunna/screen-04.png" aria-label="Abrir editor do Lunna Helena Universe">
-                <img src="/assets/portfolio/lunna/screen-04.png" alt="Editor de conteúdo do Lunna Helena Universe">
+              <button class="media-thumb" data-lightbox="/assets/portfolio/lunna/screen-04.png" aria-label="Abrir lunar do Lunna Helena Universe">
+                <img src="/assets/portfolio/lunna/screen-04.png" alt="Lunar do Lunna Helena Universe">
               </button>
-              <button class="media-thumb" data-lightbox="/assets/portfolio/lunna/screen-05.png" aria-label="Abrir inbox IA do Lunna Helena Universe">
-                <img src="/assets/portfolio/lunna/screen-05.png" alt="Inbox IA do Lunna Helena Universe">
+              <button class="media-thumb" data-lightbox="/assets/portfolio/lunna/screen-05.png" aria-label="Abrir som do Lunna Helena Universe">
+                <img src="/assets/portfolio/lunna/screen-05.png" alt="Som do Lunna Helena Universe">
               </button>
-              <button class="media-thumb" data-lightbox="/assets/portfolio/lunna/screen-07.png" aria-label="Abrir biblioteca do Lunna Helena Universe">
-                <img src="/assets/portfolio/lunna/screen-07.png" alt="Biblioteca do Lunna Helena Universe">
+              <button class="media-thumb" data-lightbox="/assets/portfolio/lunna/screen-06.png" aria-label="Abrir portal do Lunna Helena Universe">
+                <img src="/assets/portfolio/lunna/screen-06.png" alt="Portal do Lunna Helena Universe">
               </button>
             </div>
           </div>
@@ -543,22 +543,22 @@ const BODY_HTML = `
       <article id="verdant" class="project-section">
         <div class="section-shell project-layout reverse">
           <div class="project-media reveal">
-            <img class="media-main" src="/assets/portfolio/verdant/screen-01.gif" alt="Login e acesso do Verdant CRM">
+            <img class="media-main" src="/assets/portfolio/verdant/screen-01.gif" alt="Dashboard e modulos do Verdant CRM">
             <div class="media-grid">
-              <button class="media-thumb" data-lightbox="/assets/portfolio/verdant/screen-02.png" aria-label="Abrir dashboard protegido Verdant CRM">
-                <img src="/assets/portfolio/verdant/screen-02.png" alt="Dashboard do Verdant CRM">
+              <button class="media-thumb" data-lightbox="/assets/portfolio/verdant/screen-02.png" aria-label="Abrir inbox Verdant CRM">
+                <img src="/assets/portfolio/verdant/screen-02.png" alt="Inbox do Verdant CRM">
               </button>
-              <button class="media-thumb" data-lightbox="/assets/portfolio/verdant/screen-03.png" aria-label="Abrir leads protegidos Verdant CRM">
-                <img src="/assets/portfolio/verdant/screen-03.png" alt="Kanban de leads do Verdant CRM">
+              <button class="media-thumb" data-lightbox="/assets/portfolio/verdant/screen-03.png" aria-label="Abrir leads Verdant CRM">
+                <img src="/assets/portfolio/verdant/screen-03.png" alt="Leads do Verdant CRM">
               </button>
-              <button class="media-thumb" data-lightbox="/assets/portfolio/verdant/screen-04.png" aria-label="Abrir inbox Verdant CRM">
-                <img src="/assets/portfolio/verdant/screen-04.png" alt="Inbox do Verdant CRM">
+              <button class="media-thumb" data-lightbox="/assets/portfolio/verdant/screen-04.png" aria-label="Abrir funis Verdant CRM">
+                <img src="/assets/portfolio/verdant/screen-04.png" alt="Funis do Verdant CRM">
               </button>
-              <button class="media-thumb" data-lightbox="/assets/portfolio/verdant/screen-05.png" aria-label="Abrir automações Verdant CRM">
-                <img src="/assets/portfolio/verdant/screen-05.png" alt="Automações do Verdant CRM">
+              <button class="media-thumb" data-lightbox="/assets/portfolio/verdant/screen-05.png" aria-label="Abrir relatorios Verdant CRM">
+                <img src="/assets/portfolio/verdant/screen-05.png" alt="Relatorios do Verdant CRM">
               </button>
-              <button class="media-thumb" data-lightbox="/assets/portfolio/verdant/screen-06.png" aria-label="Abrir agentes IA Verdant CRM">
-                <img src="/assets/portfolio/verdant/screen-06.png" alt="Agentes IA do Verdant CRM">
+              <button class="media-thumb" data-lightbox="/assets/portfolio/verdant/screen-06.png" aria-label="Abrir integracoes Verdant CRM">
+                <img src="/assets/portfolio/verdant/screen-06.png" alt="Integracoes do Verdant CRM">
               </button>
             </div>
           </div>
@@ -566,12 +566,12 @@ const BODY_HTML = `
             <p class="project-number">06 / Verdant CRM</p>
             <h2>CRM SaaS protegido para pipeline comercial, leads e operação de atendimento.</h2>
             <p class="project-lead">
-              Verdant CRM é uma aplicação SaaS de CRM com rotas protegidas, autenticação e base para gestão de pipeline, leads, dashboard e configurações. Na auditoria pública, as rotas internas redirecionam para login, então o portfolio mostra o produto de forma honesta: foco em arquitetura, autenticação, proteção de área interna e fluxo de acesso.
+              Verdant CRM é uma aplicação SaaS de CRM com rotas protegidas, autenticação e base para gestão de pipeline, leads, dashboard e configurações. A galeria foi recapturada em shell autenticado com estado vazio para mostrar os módulos reais sem expor dados operacionais.
             </p>
             <div class="proof-grid" aria-label="Resumo executivo Verdant CRM">
               <div><span>Papel</span><p>Produto, front-end, autenticação, rotas protegidas, deploy e organização da base SaaS.</p></div>
               <div><span>Decisão técnica</span><p>Proteger dashboard, leads e operação atrás de login em vez de expor dados ou telas internas publicamente.</p></div>
-              <div><span>Resultado</span><p>CRM publicado com domínio próprio, fluxo de acesso e estrutura preparada para evoluir pipeline e automações comerciais.</p></div>
+              <div><span>Resultado</span><p>CRM publicado com domínio próprio, shell protegido e módulos internos exibidos no portfolio sem dados sensíveis.</p></div>
             </div>
             <div class="detail-block">
               <h3>Escopo do produto</h3>
