@@ -308,7 +308,9 @@ const BODY_HTML = `
           </div>
 
           <div class="project-media reveal">
-            <img class="media-main" src="/assets/portfolio/felpamusic/screen-01.gif" alt="Tela principal do FelpaMusic">
+            <video class="media-main" autoplay muted loop playsinline preload="metadata" poster="/assets/portfolio/felpamusic/screen-01.png" aria-label="Tela principal do FelpaMusic">
+              <source src="/assets/portfolio/felpamusic/screen-01-loop.mp4" type="video/mp4">
+            </video>
             <div class="media-grid">
               <button class="media-thumb" data-lightbox="/assets/portfolio/felpamusic/screen-03.png" aria-label="Abrir print de projetos FelpaMusic">
                 <img src="/assets/portfolio/felpamusic/screen-03.png" alt="Tela de projetos do FelpaMusic">
@@ -333,7 +335,9 @@ const BODY_HTML = `
       <article id="vitrinno" class="project-section">
         <div class="section-shell project-layout reverse">
           <div class="project-media reveal">
-            <img class="media-main" src="/assets/portfolio/vitrinno/screen-01.gif" alt="Home do Vitrinno">
+            <video class="media-main" autoplay muted loop playsinline preload="metadata" poster="/assets/portfolio/vitrinno/screen-01.png" aria-label="Home do Vitrinno">
+              <source src="/assets/portfolio/vitrinno/screen-01-loop.mp4" type="video/mp4">
+            </video>
             <div class="media-grid">
               <button class="media-thumb" data-lightbox="/assets/portfolio/vitrinno/screen-03.png" aria-label="Abrir feed do Vitrinno">
                 <img src="/assets/portfolio/vitrinno/screen-03.png" alt="Feed do Vitrinno">
@@ -385,7 +389,9 @@ const BODY_HTML = `
       <article id="helena" class="project-section">
         <div class="section-shell project-layout reverse">
           <div class="project-media reveal">
-            <img class="media-main" src="/assets/portfolio/helena/screen-01.gif" alt="Studio Helena Video">
+            <video class="media-main" autoplay muted loop playsinline preload="metadata" poster="/assets/portfolio/helena/screen-01.png" aria-label="Studio Helena Video">
+              <source src="/assets/portfolio/helena/screen-01-loop.mp4" type="video/mp4">
+            </video>
             <div class="media-grid">
               <button class="media-thumb" data-lightbox="/assets/portfolio/helena/screen-02.png" aria-label="Abrir music-video Helena Video">
                 <img src="/assets/portfolio/helena/screen-02.png" alt="Music-video no Helena Video">
