@@ -445,22 +445,36 @@ const BODY_HTML = `
       <article id="lunna-helena" class="project-section">
         <div class="section-shell project-layout reverse">
           <div class="project-media reveal">
-            <img class="media-main" src="/assets/portfolio/lunna/screen-01.gif" alt="Jornada do Lunna Helena Universe">
+            <video class="media-main" autoplay muted loop playsinline preload="metadata" poster="/assets/portfolio/lunna/screen-03.png" aria-label="Loop da jornada do Lunna Helena Universe">
+              <source src="/assets/portfolio/lunna/screen-01-loop.mp4" type="video/mp4">
+            </video>
             <div class="media-grid">
-              <button class="media-thumb" data-lightbox="/assets/portfolio/lunna/screen-02.png" aria-label="Abrir historia do Lunna Helena Universe">
-                <img src="/assets/portfolio/lunna/screen-02.png" alt="Historia do Lunna Helena Universe">
+              <button class="media-thumb" data-lightbox="/assets/portfolio/lunna/screen-01.png" aria-label="Abrir login do Lunna Helena Universe">
+                <img src="/assets/portfolio/lunna/screen-01.png" alt="Login do Lunna Helena Universe">
               </button>
-              <button class="media-thumb" data-lightbox="/assets/portfolio/lunna/screen-03.png" aria-label="Abrir projetos do Lunna Helena Universe">
-                <img src="/assets/portfolio/lunna/screen-03.png" alt="Projetos do Lunna Helena Universe">
+              <button class="media-thumb" data-lightbox="/assets/portfolio/lunna/screen-02.png" aria-label="Abrir criacao de conta do Lunna Helena Universe">
+                <img src="/assets/portfolio/lunna/screen-02.png" alt="Criacao de conta do Lunna Helena Universe">
               </button>
-              <button class="media-thumb" data-lightbox="/assets/portfolio/lunna/screen-04.png" aria-label="Abrir lunar do Lunna Helena Universe">
-                <img src="/assets/portfolio/lunna/screen-04.png" alt="Lunar do Lunna Helena Universe">
+              <button class="media-thumb" data-lightbox="/assets/portfolio/lunna/screen-03.png" aria-label="Abrir inicio do app do Lunna Helena Universe">
+                <img src="/assets/portfolio/lunna/screen-03.png" alt="Inicio do app do Lunna Helena Universe">
               </button>
-              <button class="media-thumb" data-lightbox="/assets/portfolio/lunna/screen-05.png" aria-label="Abrir som do Lunna Helena Universe">
-                <img src="/assets/portfolio/lunna/screen-05.png" alt="Som do Lunna Helena Universe">
+              <button class="media-thumb" data-lightbox="/assets/portfolio/lunna/screen-04.png" aria-label="Abrir orbita analytics do Lunna Helena Universe">
+                <img src="/assets/portfolio/lunna/screen-04.png" alt="Orbita analytics do Lunna Helena Universe">
               </button>
-              <button class="media-thumb" data-lightbox="/assets/portfolio/lunna/screen-06.png" aria-label="Abrir portal do Lunna Helena Universe">
-                <img src="/assets/portfolio/lunna/screen-06.png" alt="Portal do Lunna Helena Universe">
+              <button class="media-thumb" data-lightbox="/assets/portfolio/lunna/screen-05.png" aria-label="Abrir estudio editor do Lunna Helena Universe">
+                <img src="/assets/portfolio/lunna/screen-05.png" alt="Estudio editor do Lunna Helena Universe">
+              </button>
+              <button class="media-thumb" data-lightbox="/assets/portfolio/lunna/screen-06.png" aria-label="Abrir arquivo biblioteca do Lunna Helena Universe">
+                <img src="/assets/portfolio/lunna/screen-06.png" alt="Arquivo biblioteca do Lunna Helena Universe">
+              </button>
+              <button class="media-thumb" data-lightbox="/assets/portfolio/lunna/screen-07.png" aria-label="Abrir mensagens inbox do Lunna Helena Universe">
+                <img src="/assets/portfolio/lunna/screen-07.png" alt="Mensagens inbox do Lunna Helena Universe">
+              </button>
+              <button class="media-thumb" data-lightbox="/assets/portfolio/lunna/screen-08.png" aria-label="Abrir conexoes do Lunna Helena Universe">
+                <img src="/assets/portfolio/lunna/screen-08.png" alt="Conexoes do Lunna Helena Universe">
+              </button>
+              <button class="media-thumb" data-lightbox="/assets/portfolio/lunna/screen-09.png" aria-label="Abrir agenda calendario do Lunna Helena Universe">
+                <img src="/assets/portfolio/lunna/screen-09.png" alt="Agenda calendario do Lunna Helena Universe">
               </button>
             </div>
           </div>
