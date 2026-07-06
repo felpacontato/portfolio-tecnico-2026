@@ -393,20 +393,41 @@ const BODY_HTML = `
               <source src="/assets/portfolio/helena/screen-01-loop.mp4" type="video/mp4">
             </video>
             <div class="media-grid">
-              <button class="media-thumb" data-lightbox="/assets/portfolio/helena/screen-02.png" aria-label="Abrir music-video Helena Video">
-                <img src="/assets/portfolio/helena/screen-02.png" alt="Music-video no Helena Video">
+              <button class="media-thumb" data-lightbox="/assets/portfolio/helena/screen-02.png" aria-label="Abrir criar video Helena Video">
+                <img src="/assets/portfolio/helena/screen-02.png" alt="Criar video no Helena Video">
               </button>
-              <button class="media-thumb" data-lightbox="/assets/portfolio/helena/screen-03.png" aria-label="Abrir legendas Helena Video">
-                <img src="/assets/portfolio/helena/screen-03.png" alt="Legendas no Helena Video">
+              <button class="media-thumb" data-lightbox="/assets/portfolio/helena/screen-03.png" aria-label="Abrir transformar Helena Video">
+                <img src="/assets/portfolio/helena/screen-03.png" alt="Transformar no Helena Video">
               </button>
-              <button class="media-thumb" data-lightbox="/assets/portfolio/helena/screen-05.png" aria-label="Abrir audio Helena Video">
-                <img src="/assets/portfolio/helena/screen-05.png" alt="Audio no Helena Video">
+              <button class="media-thumb" data-lightbox="/assets/portfolio/helena/screen-04.png" aria-label="Abrir storyboard Helena Video">
+                <img src="/assets/portfolio/helena/screen-04.png" alt="Storyboard no Helena Video">
               </button>
-              <button class="media-thumb" data-lightbox="/assets/portfolio/helena/screen-07.png" aria-label="Abrir modelos Helena Video">
-                <img src="/assets/portfolio/helena/screen-07.png" alt="Modelos IA no Helena Video">
+              <button class="media-thumb" data-lightbox="/assets/portfolio/helena/screen-05.png" aria-label="Abrir music-video Helena Video">
+                <img src="/assets/portfolio/helena/screen-05.png" alt="Music-video no Helena Video">
               </button>
-              <button class="media-thumb" data-lightbox="/assets/portfolio/helena/screen-09.png" aria-label="Abrir storyboard Helena Video">
-                <img src="/assets/portfolio/helena/screen-09.png" alt="Storyboard no Helena Video">
+              <button class="media-thumb" data-lightbox="/assets/portfolio/helena/screen-06.png" aria-label="Abrir autocut Helena Video">
+                <img src="/assets/portfolio/helena/screen-06.png" alt="AutoCut no Helena Video">
+              </button>
+              <button class="media-thumb" data-lightbox="/assets/portfolio/helena/screen-07.png" aria-label="Abrir editor Helena Video">
+                <img src="/assets/portfolio/helena/screen-07.png" alt="Editor no Helena Video">
+              </button>
+              <button class="media-thumb" data-lightbox="/assets/portfolio/helena/screen-08.png" aria-label="Abrir legendas Helena Video">
+                <img src="/assets/portfolio/helena/screen-08.png" alt="Legendas no Helena Video">
+              </button>
+              <button class="media-thumb" data-lightbox="/assets/portfolio/helena/screen-09.png" aria-label="Abrir assets Helena Video">
+                <img src="/assets/portfolio/helena/screen-09.png" alt="Assets no Helena Video">
+              </button>
+              <button class="media-thumb" data-lightbox="/assets/portfolio/helena/screen-10.png" aria-label="Abrir audio Helena Video">
+                <img src="/assets/portfolio/helena/screen-10.png" alt="Audio no Helena Video">
+              </button>
+              <button class="media-thumb" data-lightbox="/assets/portfolio/helena/screen-11.png" aria-label="Abrir publicar Helena Video">
+                <img src="/assets/portfolio/helena/screen-11.png" alt="Publicar no Helena Video">
+              </button>
+              <button class="media-thumb" data-lightbox="/assets/portfolio/helena/screen-12.png" aria-label="Abrir modelos e APIs Helena Video">
+                <img src="/assets/portfolio/helena/screen-12.png" alt="Modelos e APIs no Helena Video">
+              </button>
+              <button class="media-thumb" data-lightbox="/assets/portfolio/helena/screen-13.png" aria-label="Abrir planos Helena Video">
+                <img src="/assets/portfolio/helena/screen-13.png" alt="Planos do Helena Video">
               </button>
             </div>
           </div>
