@@ -1899,7 +1899,7 @@ video.media-main {
 
   .projects-index {
     position: relative;
-    width: 100%;
+    width: min(1532px, calc(100% - 64px));
     min-height: auto;
     padding: 78px 0 56px;
     scroll-margin-top: 118px;
@@ -1909,6 +1909,7 @@ video.media-main {
   }
 
   .projects-index .section-heading {
+    min-width: 0;
     max-width: 810px;
   }
 
@@ -1921,9 +1922,12 @@ video.media-main {
   }
 
   .projects-index h2 {
+    width: 100%;
     max-width: 800px;
     font-size: 48px;
     line-height: 1.18;
+    overflow-wrap: normal;
+    word-break: normal;
     text-shadow: 0 3px 0 rgba(255, 255, 255, 0.16);
   }
 
