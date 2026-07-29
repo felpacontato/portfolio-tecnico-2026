@@ -7,7 +7,8 @@ on:
     paths:
       - .github/workflows/apply-vitrinno-gallery.yml
       - scripts/apply-vitrinno-gallery.py
-      - public/assets/portfolio/vitrinno/gallery-*.jpg
+      - tmp/vitrinno/**
+      - public/assets/portfolio/vitrinno/gallery-*
 
 permissions:
   contents: write
@@ -34,6 +35,27 @@ jobs:
         with:
           node-version: 24
           cache: pnpm
+
+      - name: Rebuild corrected image assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p public/assets/portfolio/vitrinno
+          for asset in feed catalogo studio analytics; do
+            cat "tmp/vitrinno/${asset}.00.b64" "tmp/vitrinno/${asset}.01.b64" \
+              | base64 --decode \
+              > "public/assets/portfolio/vitrinno/gallery-${asset}.webp"
+          done
+          rm -f \
+            public/assets/portfolio/vitrinno/gallery-feed.jpg \
+            public/assets/portfolio/vitrinno/gallery-catalogo.jpg \
+            public/assets/portfolio/vitrinno/gallery-studio.jpg \
+            public/assets/portfolio/vitrinno/gallery-analytics.jpg
+          test "$(git hash-object public/assets/portfolio/vitrinno/gallery-feed.webp)" = "ba9725b122059717187f0aa3cb4f9bee18c99e83"
+          test "$(git hash-object public/assets/portfolio/vitrinno/gallery-catalogo.webp)" = "d5f64b7fc53b53c7625aaaac7077fae76e8dba2f"
+          test "$(git hash-object public/assets/portfolio/vitrinno/gallery-studio.webp)" = "9ebd931e4b15711a67c78c85125b5e2fa5249112"
+          test "$(git hash-object public/assets/portfolio/vitrinno/gallery-analytics.webp)" = "813c4211861e72740d637d9b3aea538db3d64c5f"
+          test "$(git hash-object public/assets/portfolio/vitrinno/gallery-perfil.jpg)" = "8903df0e2c7f5e9674f3a3fa7dae7f95b37ae9b0"
 
       - name: Apply image-only gallery update
         run: python3 scripts/apply-vitrinno-gallery.py
@@ -68,10 +90,10 @@ jobs:
           import { chromium } from 'playwright';
 
           const expectedImages = [
-            '/assets/portfolio/vitrinno/gallery-feed.jpg',
-            '/assets/portfolio/vitrinno/gallery-catalogo.jpg',
-            '/assets/portfolio/vitrinno/gallery-studio.jpg',
-            '/assets/portfolio/vitrinno/gallery-analytics.jpg',
+            '/assets/portfolio/vitrinno/gallery-feed.webp',
+            '/assets/portfolio/vitrinno/gallery-catalogo.webp',
+            '/assets/portfolio/vitrinno/gallery-studio.webp',
+            '/assets/portfolio/vitrinno/gallery-analytics.webp',
             '/assets/portfolio/vitrinno/gallery-perfil.jpg',
           ];
 
@@ -123,10 +145,10 @@ jobs:
           NODE
 
           for asset in \
-            gallery-feed.jpg \
-            gallery-catalogo.jpg \
-            gallery-studio.jpg \
-            gallery-analytics.jpg \
+            gallery-feed.webp \
+            gallery-catalogo.webp \
+            gallery-studio.webp \
+            gallery-analytics.webp \
             gallery-perfil.jpg; do
             curl --fail --silent \
               "http://127.0.0.1:4187/assets/portfolio/vitrinno/$asset" \
@@ -135,6 +157,7 @@ jobs:
 
       - name: Remove one-off automation files
         run: |
+          rm -rf tmp/vitrinno
           rm -f scripts/apply-vitrinno-gallery.py
           rm -f .github/workflows/apply-vitrinno-gallery.yml
 
