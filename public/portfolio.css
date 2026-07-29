@@ -2373,67 +2373,6 @@ body::after {
   .project-card-grid { grid-template-columns: 1fr !important; }
 }
 
-/* --- PRINT 3: circular gallery (horizontal scroll com itens circulares) --- */
-.circular-gallery {
-  margin-top: 36px;
-  position: relative;
-  padding: 36px 0;
-  overflow: hidden;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-          mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-}
-.circular-gallery .cg-track {
-  display: flex;
-  gap: 48px;
-  justify-content: center;
-  align-items: center;
-  perspective: 1200px;
-  flex-wrap: wrap;
-}
-.cg-item {
-  position: relative;
-  width: 180px;
-  height: 180px;
-  border-radius: 999px;
-  overflow: hidden;
-  border: 1px solid rgba(44,255,145,0.35);
-  box-shadow: 0 0 0 1px rgba(44,255,145,0.08), 0 18px 40px -20px rgba(44,255,145,0.45);
-  background: #06100c;
-  text-decoration: none;
-  transition: transform 380ms cubic-bezier(.2,.8,.2,1), border-color 280ms ease, box-shadow 280ms ease;
-  flex: 0 0 auto;
-}
-.cg-item:nth-child(odd) { transform: translateY(-12px) rotate(-2deg); }
-.cg-item:nth-child(even) { transform: translateY(12px) rotate(2deg); }
-.cg-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 600ms cubic-bezier(.2,.8,.2,1);
-}
-.cg-item span {
-  position: absolute;
-  left: 50%;
-  bottom: -28px;
-  transform: translateX(-50%);
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 0.72rem;
-  color: var(--muted);
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-.cg-item:hover {
-  transform: translateY(-18px) rotate(0deg) scale(1.06);
-  border-color: var(--green);
-  box-shadow: 0 0 0 1px rgba(44,255,145,0.25), 0 30px 60px -18px rgba(44,255,145,0.7);
-}
-.cg-item:hover img { transform: scale(1.12); }
-@media (max-width: 720px) {
-  .cg-item { width: 130px; height: 130px; }
-  .circular-gallery .cg-track { gap: 28px; }
-}
-
 /* --- PRINT 5: image-auto-slider --- */
 .image-slider {
   position: relative;
@@ -2992,142 +2931,6 @@ body::after {
   font-size: 1rem;
 }
 
-.circular-gallery {
-  margin-top: 28px;
-  padding: 28px 0 44px;
-}
-
-.circular-gallery .cg-track {
-  width: max-content;
-  gap: 20px;
-  align-items: flex-end;
-  flex-wrap: nowrap;
-  animation: circular-drift 28s linear infinite;
-}
-
-.circular-gallery:hover .cg-track {
-  animation-play-state: running;
-}
-
-.cg-item {
-  width: 170px;
-  height: 170px;
-}
-
-.cg-item:nth-child(3n + 1) { transform: translateY(18px) rotate(-2deg); }
-.cg-item:nth-child(3n + 2) { transform: translateY(-8px) rotate(1deg); }
-.cg-item:nth-child(3n + 3) { transform: translateY(24px) rotate(2deg); }
-
-@keyframes circular-drift {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
-.portfolio-circular-gallery {
-  --pcg-radius: clamp(260px, 35vw, 470px);
-  --pcg-card-w: clamp(190px, 22vw, 292px);
-  --pcg-card-h: clamp(252px, 29vw, 386px);
-  position: relative;
-  width: 100%;
-  height: 100%;
-  min-height: 540px;
-  overflow: hidden;
-  cursor: grab;
-  perspective: 1100px;
-  perspective-origin: 50% 45%;
-  touch-action: pan-y;
-}
-
-.portfolio-circular-gallery:active {
-  cursor: grabbing;
-}
-
-.pcg-stage {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 1px;
-  height: 1px;
-  transform-style: preserve-3d;
-  transform: translate3d(-50%, -48%, 0) rotateX(-8deg);
-}
-
-.pcg-card {
-  position: absolute;
-  left: calc(var(--pcg-card-w) / -2);
-  top: calc(var(--pcg-card-h) / -2);
-  display: block;
-  width: var(--pcg-card-w);
-  height: var(--pcg-card-h);
-  overflow: hidden;
-  border: 1px solid rgba(139, 255, 191, 0.26);
-  border-radius: 20px;
-  background: rgba(5, 13, 10, 0.92);
-  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(44, 255, 145, 0.08);
-  opacity: var(--pcg-opacity);
-  transform: rotateY(var(--pcg-angle)) translateZ(var(--pcg-radius)) rotateY(var(--pcg-facing)) scale(var(--pcg-scale));
-  transform-style: preserve-3d;
-  transition: opacity 180ms ease, filter 180ms ease, box-shadow 180ms ease;
-}
-
-.pcg-card:hover {
-  filter: brightness(1.12) saturate(1.06);
-  box-shadow: 0 32px 90px rgba(0, 0, 0, 0.58), 0 0 40px rgba(44, 255, 145, 0.2);
-}
-
-.pcg-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  user-select: none;
-  pointer-events: none;
-}
-
-.pcg-shade,
-.pcg-copy {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-.pcg-shade {
-  background: linear-gradient(180deg, rgba(2, 8, 6, 0.12), rgba(2, 8, 6, 0.2) 42%, rgba(1, 6, 4, 0.92));
-}
-
-.pcg-copy {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  gap: 6px;
-  padding: 18px;
-}
-
-.pcg-copy small {
-  width: max-content;
-  padding: 5px 8px;
-  border: 1px solid rgba(139, 255, 191, 0.26);
-  border-radius: 999px;
-  background: rgba(2, 8, 6, 0.58);
-  color: var(--green-2);
-  font-size: 0.72rem;
-  font-weight: 900;
-  line-height: 1;
-}
-
-.pcg-copy strong {
-  color: var(--text);
-  font-size: clamp(1.35rem, 2.25vw, 2.1rem);
-  font-weight: 900;
-  line-height: 0.95;
-}
-
-.pcg-copy em {
-  color: var(--muted);
-  font-size: 0.92rem;
-  font-style: normal;
-  font-weight: 700;
-}
-
 .image-slider {
   margin: 26px 0 60px;
   padding: 20px 0;
@@ -3178,11 +2981,6 @@ body::after {
 
   .principle-v2 {
     flex-basis: 86vw;
-  }
-
-  .cg-item {
-    width: 132px;
-    height: 132px;
   }
 
   .slider-item {
@@ -3241,103 +3039,6 @@ body::after {
   pointer-events: none;
   background: #030706;
   opacity: 0.18;
-}
-
-/* Circular gallery — fix oversize / cutoff */
-#projects-circular-gallery {
-  height: auto !important;
-  min-height: 0;
-  overflow: hidden;
-  border-radius: 28px;
-  padding: clamp(14px, 2vw, 22px);
-}
-
-#projects-circular-gallery::before,
-#projects-circular-gallery::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-}
-
-#projects-circular-gallery::before {
-  border: 1px solid rgba(139, 255, 191, 0.12);
-  border-radius: inherit;
-  background:
-    radial-gradient(circle at 50% 44%, rgba(44, 255, 145, 0.13), transparent 30rem),
-    radial-gradient(circle at 50% 78%, rgba(86, 247, 210, 0.08), transparent 26rem),
-    linear-gradient(180deg, rgba(4, 13, 9, 0.28), rgba(2, 7, 5, 0.06));
-}
-
-#projects-circular-gallery::after {
-  background:
-    linear-gradient(90deg, rgba(139, 255, 191, 0.035) 1px, transparent 1px),
-    linear-gradient(rgba(139, 255, 191, 0.028) 1px, transparent 1px);
-  background-size: 72px 72px;
-  mask-image: radial-gradient(circle at 50% 50%, #000 0%, transparent 76%);
-}
-
-#projects-circular-react {
-  position: relative;
-  z-index: 1;
-}
-
-.portfolio-circular-gallery {
-  --pcg-radius: clamp(250px, 30vw, 420px) !important;
-  --pcg-card-w: clamp(214px, 20vw, 292px) !important;
-  --pcg-card-h: clamp(292px, 27vw, 392px) !important;
-  min-height: 650px !important;
-  perspective: 1400px !important;
-}
-
-.pcg-stage {
-  transform: translate3d(-50%, -50%, 0) rotateX(-4deg) !important;
-}
-
-.pcg-copy {
-  gap: 8px !important;
-  padding: 16px !important;
-}
-
-.pcg-copy strong {
-  font-size: clamp(1.15rem, 1.5vw, 1.5rem) !important;
-  line-height: 1.05 !important;
-}
-
-.pcg-copy em {
-  font-size: 0.82rem !important;
-  line-height: 1.35 !important;
-  color: rgba(242, 255, 248, 0.78) !important;
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.pcg-tag {
-  display: inline-flex;
-  align-items: center;
-  align-self: flex-start;
-  margin-top: 6px;
-  padding: 6px 10px;
-  border: 1px solid rgba(44, 255, 145, 0.45);
-  border-radius: 999px;
-  background: rgba(2, 8, 6, 0.6);
-  color: var(--green);
-  font-size: 0.7rem;
-  font-weight: 900;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-.pcg-shade {
-  background: linear-gradient(180deg, rgba(2, 8, 6, 0.10), rgba(2, 8, 6, 0.55) 48%, rgba(1, 6, 4, 0.96)) !important;
-}
-
-.pcg-card {
-  filter: brightness(var(--pcg-brightness, 1));
-  transform: rotateY(var(--pcg-angle)) translateZ(var(--pcg-radius)) rotateY(var(--pcg-facing)) translateY(var(--pcg-y, 0)) scale(var(--pcg-scale)) !important;
 }
 
 .blog-radar {
@@ -3539,7 +3240,6 @@ body::after {
 }
 
 .pcard.spotlight-card,
-.pcg-card.spotlight-card,
 .blog-grid a.spotlight-card,
 .principle.spotlight-card {
   --spotlight-size: 430px;
@@ -3768,29 +3468,6 @@ body::after {
     max-width: 100%;
     height: auto;
   }
-
-  #projects-circular-gallery {
-    height: 560px !important;
-    min-height: 560px;
-  }
-
-  .portfolio-circular-gallery {
-    --pcg-radius: 190px !important;
-    --pcg-card-w: 150px !important;
-    --pcg-card-h: 220px !important;
-    min-height: 520px !important;
-  }
-}
-
-@media (max-width: 1180px) {
-  #projects-circular-gallery:has(.gallery-fallback) {
-    height: auto !important;
-    min-height: 0 !important;
-  }
-}
-
-.gallery-fallback {
-  display: grid;
 }
 
 /* QA hardening: horizontal galleries must not become page-level overflow. */
@@ -3814,27 +3491,6 @@ main,
   max-width: 100%;
 }
 
-/* Zoom QA: keep text and project cards balanced when the browser is zoomed. */
-#projects-circular-react {
-  display: none !important;
-}
-
-#projects-circular-gallery .gallery-fallback {
-  position: relative;
-  z-index: 1;
-  display: grid !important;
-  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-  gap: 16px !important;
-  margin: 0 !important;
-  padding: 4px !important;
-  overflow: visible;
-  scrollbar-width: auto;
-}
-
-#projects-circular-gallery .gallery-fallback .pcard {
-  min-height: clamp(238px, 22vw, 320px) !important;
-}
-
 .hero h1 {
   max-width: min(15ch, 100%) !important;
   font-size: clamp(2.85rem, 3.72vw, 3.95rem) !important;
@@ -3855,22 +3511,6 @@ main,
 
   .hero-scroll-cue {
     display: none !important;
-  }
-
-  #projects-circular-gallery {
-    height: auto !important;
-    min-height: 0 !important;
-    margin-top: 28px !important;
-  }
-
-  #projects-circular-react {
-    display: none !important;
-  }
-
-  #projects-circular-gallery .gallery-fallback {
-    display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: 16px !important;
   }
 
   .pcard {
@@ -3953,10 +3593,6 @@ main,
   .audio-volume {
     grid-column: 2;
     width: min(140px, 100%);
-  }
-
-  #projects-circular-gallery .gallery-fallback {
-    grid-template-columns: 1fr !important;
   }
 
   .pcard {
