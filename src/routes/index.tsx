@@ -3,72 +3,6 @@ import { useEffect, useState } from "react";
 import CyberMatrixBackground from "@/components/CyberMatrixBackground";
 import PortfolioIntro from "@/components/PortfolioIntro";
 
-const GALLERY_ITEMS = [
-  {
-    image: "/assets/cards/cover-felpamusic.png",
-    text: "FelpaMusic",
-    href: "https://www.felpamusic.com.br",
-    description: "Plataforma de música com IA aplicada à criação, organização e descoberta de conteúdo.",
-    tag: "PLATAFORMA + IA",
-  },
-  {
-    image: "/assets/cards/cover-vitrinno.png",
-    text: "Vitrinno",
-    href: "https://www.vitrinno.felpamusic.com.br",
-    description: "Rede social musical com feed, catálogo, perfis, player, mensagens, uploads e studio para artistas.",
-    tag: "SOCIAL MUSIC",
-  },
-  {
-    image: "/assets/cards/cover-helena.jpeg",
-    text: "Helena Vídeo",
-    href: "https://www.helena-video.felpamusic.com.br",
-    description: "Studio de vídeo com IA para briefing, módulos criativos, timeline, assets e publicação.",
-    tag: "VÍDEO + IA",
-  },
-  {
-    image: "/assets/cards/cover-lunna.png",
-    text: "Lunna Helena Universe",
-    href: "https://www.lunna-helena-universe.felpamusic.com.br",
-    description: "Cockpit de conteúdo para criadores com login, calendário editorial, editor, inbox IA, analytics e biblioteca.",
-    tag: "CREATOR SAAS + IA",
-  },
-  {
-    image: "/assets/cards/cover-billie.png",
-    text: "Billie Brain",
-    href: "https://www.billie-brain.felpamusic.com.br",
-    description: "Assistente de engenharia com chat, Studio visual, wallet, billing, usage e integrações.",
-    tag: "AI DEV TOOL",
-  },
-  {
-    image: "/assets/cards/cover-verdant.png",
-    text: "Verdant CRM",
-    href: "https://www.verdant-crm.felpamusic.com.br",
-    description: "CRM SaaS com área protegida, pipeline comercial, autenticação e base operacional.",
-    tag: "CRM + SAAS",
-  },
-  {
-    image: "/assets/cards/cover-vitaey.png",
-    text: "Vitaey",
-    href: "https://www.vitaey.felpamusic.com.br",
-    description: "Career Signal OS para vagas, currículo, radar, pipeline de candidaturas e confirmação manual.",
-    tag: "CAREER OS + IA",
-  },
-  {
-    image: "/assets/cards/cover-oli.png",
-    text: "OLI Locações",
-    href: "https://www.olilocacao.com.br",
-    description: "Sistema de gestão para locações com automações operacionais e controle completo de contratos.",
-    tag: "GESTÃO + AUTOMAÇÃO",
-  },
-  {
-    image: "/assets/cards/cover-crm.png",
-    text: "CRM Total Tour",
-    href: "#crm",
-    description: "CRM completo para gestão de leads, funis, automação e inteligência comercial.",
-    tag: "CRM + AUTOMAÇÃO",
-  },
-];
-
 const BODY_HTML = `
     <a class="skip-link" href="#projetos">Pular para projetos</a>
 
@@ -180,9 +114,7 @@ const BODY_HTML = `
           <h2 id="projects-title">Nove produtos que demonstram execução full stack, IA aplicada e automação na prática.</h2>
           <p class="section-intro">Cada projeto nasceu de um problema real, foi pensado de ponta a ponta e entregue com foco em performance, experiência e resultado. Do código à automação, do banco à interface, tudo desenvolvido com precisão e propósito.</p>
         </div>
-        <div id="projects-circular-gallery" class="reveal" style="height:640px;position:relative;width:100%;margin-top:32px">
-          <div id="projects-circular-react" aria-label="Projetos em galeria circular"></div>
-          <div class="index-list project-card-grid gallery-fallback" aria-label="Lista de projetos">
+        <div class="index-list project-card-grid reveal" aria-label="Lista de projetos">
             <a class="pcard" href="https://www.felpamusic.com.br" target="_blank" rel="noopener noreferrer" style="background-image:url('/assets/cards/cover-felpamusic.png')"><span class="pcard-num">01</span><span class="pcard-overlay"><strong>FelpaMusic</strong><small>Áudio, IA e automação</small></span></a>
             <a class="pcard" href="https://www.vitrinno.felpamusic.com.br" target="_blank" rel="noopener noreferrer" style="background-image:url('/assets/cards/cover-vitrinno.png')"><span class="pcard-num">02</span><span class="pcard-overlay"><strong>Vitrinno</strong><small>Rede social musical</small></span></a>
             <a class="pcard" href="https://www.helena-video.felpamusic.com.br" target="_blank" rel="noopener noreferrer" style="background-image:url('/assets/cards/cover-helena.jpeg')"><span class="pcard-num">03</span><span class="pcard-overlay"><strong>Helena Video</strong><small>Studio de vídeo IA</small></span></a>
@@ -192,7 +124,6 @@ const BODY_HTML = `
             <a class="pcard" href="https://www.vitaey.felpamusic.com.br" target="_blank" rel="noopener noreferrer" style="background-image:url('/assets/cards/cover-vitaey.png')"><span class="pcard-num">07</span><span class="pcard-overlay"><strong>Vitaey</strong><small>Career Signal OS</small></span></a>
             <a class="pcard" href="https://www.olilocacao.com.br" target="_blank" rel="noopener noreferrer" style="background-image:url('/assets/cards/cover-oli.png')"><span class="pcard-num">08</span><span class="pcard-overlay"><strong>OLI Locações</strong><small>Locação e operação</small></span></a>
             <a class="pcard" href="#crm" style="background-image:url('/assets/cards/cover-crm.png')"><span class="pcard-num">09</span><span class="pcard-overlay"><strong>CRM Total Tour</strong><small>Automação comercial</small></span></a>
-          </div>
         </div>
       </section>
 
