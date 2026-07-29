@@ -1,0 +1,128 @@
+name: Apply FelpaMusic showcase video
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - .github/workflows/apply-felpamusic-video.yml
+
+permissions:
+  contents: write
+
+jobs:
+  apply-and-validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout working branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/add-felpamusic-video
+          fetch-depth: 0
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - name: Apply video block
+        run: python3 scripts/apply-felpamusic-video.py
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build production bundle
+        run: pnpm build
+
+      - name: Install Chromium
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: Run existing visual QA
+        shell: bash
+        run: |
+          set -euo pipefail
+          pnpm preview --host 127.0.0.1 --port 4187 > /tmp/portfolio-preview.log 2>&1 &
+          PREVIEW_PID=$!
+          trap 'kill "$PREVIEW_PID" 2>/dev/null || true' EXIT
+
+          for attempt in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:4187 >/dev/null; then
+              break
+            fi
+            sleep 1
+          done
+
+          PORTFOLIO_BASE_URL=http://127.0.0.1:4187 pnpm qa:visual
+
+          node --input-type=module <<'NODE'
+          import { chromium } from 'playwright';
+          const browser = await chromium.launch({ headless: true });
+          try {
+            for (const viewport of [
+              { width: 1440, height: 1000, label: 'desktop' },
+              { width: 820, height: 1100, label: 'tablet' },
+              { width: 390, height: 844, label: 'mobile' },
+            ]) {
+              const page = await browser.newPage({ viewport });
+              await page.goto('http://127.0.0.1:4187', { waitUntil: 'domcontentloaded' });
+              await page.waitForTimeout(3200);
+              const result = await page.evaluate(() => {
+                const article = document.querySelector('#felpamusic');
+                const block = article?.querySelector(':scope > .felpamusic-showcase-video');
+                const video = block?.querySelector('video');
+                const source = video?.querySelector('source');
+                const nextArticle = article?.nextElementSibling;
+                return {
+                  blockPresent: Boolean(block),
+                  source: source?.getAttribute('src'),
+                  controls: Boolean(video?.controls),
+                  width: video?.getBoundingClientRect().width || 0,
+                  overflow: document.documentElement.scrollWidth > window.innerWidth + 2,
+                  isLastInFelpa: block === article?.lastElementChild,
+                  nextIsVitrinno: nextArticle?.id === 'vitrinno',
+                };
+              });
+              if (
+                !result.blockPresent ||
+                result.source !== '/assets/portfolio/felpamusic/Felpamusic-video-port-10x.mp4' ||
+                !result.controls ||
+                result.width < 250 ||
+                result.overflow ||
+                !result.isLastInFelpa ||
+                !result.nextIsVitrinno
+              ) {
+                throw new Error(`${viewport.label} video QA failed: ${JSON.stringify(result)}`);
+              }
+              await page.close();
+            }
+          } finally {
+            await browser.close();
+          }
+          NODE
+
+          curl --fail --silent --range 0-1023 \
+            http://127.0.0.1:4187/assets/portfolio/felpamusic/Felpamusic-video-port-10x.mp4 \
+            >/dev/null
+
+      - name: Remove one-off files
+        run: |
+          rm -f scripts/apply-felpamusic-video.py
+          rm -f .github/workflows/apply-felpamusic-video.yml
+
+      - name: Commit validated change
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "feat: add FelpaMusic showcase video"
+          git push origin HEAD:agent/add-felpamusic-video
