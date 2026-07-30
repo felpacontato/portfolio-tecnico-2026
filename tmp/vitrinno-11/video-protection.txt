@@ -1,0 +1,2 @@
+Protected poster: /assets/portfolio/vitrinno/screen-01.png
+Protected source: /assets/portfolio/vitrinno/screen-01-loop.mp4
