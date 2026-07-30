@@ -1,3 +1,5 @@
+import "/helena-gallery.js";
+
 export const jonnyQuickQuestions = [
   "Resumo do Felipe em 30 segundos",
   "Quais projetos devo olhar primeiro?",
