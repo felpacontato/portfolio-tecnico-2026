@@ -1,0 +1,1 @@
+Run the validated image-only Vitrinno migration. The login video is protected by explicit QA assertions.
