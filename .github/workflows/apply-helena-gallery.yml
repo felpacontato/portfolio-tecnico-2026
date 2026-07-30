@@ -1,0 +1,204 @@
+name: Apply Helena gallery and execution video
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/apply-helena-gallery.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  apply-and-validate:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - name: Move uploaded Helena assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p public/assets/portfolio/helena
+
+          test -f Capturar.PNG
+          test -f Capturar2.PNG
+          test -f Capturar3.PNG
+          test -f Capturar4.PNG
+          test -f Capturar5.PNG
+          test -f Capturar6.PNG
+          test -f Capturar7.PNG
+          test -f Capturar8.PNG
+          test -f Capturar9.PNG
+          test -f "helena-vdeo-execusão.mp4"
+
+          mv Capturar.PNG public/assets/portfolio/helena/gallery-01.png
+          mv Capturar2.PNG public/assets/portfolio/helena/gallery-02.png
+          mv Capturar3.PNG public/assets/portfolio/helena/gallery-03.png
+          mv Capturar4.PNG public/assets/portfolio/helena/gallery-04.png
+          mv Capturar5.PNG public/assets/portfolio/helena/gallery-05.png
+          mv Capturar6.PNG public/assets/portfolio/helena/gallery-06.png
+          mv Capturar7.PNG public/assets/portfolio/helena/gallery-07.png
+          mv Capturar8.PNG public/assets/portfolio/helena/gallery-08.png
+          mv Capturar9.PNG public/assets/portfolio/helena/gallery-09.png
+          mv "helena-vdeo-execusão.mp4" public/assets/portfolio/helena/helena-video-execucao.mp4
+
+      - name: Replace Helena gallery and append execution video
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          index_path = Path("src/routes/index.tsx")
+          source = index_path.read_text(encoding="utf-8")
+
+          main_video = '''            <video class="media-main" autoplay muted loop playsinline preload="metadata" poster="/assets/portfolio/helena/screen-01.png" aria-label="Studio Helena Video">
+                        <source src="/assets/portfolio/helena/screen-01-loop.mp4" type="video/mp4">
+                      </video>'''
+
+          if source.count(main_video) != 1:
+              raise RuntimeError("The Helena main video block was not found exactly once")
+
+          helena_marker = '      <article id="helena" class="project-section">'
+          lunna_marker = '      <article id="lunna-helena" class="project-section">'
+          helena_start = source.index(helena_marker)
+          lunna_start = source.index(lunna_marker)
+          helena_block = source[helena_start:lunna_start]
+
+          if helena_block.count(main_video) != 1:
+              raise RuntimeError("The Helena main video changed before the gallery update")
+          if 'helena-showcase-video' in helena_block:
+              raise RuntimeError("The Helena execution video already exists")
+
+          grid_start = helena_block.index('            <div class="media-grid">')
+          grid_close = '            </div>'
+          grid_end = helena_block.index(grid_close, grid_start) + len(grid_close)
+
+          new_gallery = '''            <div class="media-grid">
+                        <button class="media-thumb" data-lightbox="/assets/portfolio/helena/gallery-01.png" aria-label="Abrir captura do Studio Helena Video">
+                          <img src="/assets/portfolio/helena/gallery-01.png" alt="Studio Helena Video">
+                        </button>
+                        <button class="media-thumb" data-lightbox="/assets/portfolio/helena/gallery-02.png" aria-label="Abrir captura de criação no Helena Video">
+                          <img src="/assets/portfolio/helena/gallery-02.png" alt="Criação de vídeo no Helena Video">
+                        </button>
+                        <button class="media-thumb" data-lightbox="/assets/portfolio/helena/gallery-03.png" aria-label="Abrir captura de configuração no Helena Video">
+                          <img src="/assets/portfolio/helena/gallery-03.png" alt="Configuração de geração no Helena Video">
+                        </button>
+                        <button class="media-thumb" data-lightbox="/assets/portfolio/helena/gallery-04.png" aria-label="Abrir captura de transformação no Helena Video">
+                          <img src="/assets/portfolio/helena/gallery-04.png" alt="Transformação de vídeo no Helena Video">
+                        </button>
+                        <button class="media-thumb" data-lightbox="/assets/portfolio/helena/gallery-05.png" aria-label="Abrir captura de processamento no Helena Video">
+                          <img src="/assets/portfolio/helena/gallery-05.png" alt="Processamento no Helena Video">
+                        </button>
+                        <button class="media-thumb" data-lightbox="/assets/portfolio/helena/gallery-06.png" aria-label="Abrir captura de assets no Helena Video">
+                          <img src="/assets/portfolio/helena/gallery-06.png" alt="Assets no Helena Video">
+                        </button>
+                        <button class="media-thumb" data-lightbox="/assets/portfolio/helena/gallery-07.png" aria-label="Abrir captura de publicação no Helena Video">
+                          <img src="/assets/portfolio/helena/gallery-07.png" alt="Publicação no Helena Video">
+                        </button>
+                        <button class="media-thumb" data-lightbox="/assets/portfolio/helena/gallery-08.png" aria-label="Abrir captura de modelos no Helena Video">
+                          <img src="/assets/portfolio/helena/gallery-08.png" alt="Modelos do Helena Video">
+                        </button>
+                        <button class="media-thumb" data-lightbox="/assets/portfolio/helena/gallery-09.png" aria-label="Abrir captura de planos no Helena Video">
+                          <img src="/assets/portfolio/helena/gallery-09.png" alt="Planos do Helena Video">
+                        </button>
+                      </div>'''
+
+          helena_block = helena_block[:grid_start] + new_gallery + helena_block[grid_end:]
+
+          closing = '      </article>\n\n'
+          if not helena_block.endswith(closing):
+              raise RuntimeError("Unexpected end of the Helena section")
+
+          showcase = '''        <div class="section-shell reveal helena-showcase-video" style="margin-top:clamp(42px,6vw,88px)">
+                    <video
+                      controls
+                      playsinline
+                      preload="metadata"
+                      poster="/assets/portfolio/helena/gallery-01.png"
+                      aria-label="Demonstração completa da plataforma Helena Video"
+                      style="display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border:1px solid rgba(139,255,191,.22);border-radius:clamp(18px,2.4vw,30px);background:#020706;box-shadow:0 30px 90px rgba(0,0,0,.48),0 0 60px rgba(44,255,145,.09)"
+                    >
+                      <source src="/assets/portfolio/helena/helena-video-execucao.mp4" type="video/mp4">
+                      Seu navegador não suporta reprodução de vídeo.
+                    </video>
+                  </div>
+          '''
+
+          helena_block = helena_block[:-len(closing)] + showcase + closing
+          updated = source[:helena_start] + helena_block + source[lunna_start:]
+
+          if updated.count(main_video) != 1:
+              raise RuntimeError("The Helena main video changed unexpectedly")
+
+          expected_images = [
+              f'/assets/portfolio/helena/gallery-{number:02d}.png'
+              for number in range(1, 10)
+          ]
+          for image in expected_images:
+              if helena_block.count(image) != 2:
+                  raise RuntimeError(f"Unexpected reference count for {image}")
+
+          if helena_block.count('/assets/portfolio/helena/helena-video-execucao.mp4') != 1:
+              raise RuntimeError("The Helena execution video was not appended exactly once")
+
+          index_path.write_text(updated, encoding="utf-8")
+          PY
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build production bundle
+        run: pnpm build
+
+      - name: Validate generated assets and section order
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          for number in 01 02 03 04 05 06 07 08 09; do
+            test -s "public/assets/portfolio/helena/gallery-${number}.png"
+          done
+          test -s public/assets/portfolio/helena/helena-video-execucao.mp4
+
+          python3 - <<'PY'
+          from pathlib import Path
+          source = Path("src/routes/index.tsx").read_text(encoding="utf-8")
+          helena = source.index('<article id="helena"')
+          showcase = source.index('helena-showcase-video', helena)
+          lunna = source.index('<article id="lunna-helena"')
+          if not helena < showcase < lunna:
+              raise RuntimeError("Helena execution video is not the last item in the Helena section")
+          PY
+
+      - name: Commit validated change
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -f .github/workflows/apply-helena-gallery.yml
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "feat: refresh Helena gallery and add execution video"
+          git push origin HEAD:main
