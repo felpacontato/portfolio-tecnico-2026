@@ -1,0 +1,105 @@
+name: Apply Vitrinno gallery replacement
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/apply-vitrinno-gallery-10.yml
+
+permissions:
+  contents: write
+
+jobs:
+  apply-build-and-commit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Apply ten-image Vitrinno gallery
+        run: python3 scripts/apply-vitrinno-gallery-10.py
+
+      - name: Remove temporary upload and automation files
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -f \
+            image.png \
+            "image (1).png" \
+            "image (2).png" \
+            "image (3).png" \
+            "image (4).png" \
+            "image (5).png" \
+            "image (6).png" \
+            "image (7).png" \
+            "image (8).png" \
+            scripts/apply-vitrinno-gallery-10.py \
+            tmp/vitrinno-messages.webp.b64 \
+            .github/workflows/apply-vitrinno-gallery-10.yml
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build production bundle
+        run: pnpm build
+
+      - name: Validate Vitrinno gallery and preserved video
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+
+          source = Path("src/routes/index.tsx").read_text(encoding="utf-8")
+          expected = [
+              "gallery-01-feed.png",
+              "gallery-02-hall.png",
+              "gallery-03-catalogo.png",
+              "gallery-04-catalogo-releases.png",
+              "gallery-05-studio.png",
+              "gallery-06-studio-profile.png",
+              "gallery-07-mensagens.webp",
+              "gallery-08-notificacoes.png",
+              "gallery-09-perfil.png",
+              "gallery-10-perfil-posts.png",
+          ]
+          for filename in expected:
+              path = Path("public/assets/portfolio/vitrinno") / filename
+              assert path.is_file() and path.stat().st_size > 1000, filename
+              assert source.count(f"/assets/portfolio/vitrinno/{filename}") == 2, filename
+
+          assert source.count('/assets/portfolio/vitrinno/screen-01-loop.mp4') == 1
+          assert source.count('/assets/portfolio/vitrinno/screen-01.png') >= 1
+          assert 'gallery-feed.webp' not in source
+          assert 'gallery-catalogo.webp' not in source
+          assert 'gallery-studio.webp' not in source
+          assert 'gallery-analytics.webp' not in source
+          assert 'gallery-perfil.jpg' not in source
+          PY
+
+      - name: Commit validated gallery replacement
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "feat: replace Vitrinno gallery with 10 screenshots"
+          git push origin HEAD:main
