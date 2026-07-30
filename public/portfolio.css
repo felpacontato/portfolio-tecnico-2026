@@ -1750,7 +1750,7 @@ video.media-main {
   }
 }
 
-/* Reference pass for the supplied 2026 portfolio mockups. */
+/* Desktop composition. */
 @media (min-width: 1200px) {
   .site-header {
     top: 18px;
@@ -3371,7 +3371,7 @@ body::after {
   }
 }
 
-/* QA hardening: mobile must not inherit the desktop two-column hero override. */
+/* Mobile hero layout. */
 @media (max-width: 700px) {
   html,
   body {
@@ -3470,7 +3470,7 @@ body::after {
   }
 }
 
-/* QA hardening: horizontal galleries must not become page-level overflow. */
+/* Contain horizontal galleries within the page. */
 .principle-carousel,
 .image-slider {
   min-width: 0;

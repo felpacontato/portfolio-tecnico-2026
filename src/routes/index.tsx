@@ -495,7 +495,7 @@ const BODY_HTML = `
             <p class="project-number">05 / Billie Brain</p>
             <h2>Assistente de engenharia com chat, Studio visual, uso, wallet e integrações.</h2>
             <p class="project-lead">
-              Billie Brain é um produto de agente para desenvolvimento de software, com uma experiência pública, área autenticada, Codex Chat, Billie Studio, conectores, usage, wallet, billing e configurações de workspace. O foco foi transformar uma ideia de assistente técnico em uma interface de produto com fluxo real de conta, métricas e estados honestos para recursos que dependem de provedores externos.
+              Billie Brain é um produto de assistência para desenvolvimento de software, com experiência pública, área autenticada, Engineering Chat, Billie Studio, conectores, usage, wallet, billing e configurações de workspace. O foco foi transformar uma ideia de assistente técnico em uma interface de produto com fluxo real de conta, métricas e estados honestos para recursos que dependem de provedores externos.
             </p>
             <div class="proof-grid" aria-label="Resumo executivo Billie Brain">
               <div><span>Papel</span><p>Arquitetura de produto, UI, rotas, integração Supabase, chat, billing states, Studio e QA visual.</p></div>
@@ -505,8 +505,8 @@ const BODY_HTML = `
             <div class="detail-block">
               <h3>Escopo implementado</h3>
               <ul class="check-list">
-                <li><strong>Codex Chat:</strong> interface de conversas, composer, histórico e integração planejada com streaming/Edge Function.</li>
-                <li><strong>Billie Studio:</strong> página de preview/editor visual no estilo Lovable, com URL carregável, referências, snapshots locais e viewports.</li>
+                <li><strong>Engineering Chat:</strong> interface de conversas, composer, histórico e integração planejada com streaming/Edge Function.</li>
+                <li><strong>Billie Studio:</strong> workspace de preview e edição visual, com URL carregável, referências, snapshots locais e viewports.</li>
                 <li><strong>Conta e operação:</strong> dashboard, connectors, usage, wallet, billing, account e settings com estados de configuração externa claros.</li>
                 <li><strong>Produto público:</strong> landing, pricing, about, changelog e documentos legais para apresentação e conversão.</li>
               </ul>
@@ -524,8 +524,8 @@ const BODY_HTML = `
               <button class="media-thumb" data-lightbox="/assets/portfolio/billie-brain/screen-02.png" aria-label="Abrir Billie Studio">
                 <img src="/assets/portfolio/billie-brain/screen-02.png" alt="Billie Studio visual">
               </button>
-              <button class="media-thumb" data-lightbox="/assets/portfolio/billie-brain/screen-03.png" aria-label="Abrir Codex Chat Billie Brain">
-                <img src="/assets/portfolio/billie-brain/screen-03.png" alt="Codex Chat do Billie Brain">
+              <button class="media-thumb" data-lightbox="/assets/portfolio/billie-brain/screen-03.png" aria-label="Abrir Engineering Chat Billie Brain">
+                <img src="/assets/portfolio/billie-brain/screen-03.png" alt="Engineering Chat do Billie Brain">
               </button>
               <button class="media-thumb" data-lightbox="/assets/portfolio/billie-brain/screen-04.png" aria-label="Abrir conectores Billie Brain">
                 <img src="/assets/portfolio/billie-brain/screen-04.png" alt="Connectors do Billie Brain">
@@ -724,10 +724,10 @@ const BODY_HTML = `
               <div><span>Segurança</span><p>Dados de clientes redigidos; o portfolio mostra arquitetura, não informação privada.</p></div>
             </div>
           </div>
-          <div class="project-media reveal crm-redacted" aria-label="Galeria do CRM Total Tour em recaptura">
-            <span>QA</span>
-            <h3>Galeria temporariamente removida.</h3>
-            <p>As telas publicas deste projeto foram retiradas ate a recaptura completa com perfil de teste e dados ficticios.</p>
+          <div class="project-media reveal crm-redacted" aria-label="Privacidade do case CRM Total Tour">
+            <span>PRIVACIDADE</span>
+            <h3>Case técnico sem dados de clientes.</h3>
+            <p>A apresentação documenta arquitetura, integrações e resultados sem expor conversas, contatos ou informações comerciais.</p>
           </div>
         </div>
       </article>      <section id="apis" class="section-shell api-section" aria-labelledby="apis-title">
@@ -774,10 +774,10 @@ const BODY_HTML = `
           </div>
         </div>
         <div class="blog-grid reveal" data-blog-carousel aria-label="Radar de notícias e leituras">
-          <a href="https://openai.com/news/" target="_blank" rel="noopener noreferrer"><span>OpenAI</span><strong>Codex remoto e agentes de engenharia em produção.</strong><em>IA para desenvolvimento</em></a>
+          <a href="https://openai.com/news/" target="_blank" rel="noopener noreferrer"><span>OpenAI</span><strong>Roteamento de modelos e ferramentas para assistentes de engenharia.</strong><em>IA para desenvolvimento</em></a>
           <a href="https://openai.com/news/" target="_blank" rel="noopener noreferrer"><span>OpenAI</span><strong>Sandbox seguro para executar agentes de código no Windows.</strong><em>Segurança e automação</em></a>
           <a href="https://openai.com/news/" target="_blank" rel="noopener noreferrer"><span>OpenAI</span><strong>Resposta ao ataque de supply chain no ecossistema TanStack/npm.</strong><em>Segurança frontend</em></a>
-          <a href="https://openai.com/news/" target="_blank" rel="noopener noreferrer"><span>OpenAI</span><strong>Como rodar Codex com segurança em fluxos de engenharia.</strong><em>AI coding</em></a>
+          <a href="https://openai.com/news/" target="_blank" rel="noopener noreferrer"><span>OpenAI</span><strong>Controles de segurança para assistentes em fluxos de engenharia.</strong><em>AI engineering</em></a>
           <a href="https://openai.com/news/" target="_blank" rel="noopener noreferrer"><span>OpenAI</span><strong>Modelos avançados aplicados a segurança cibernética.</strong><em>Cyber + IA</em></a>
           <a href="https://www.anthropic.com/news" target="_blank" rel="noopener noreferrer"><span>Anthropic</span><strong>Claude Opus 4.7 com foco em coding, agentes e visão.</strong><em>Modelos fortes</em></a>
           <a href="https://www.anthropic.com/news" target="_blank" rel="noopener noreferrer"><span>Anthropic</span><strong>Claude Design e a aproximação entre IA, protótipo e interface.</strong><em>UI com IA</em></a>
@@ -786,7 +786,7 @@ const BODY_HTML = `
           <a href="https://www.anthropic.com/news" target="_blank" rel="noopener noreferrer"><span>Anthropic</span><strong>Agentes para serviços financeiros e fluxos empresariais.</strong><em>Agentes</em></a>
           <a href="https://vercel.com/blog" target="_blank" rel="noopener noreferrer"><span>Vercel</span><strong>Infraestrutura agentic para deploy, observabilidade e IA.</strong><em>Deploy + agentes</em></a>
           <a href="https://vercel.com/blog" target="_blank" rel="noopener noreferrer"><span>Vercel</span><strong>Workflows para execução durável em agentes e backends.</strong><em>Orquestração</em></a>
-          <a href="https://vercel.com/blog" target="_blank" rel="noopener noreferrer"><span>Vercel</span><strong>Boas práticas para não confiar cegamente em código gerado por IA.</strong><em>QA e produção</em></a>
+          <a href="https://vercel.com/blog" target="_blank" rel="noopener noreferrer"><span>Vercel</span><strong>Revisão, testes e observabilidade para software em produção.</strong><em>QA e produção</em></a>
           <a href="https://vercel.com/blog" target="_blank" rel="noopener noreferrer"><span>Vercel</span><strong>AI Gateway como camada única para roteamento de modelos.</strong><em>Model routing</em></a>
           <a href="https://vercel.com/changelog" target="_blank" rel="noopener noreferrer"><span>Vercel</span><strong>Changelog de plataforma para apps web, edge e observabilidade.</strong><em>Frontend cloud</em></a>
           <a href="https://supabase.com/blog" target="_blank" rel="noopener noreferrer"><span>Supabase</span><strong>Postgres como base para autenticação, dados e produtos SaaS.</strong><em>Banco de dados</em></a>

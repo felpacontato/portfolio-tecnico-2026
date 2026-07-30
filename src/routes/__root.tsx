@@ -73,14 +73,25 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Felipe Prates | Full Stack, IA e Automação" },
+      {
+        name: "description",
+        content:
+          "Portfolio técnico de Felipe Prates: produtos full stack, automação e inteligência artificial aplicada.",
+      },
+      { name: "author", content: "Felipe Prates" },
+      { property: "og:title", content: "Felipe Prates | Portfolio Técnico" },
+      {
+        property: "og:description",
+        content:
+          "Projetos, arquitetura e estudos de caso em desenvolvimento full stack, automação e IA aplicada.",
+      },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      {
+        property: "og:url",
+        content: "https://www.portfolio.felpamusic.com.br",
+      },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       {

@@ -1,31 +1,77 @@
-# Portfolio Felipe Prates
+# Felipe Prates | Portfolio
 
-Portfolio estático e isolado para publicação futura em `www.portfolio.felpamusic.com.br`.
+Portfolio técnico de Felipe Prates, desenvolvedor full stack com foco em produtos digitais, automação e inteligência artificial aplicada.
 
-## Escopo
+**Produção:** [www.portfolio.felpamusic.com.br](https://www.portfolio.felpamusic.com.br)
 
-- Projeto novo em `C:\Users\feema\portfolio-felipe-prates`.
-- Não altera FelpaMusic, Vitrinno, OLI, Helena Video, CRM Total Tour, DNS ou Vercel.
-- Não inclui credenciais, IPs sensíveis, tokens, e-mails privados de operação ou prints crus com dados de leads.
+## Sobre o projeto
 
-## Comandos
+Este repositório reúne a implementação do portfolio e os estudos de caso dos principais produtos desenvolvidos por Felipe. Cada projeto apresenta contexto, responsabilidades, decisões técnicas, arquitetura, tecnologias e resultado.
 
-```powershell
-npm run build
-npm run check
+Projetos em destaque:
+
+- **FelpaMusic:** plataforma musical com criação, edição e processamento de áudio.
+- **Vitrinno:** rede social musical com catálogo, studio e monetização.
+- **Helena Video:** studio de vídeo com módulos criativos e pipeline de publicação.
+- **Lunna Helena Universe:** plataforma para creators com experiências interativas.
+- **Billie Brain:** assistente de engenharia com chat e workspace visual.
+- **Verdant CRM:** CRM conversacional para operação comercial.
+- **Vitaey:** plataforma de posicionamento profissional e análise de carreira.
+- **OLI Locações:** marketplace e operação de locações.
+- **CRM Total Tour:** automação comercial e qualificação de leads.
+
+## Stack
+
+- React 19 e TypeScript
+- TanStack Router e TanStack Query
+- Vite e Tailwind CSS
+- Vercel Functions
+- Playwright para validação visual
+- ESLint e Prettier
+
+## Arquitetura
+
+O portfolio usa uma aplicação React com geração estática pelo Vite. Os estudos de caso, galerias e traduções são servidos pelo frontend, enquanto o assistente Jonny utiliza uma função serverless isolada. Imagens e vídeos ficam em `public/assets`, organizados por projeto.
+
+```text
+src/
+  components/       Componentes de interface
+  routes/           Páginas e estudos de caso
+  lib/              Dados e utilitários
+public/
+  assets/           Imagens, vídeos e áudios
+api/
+  jonny.js          Função serverless do assistente
+scripts/
+  qa-portfolio-visual.mjs
 ```
 
-O build gera `dist/`.
+## Desenvolvimento local
 
-## Deploy futuro
+Requisitos:
 
-Não fazer deploy automático.
+- Node.js 24
+- pnpm 10
 
-Checklist antes de publicar:
+```bash
+pnpm install
+pnpm run dev
+```
 
-1. Criar ou confirmar um projeto Vercel separado apenas para este portfolio.
-2. Garantir que o projeto usa este diretório como origem.
-3. Adicionar somente o domínio `www.portfolio.felpamusic.com.br`.
-4. Não alterar `www.felpamusic.com.br`, `www.vitrinno.felpamusic.com.br`, `www.helenavideo.felpamusic.com.br` ou `www.helena-video.felpamusic.com.br`.
-5. Rodar `npm run build` e validar `dist/index.html`.
-6. Só publicar depois de confirmação explícita.
+O servidor local informa a URL de acesso no terminal.
+
+## Qualidade
+
+```bash
+pnpm run lint
+pnpm run build
+pnpm run qa:visual
+```
+
+O fluxo de validação cobre build de produção, análise estática, navegação, responsividade e overflow horizontal.
+
+## Contato
+
+- [LinkedIn](https://www.linkedin.com/in/felipe-prates-3263b0223/)
+- [GitHub](https://github.com/felpacontato)
+- [Portfolio](https://www.portfolio.felpamusic.com.br)
