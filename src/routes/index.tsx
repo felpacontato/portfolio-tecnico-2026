@@ -284,20 +284,35 @@ const BODY_HTML = `
               <source src="/assets/portfolio/vitrinno/screen-01-loop.mp4" type="video/mp4">
             </video>
             <div class="media-grid">
-              <button class="media-thumb" data-lightbox="/assets/portfolio/vitrinno/gallery-feed.webp" aria-label="Abrir feed do Vitrinno">
-                <img src="/assets/portfolio/vitrinno/gallery-feed.webp" alt="Feed do Vitrinno">
+              <button class="media-thumb" data-lightbox="/assets/portfolio/vitrinno/gallery-01-feed.png" aria-label="Abrir feed e publicação do Vitrinno">
+                <img src="/assets/portfolio/vitrinno/gallery-01-feed.png" alt="Feed e publicação do Vitrinno">
               </button>
-              <button class="media-thumb" data-lightbox="/assets/portfolio/vitrinno/gallery-catalogo.webp" aria-label="Abrir catálogo do Vitrinno">
-                <img src="/assets/portfolio/vitrinno/gallery-catalogo.webp" alt="Catálogo do Vitrinno">
+              <button class="media-thumb" data-lightbox="/assets/portfolio/vitrinno/gallery-02-hall.png" aria-label="Abrir Hall do Vitrinno">
+                <img src="/assets/portfolio/vitrinno/gallery-02-hall.png" alt="Hall do Vitrinno">
               </button>
-              <button class="media-thumb" data-lightbox="/assets/portfolio/vitrinno/gallery-studio.webp" aria-label="Abrir studio do Vitrinno">
-                <img src="/assets/portfolio/vitrinno/gallery-studio.webp" alt="Studio do Vitrinno">
+              <button class="media-thumb" data-lightbox="/assets/portfolio/vitrinno/gallery-03-catalogo.png" aria-label="Abrir catálogo do Vitrinno">
+                <img src="/assets/portfolio/vitrinno/gallery-03-catalogo.png" alt="Catálogo do Vitrinno">
               </button>
-              <button class="media-thumb" data-lightbox="/assets/portfolio/vitrinno/gallery-analytics.webp" aria-label="Abrir analytics do Vitrinno">
-                <img src="/assets/portfolio/vitrinno/gallery-analytics.webp" alt="Analytics do Vitrinno">
+              <button class="media-thumb" data-lightbox="/assets/portfolio/vitrinno/gallery-04-catalogo-releases.png" aria-label="Abrir releases do catálogo do Vitrinno">
+                <img src="/assets/portfolio/vitrinno/gallery-04-catalogo-releases.png" alt="Releases do catálogo do Vitrinno">
               </button>
-              <button class="media-thumb" data-lightbox="/assets/portfolio/vitrinno/gallery-perfil.jpg" aria-label="Abrir perfil do Vitrinno">
-                <img src="/assets/portfolio/vitrinno/gallery-perfil.jpg" alt="Perfil do Vitrinno">
+              <button class="media-thumb" data-lightbox="/assets/portfolio/vitrinno/gallery-05-studio.png" aria-label="Abrir Studio do Vitrinno">
+                <img src="/assets/portfolio/vitrinno/gallery-05-studio.png" alt="Studio do Vitrinno">
+              </button>
+              <button class="media-thumb" data-lightbox="/assets/portfolio/vitrinno/gallery-06-studio-profile.png" aria-label="Abrir perfil do Studio do Vitrinno">
+                <img src="/assets/portfolio/vitrinno/gallery-06-studio-profile.png" alt="Perfil do Studio do Vitrinno">
+              </button>
+              <button class="media-thumb" data-lightbox="/assets/portfolio/vitrinno/gallery-07-mensagens.webp" aria-label="Abrir mensagens do Vitrinno">
+                <img src="/assets/portfolio/vitrinno/gallery-07-mensagens.webp" alt="Mensagens do Vitrinno">
+              </button>
+              <button class="media-thumb" data-lightbox="/assets/portfolio/vitrinno/gallery-08-notificacoes.png" aria-label="Abrir notificações do Vitrinno">
+                <img src="/assets/portfolio/vitrinno/gallery-08-notificacoes.png" alt="Notificações do Vitrinno">
+              </button>
+              <button class="media-thumb" data-lightbox="/assets/portfolio/vitrinno/gallery-09-perfil.png" aria-label="Abrir perfil do artista no Vitrinno">
+                <img src="/assets/portfolio/vitrinno/gallery-09-perfil.png" alt="Perfil do artista no Vitrinno">
+              </button>
+              <button class="media-thumb" data-lightbox="/assets/portfolio/vitrinno/gallery-10-perfil-posts.png" aria-label="Abrir posts do perfil no Vitrinno">
+                <img src="/assets/portfolio/vitrinno/gallery-10-perfil-posts.png" alt="Posts do perfil no Vitrinno">
               </button>
             </div>
           </div>
