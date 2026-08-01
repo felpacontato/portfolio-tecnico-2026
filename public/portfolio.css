@@ -1105,6 +1105,55 @@ video.media-main {
   filter: saturate(1.1);
 }
 
+.billie-app-summary {
+  margin-top: 4px;
+  padding: 22px;
+  border: 1px solid rgba(232, 187, 73, 0.3);
+  border-radius: var(--radius-md);
+  background: rgba(232, 187, 73, 0.045);
+}
+
+.billie-app-summary .project-kicker,
+.media-subsection-heading span {
+  margin: 0;
+  color: #e8bb49;
+  font-size: 0.72rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.billie-app-summary h3,
+.media-subsection-heading h3 {
+  margin: 0;
+}
+
+.billie-app-summary > p:not(.project-kicker),
+.media-subsection-heading p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.media-subsection {
+  display: grid;
+  gap: 12px;
+  margin-top: 12px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(232, 187, 73, 0.24);
+}
+
+.media-subsection-heading {
+  display: grid;
+  gap: 5px;
+}
+
+.billie-app-gallery .media-thumb:first-child {
+  grid-column: span 2;
+}
+
+.billie-app-gallery .media-thumb:first-child img {
+  aspect-ratio: 16 / 9;
+}
+
 .project-visual-placeholder {
   min-height: 460px;
   display: grid;
@@ -1693,6 +1742,10 @@ video.media-main {
 
   .media-thumb img {
     aspect-ratio: 16 / 9;
+  }
+
+  .billie-app-gallery .media-thumb:first-child {
+    grid-column: auto;
   }
 
   .project-section {

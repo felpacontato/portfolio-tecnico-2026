@@ -511,6 +511,21 @@ const BODY_HTML = `
                 <li><strong>Produto público:</strong> landing, pricing, about, changelog e documentos legais para apresentação e conversão.</li>
               </ul>
             </div>
+            <div class="detail-block billie-app-summary">
+              <p class="project-kicker">Windows desktop app</p>
+              <h3>Billie-Brain App: IA local para engenharia de software.</h3>
+              <p>
+                O Billie-Brain App leva o produto para o Windows com execução local de modelos via Ollama, histórico privado no computador e um agente de engenharia que trabalha somente em pastas autorizadas pelo usuário.
+              </p>
+              <ul class="check-list">
+                <li><strong>Runtime local:</strong> dashboard para iniciar e acompanhar o motor de inferência, modelo ativo, CPU, memória e GPU.</li>
+                <li><strong>Chat privado:</strong> conversas e contexto executados localmente, com seleção de modelo e histórico no dispositivo.</li>
+                <li><strong>Modelos:</strong> catálogo Ollama, download de modelos e importação de arquivos GGUF.</li>
+                <li><strong>Agente local:</strong> leitura, edição, testes e comandos limitados a um workspace escolhido, com etapas sensíveis sujeitas a aprovação.</li>
+                <li><strong>Auditoria:</strong> logs locais de inferências, downloads, comandos e alterações de configuração.</li>
+                <li><strong>Distribuição:</strong> aplicativo Windows x64 empacotado em instalador MSI.</li>
+              </ul>
+            </div>
             <div class="stack-groups">
               <div><span>Frontend</span><p>React, Vite/TanStack, TypeScript e UI responsiva orientada a developer tools.</p></div>
               <div><span>Dados/Auth</span><p>Supabase Auth, profiles, conversas, usage, wallet e settings.</p></div>
@@ -536,6 +551,36 @@ const BODY_HTML = `
               <button class="media-thumb" data-lightbox="/assets/portfolio/billie-brain/screen-06.png" aria-label="Abrir settings Billie Brain">
                 <img src="/assets/portfolio/billie-brain/screen-06.png" alt="Settings do Billie Brain">
               </button>
+            </div>
+            <div class="media-subsection">
+              <div class="media-subsection-heading">
+                <span>Windows desktop app</span>
+                <h3>Billie-Brain App</h3>
+                <p>Runtime local, modelos privados e agente de engenharia com workspace controlado.</p>
+              </div>
+              <div class="media-grid billie-app-gallery">
+                <button class="media-thumb" data-lightbox="/assets/portfolio/billie-brain/app-landing.png" aria-label="Abrir página de download do Billie-Brain App">
+                  <img src="/assets/portfolio/billie-brain/app-landing.png" alt="Página de download do Billie-Brain App" loading="lazy">
+                </button>
+                <button class="media-thumb" data-lightbox="/assets/portfolio/billie-brain/app-installer.png" aria-label="Abrir instalador do Billie-Brain App">
+                  <img src="/assets/portfolio/billie-brain/app-installer.png" alt="Instalador MSI do Billie-Brain App" loading="lazy">
+                </button>
+                <button class="media-thumb" data-lightbox="/assets/portfolio/billie-brain/app-dashboard.png" aria-label="Abrir dashboard local do Billie-Brain App">
+                  <img src="/assets/portfolio/billie-brain/app-dashboard.png" alt="Dashboard do runtime local do Billie-Brain App" loading="lazy">
+                </button>
+                <button class="media-thumb" data-lightbox="/assets/portfolio/billie-brain/app-chat.png" aria-label="Abrir chat local do Billie-Brain App">
+                  <img src="/assets/portfolio/billie-brain/app-chat.png" alt="Chat privado executado localmente no Billie-Brain App" loading="lazy">
+                </button>
+                <button class="media-thumb" data-lightbox="/assets/portfolio/billie-brain/app-models.png" aria-label="Abrir gerenciador de modelos do Billie-Brain App">
+                  <img src="/assets/portfolio/billie-brain/app-models.png" alt="Gerenciador de modelos locais do Billie-Brain App" loading="lazy">
+                </button>
+                <button class="media-thumb" data-lightbox="/assets/portfolio/billie-brain/app-agent.png" aria-label="Abrir agente local do Billie-Brain App">
+                  <img src="/assets/portfolio/billie-brain/app-agent.png" alt="Agente local com workspace controlado no Billie-Brain App" loading="lazy">
+                </button>
+                <button class="media-thumb" data-lightbox="/assets/portfolio/billie-brain/app-logs.png" aria-label="Abrir logs do Billie-Brain App">
+                  <img src="/assets/portfolio/billie-brain/app-logs.png" alt="Auditoria e logs locais do Billie-Brain App" loading="lazy">
+                </button>
+              </div>
             </div>
           </div>
         </div>
