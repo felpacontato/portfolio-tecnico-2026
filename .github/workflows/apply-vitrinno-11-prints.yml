@@ -1,0 +1,204 @@
+name: Apply Vitrinno 11 screenshots
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - .github/workflows/apply-vitrinno-11-prints.yml
+      - scripts/apply-vitrinno-11-prints.py
+      - tmp/vitrinno-11/**
+      - public/assets/portfolio/vitrinno/**
+      - src/routes/index.tsx
+
+permissions:
+  contents: write
+
+jobs:
+  apply-and-validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout working branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/replace-vitrinno-11-prints-20260730
+          fetch-depth: 0
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - name: Install supplied Vitrinno screenshots
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p public/assets/portfolio/vitrinno
+          curl --fail --silent --show-error --location \
+            'https://filebin.net/felpavitrinno20260730/vitrinno-all.tar.gz' \
+            --output /tmp/vitrinno-all.tar.gz
+          tar -xzf /tmp/vitrinno-all.tar.gz -C public/assets/portfolio/vitrinno
+
+          assets=(
+            01-mensagens.avif
+            02-studio-lancamentos.avif
+            03-catalogo-cards.avif
+            04-feed.avif
+            05-catalogo-visao-geral.avif
+            06-hall.avif
+            07-configuracoes.avif
+            08-studio-perfil.avif
+            09-perfil-visao-geral.avif
+            10-perfil-posts.avif
+            11-notificacoes.avif
+          )
+
+          for asset in "${assets[@]}"; do
+            test -s "public/assets/portfolio/vitrinno/$asset"
+            file "public/assets/portfolio/vitrinno/$asset" | grep -qi 'avif\|iso media'
+          done
+
+          rm -f \
+            public/assets/portfolio/vitrinno/gallery-feed.webp \
+            public/assets/portfolio/vitrinno/gallery-catalogo.webp \
+            public/assets/portfolio/vitrinno/gallery-studio.webp \
+            public/assets/portfolio/vitrinno/gallery-analytics.webp \
+            public/assets/portfolio/vitrinno/gallery-perfil.jpg
+
+          python3 scripts/apply-vitrinno-11-prints.py
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build production bundle
+        run: pnpm build
+
+      - name: Install Chromium
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: Run visual QA
+        shell: bash
+        run: |
+          set -euo pipefail
+          pnpm preview --host 127.0.0.1 --port 4187 > /tmp/portfolio-preview.log 2>&1 &
+          PREVIEW_PID=$!
+          trap 'kill "$PREVIEW_PID" 2>/dev/null || true' EXIT
+
+          for attempt in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:4187 >/dev/null; then
+              break
+            fi
+            sleep 1
+          done
+
+          PORTFOLIO_BASE_URL=http://127.0.0.1:4187 pnpm qa:visual
+
+          node --input-type=module <<'NODE'
+          import { chromium } from 'playwright';
+
+          const expectedImages = [
+            '/assets/portfolio/vitrinno/01-mensagens.avif',
+            '/assets/portfolio/vitrinno/02-studio-lancamentos.avif',
+            '/assets/portfolio/vitrinno/03-catalogo-cards.avif',
+            '/assets/portfolio/vitrinno/04-feed.avif',
+            '/assets/portfolio/vitrinno/05-catalogo-visao-geral.avif',
+            '/assets/portfolio/vitrinno/06-hall.avif',
+            '/assets/portfolio/vitrinno/07-configuracoes.avif',
+            '/assets/portfolio/vitrinno/08-studio-perfil.avif',
+            '/assets/portfolio/vitrinno/09-perfil-visao-geral.avif',
+            '/assets/portfolio/vitrinno/10-perfil-posts.avif',
+            '/assets/portfolio/vitrinno/11-notificacoes.avif',
+          ];
+
+          const browser = await chromium.launch({ headless: true });
+          try {
+            for (const viewport of [
+              { width: 1440, height: 1000, label: 'desktop' },
+              { width: 820, height: 1100, label: 'tablet' },
+              { width: 390, height: 844, label: 'mobile' },
+            ]) {
+              const page = await browser.newPage({ viewport });
+              await page.goto('http://127.0.0.1:4187', { waitUntil: 'domcontentloaded' });
+              await page.waitForTimeout(3200);
+              await page.locator('#vitrinno').scrollIntoViewIfNeeded();
+              await page.waitForFunction(() => {
+                const images = [...document.querySelectorAll('#vitrinno .media-grid img')];
+                return images.length === 11 && images.every((image) => image.complete && image.naturalWidth > 0);
+              });
+
+              const result = await page.evaluate((expected) => {
+                const article = document.querySelector('#vitrinno');
+                const media = article?.querySelector('.project-media');
+                const video = media?.querySelector('video.media-main');
+                const source = video?.querySelector('source');
+                const images = [...(media?.querySelectorAll('.media-grid img') || [])];
+                const rects = images.map((image) => image.getBoundingClientRect());
+                return {
+                  poster: video?.getAttribute('poster'),
+                  videoSource: source?.getAttribute('src'),
+                  imageSources: images.map((image) => image.getAttribute('src')),
+                  loaded: images.map((image) => image.complete && image.naturalWidth > 0),
+                  visible: rects.map((rect) => rect.width > 30 && rect.height > 30),
+                  overflow: document.documentElement.scrollWidth > window.innerWidth + 2,
+                  expected,
+                };
+              }, expectedImages);
+
+              const valid =
+                result.poster === '/assets/portfolio/vitrinno/screen-01.png' &&
+                result.videoSource === '/assets/portfolio/vitrinno/screen-01-loop.mp4' &&
+                JSON.stringify(result.imageSources) === JSON.stringify(expectedImages) &&
+                result.loaded.every(Boolean) &&
+                result.visible.every(Boolean) &&
+                !result.overflow;
+
+              if (!valid) {
+                throw new Error(`${viewport.label} Vitrinno QA failed: ${JSON.stringify(result)}`);
+              }
+              await page.close();
+            }
+          } finally {
+            await browser.close();
+          }
+          NODE
+
+          for asset in \
+            01-mensagens.avif \
+            02-studio-lancamentos.avif \
+            03-catalogo-cards.avif \
+            04-feed.avif \
+            05-catalogo-visao-geral.avif \
+            06-hall.avif \
+            07-configuracoes.avif \
+            08-studio-perfil.avif \
+            09-perfil-visao-geral.avif \
+            10-perfil-posts.avif \
+            11-notificacoes.avif; do
+            curl --fail --silent --head \
+              "http://127.0.0.1:4187/assets/portfolio/vitrinno/$asset" \
+              | grep -qi 'content-type: image/avif'
+          done
+
+      - name: Remove one-off migration files
+        run: |
+          rm -rf tmp/vitrinno-11
+          rm -f scripts/apply-vitrinno-11-prints.py
+          rm -f .github/workflows/apply-vitrinno-11-prints.yml
+
+      - name: Commit validated change
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "feat: replace all Vitrinno portfolio screenshots"
+          git push origin HEAD:agent/replace-vitrinno-11-prints-20260730
