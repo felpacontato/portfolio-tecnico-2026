@@ -377,8 +377,8 @@ h3 {
 
 .hero-brand-signature img {
   display: block;
-  width: clamp(360px, 42vw, 520px);
-  max-width: 94%;
+  width: clamp(400px, 48vw, 590px);
+  max-width: 98%;
   height: auto;
   object-fit: contain;
   filter: drop-shadow(0 0 24px rgba(44, 255, 145, 0.12));
