@@ -44,6 +44,9 @@ const BODY_HTML = `
             <a class="button secondary" href="https://github.com/felpacontato" rel="noopener noreferrer" target="_blank">GitHub</a>
             <a class="button secondary" href="https://www.linkedin.com/in/felipe-prates-070985376/" rel="noopener noreferrer" target="_blank">LinkedIn</a>
           </div>
+          <div class="hero-brand-signature">
+            <img src="/assets/brand/felpa-dev-logo-transparent.png" alt="Felipe Prates, Full Stack Developer">
+          </div>
           <div class="signal-row" aria-label="Destaques">
             <span>Produtos 0-1</span>
             <span>APIs, Supabase e n8n</span>

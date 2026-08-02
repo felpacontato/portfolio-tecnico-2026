@@ -366,6 +366,24 @@ h3 {
   margin-top: 16px;
 }
 
+.hero-brand-signature {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min(100%, 620px);
+  min-height: clamp(180px, 21vw, 270px);
+  margin-top: clamp(20px, 3vw, 36px);
+}
+
+.hero-brand-signature img {
+  display: block;
+  width: clamp(250px, 31vw, 390px);
+  max-width: 82%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 24px rgba(44, 255, 145, 0.12));
+}
+
 .button {
   display: inline-flex;
   align-items: center;
