@@ -371,17 +371,29 @@ h3 {
   align-items: center;
   justify-content: center;
   width: min(100%, 620px);
-  min-height: clamp(180px, 21vw, 270px);
-  margin-top: clamp(20px, 3vw, 36px);
+  min-height: clamp(300px, 32vw, 420px);
+  margin-top: clamp(38px, 5vw, 70px);
 }
 
 .hero-brand-signature img {
   display: block;
-  width: clamp(250px, 31vw, 390px);
-  max-width: 82%;
+  width: clamp(360px, 42vw, 520px);
+  max-width: 94%;
   height: auto;
   object-fit: contain;
   filter: drop-shadow(0 0 24px rgba(44, 255, 145, 0.12));
+}
+
+@media (max-width: 700px) {
+  .hero-brand-signature {
+    min-height: 190px;
+    margin-top: 24px;
+  }
+
+  .hero-brand-signature img {
+    width: 280px;
+    max-width: 82%;
+  }
 }
 
 .button {
