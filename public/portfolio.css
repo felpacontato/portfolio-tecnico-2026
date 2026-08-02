@@ -377,11 +377,19 @@ h3 {
 
 .hero-brand-signature img {
   display: block;
-  width: clamp(400px, 48vw, 590px);
-  max-width: 98%;
+  width: 690px;
+  max-width: none;
+  flex-shrink: 0;
   height: auto;
   object-fit: contain;
+  transform: translate(35px, 25px);
   filter: drop-shadow(0 0 24px rgba(44, 255, 145, 0.12));
+}
+
+@media (min-width: 701px) and (max-width: 1300px) {
+  .hero-brand-signature img {
+    width: 618px;
+  }
 }
 
 @media (max-width: 700px) {
@@ -393,6 +401,7 @@ h3 {
   .hero-brand-signature img {
     width: 280px;
     max-width: 82%;
+    transform: none;
   }
 }
 
