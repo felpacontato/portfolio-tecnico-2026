@@ -382,7 +382,7 @@ h3 {
   flex-shrink: 0;
   height: auto;
   object-fit: contain;
-  transform: translate(35px, 25px);
+  transform: translate(52px, 25px);
   filter: drop-shadow(0 0 24px rgba(44, 255, 145, 0.12));
 }
 
